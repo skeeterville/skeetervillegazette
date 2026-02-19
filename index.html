@@ -435,8 +435,8 @@ h2.headline { font-family:'Playfair Display',serif; font-size:clamp(20px,4.5vw,3
   <style>
   .chimera-magazine {
     display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
-    gap:22px;
+    grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
+    gap:24px;
     margin-top:20px;
   }
 
@@ -524,36 +524,72 @@ h2.headline { font-family:'Playfair Display',serif; font-size:clamp(20px,4.5vw,3
 
     <div class="chimera-magazine">
 
-      <!-- PHOTO OF THE WEEK -->
+      <!-- PHOTO 1 (Featured) -->
       <div class="chimera-card">
         <div class="chimera-badge">Photo of the Week</div>
         <div class="chimera-frame">
-          <img src="chimera1.png" onclick="openLightbox(this)" alt="Featured Chimera">
+          <img src="photos/chimera1.png" onclick="openLightbox(this)" alt="Featured Chimera">
         </div>
         <div class="chimera-caption">
-          The Golden Ember resting at dusk
+          Golden Ember resting at dusk
           <span>Owner: Resident Name</span>
         </div>
       </div>
 
-      <!-- REGULAR PHOTO -->
-      <div class="chimera-card">
-        <div class="chimera-frame">
-          <img src="chimera2.png" onclick="openLightbox(this)" alt="Chimera">
-        </div>
-        <div class="chimera-caption">
-          Midnight Guardian at the Skeeterville gates
-          <span>Owner: Resident Name</span>
-        </div>
-      </div>
+     <!-- PHOTO 2 -->
+<div class="chimera-card">
+  <div class="chimera-frame">
+    <img src="photos/hide-and-seek.png" 
+         onclick="openLightbox(this)" 
+         alt="Hide and Seek Chimera">
+  </div>
+  <div class="chimera-caption">
+    Mail Order Bride playing hide and seek
+    <span>Owner: Roxie Dreamclaw</span>
+  </div>
+</div>
 
-      <!-- COPY THIS BLOCK TO ADD MORE -->
+
+      <!-- PHOTO 3 -->
       <div class="chimera-card">
         <div class="chimera-frame">
-          <img src="chimera3.png" onclick="openLightbox(this)" alt="Chimera">
+          <img src="photos/chimera3.png" onclick="openLightbox(this)" alt="Chimera">
         </div>
         <div class="chimera-caption">
           Forest Bloom during spring gathering
+          <span>Owner: Resident Name</span>
+        </div>
+      </div>
+
+      <!-- PHOTO 4 -->
+      <div class="chimera-card">
+        <div class="chimera-frame">
+          <img src="photos/chimera4.png" onclick="openLightbox(this)" alt="Chimera">
+        </div>
+        <div class="chimera-caption">
+          Silverwind soaring above Skeeterville
+          <span>Owner: Resident Name</span>
+        </div>
+      </div>
+
+      <!-- PHOTO 5 -->
+      <div class="chimera-card">
+        <div class="chimera-frame">
+          <img src="photos/chimera5.png" onclick="openLightbox(this)" alt="Chimera">
+        </div>
+        <div class="chimera-caption">
+          Moonshadow beneath the lantern lights
+          <span>Owner: Resident Name</span>
+        </div>
+      </div>
+
+      <!-- PHOTO 6 -->
+      <div class="chimera-card">
+        <div class="chimera-frame">
+          <img src="photos/chimera6.png" onclick="openLightbox(this)" alt="Chimera">
+        </div>
+        <div class="chimera-caption">
+          Emberclaw guarding the market square
           <span>Owner: Resident Name</span>
         </div>
       </div>
@@ -582,6 +618,7 @@ function closeLightbox(){
 }
 </script>
 
+ 
   <!-- ═══ EVENTS ═══ -->
   <div class="page-section" id="section-events">
     <div class="section-label">§ Events &amp; Happenings</div>
