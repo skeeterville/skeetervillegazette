@@ -20,63 +20,45 @@ body {
   font-family: 'IM Fell English', serif;
 }
 
-/* SECTION TABS */
+/* ── TABS ── */
 .section-nav {
   display: flex; flex-wrap: wrap; gap: 4px;
-  justify-content: center; max-width: 820px; width: 100%; margin-bottom: 10px;
+  justify-content: center; max-width: 900px; width: 100%; margin-bottom: 10px;
 }
 .section-btn {
   font-family: 'Courier Prime', monospace; font-size: 10px; font-weight: 700;
-  letter-spacing: 0.08em; text-transform: uppercase;
+  letter-spacing: 0.07em; text-transform: uppercase;
   background: #3a2e1e; color: #c9b48a; border: 1px solid #c9b48a;
-  padding: 5px 12px; cursor: pointer; transition: all 0.2s;
+  padding: 6px 12px; cursor: pointer; transition: all 0.2s;
 }
 .section-btn:hover, .section-btn.active { background: var(--red); color: #f4ead0; border-color: var(--red); }
 
-/* BOOK */
-.book-wrap { max-width: 820px; width: 100%; position: relative; }
+/* ── BOOK ── */
+.book-wrap { max-width: 900px; width: 100%; position: relative; }
 .book-wrap::before { content:''; position:absolute; inset:8px -7px -8px 7px; background:#b8a070; z-index:0; }
-.book-wrap::after { content:''; position:absolute; inset:4px -3px -4px 3px; background:#cdb880; z-index:0; }
+.book-wrap::after  { content:''; position:absolute; inset:4px -3px -4px 3px;  background:#cdb880; z-index:0; }
 .newspaper { position:relative; z-index:1; background:var(--paper); border:1px solid var(--crease); min-height:600px; }
 
-/* MASTHEAD */
+/* ── MASTHEAD ── */
 .top-rule { border-top:5px double var(--ink); border-bottom:1px solid var(--ink); margin:0 14px; padding:3px 0; }
-.meta-bar {
-  display:flex; justify-content:space-between; align-items:center;
-  padding:5px 18px; font-family:'Courier Prime',monospace; font-size:9.5px;
-  letter-spacing:0.06em; color:var(--ink); border-bottom:1px solid var(--crease);
-  flex-wrap:wrap; gap:4px;
-}
+.meta-bar { display:flex; justify-content:space-between; align-items:center; padding:5px 18px; font-family:'Courier Prime',monospace; font-size:9.5px; letter-spacing:0.06em; color:var(--ink); border-bottom:1px solid var(--crease); flex-wrap:wrap; gap:4px; }
 .masthead { text-align:center; padding:14px 20px 8px; border-bottom:5px double var(--ink); }
 .masthead::before { content:'✦  ✦  ✦'; display:block; font-size:11px; color:var(--gold); letter-spacing:0.4em; margin-bottom:6px; }
-.masthead h1 {
-  font-family:'Old Standard TT',serif; font-size:clamp(28px,7vw,60px);
-  font-weight:700; color:var(--ink); letter-spacing:0.1em; text-transform:uppercase; line-height:1;
-}
+.masthead h1 { font-family:'Old Standard TT',serif; font-size:clamp(28px,7vw,60px); font-weight:700; color:var(--ink); letter-spacing:0.1em; text-transform:uppercase; line-height:1; }
 .masthead .tagline { font-family:'IM Fell English',serif; font-style:italic; font-size:12.5px; color:var(--gold); margin-top:5px; letter-spacing:0.1em; }
 .masthead .editors { font-family:'Courier Prime',monospace; font-size:9px; letter-spacing:0.12em; color:var(--ink); margin-top:6px; text-transform:uppercase; }
-.edition-bar {
-  display:flex; justify-content:space-between; padding:4px 18px;
-  font-family:'Courier Prime',monospace; font-size:9.5px;
-  border-bottom:2px solid var(--ink); background:rgba(0,0,0,0.04); flex-wrap:wrap; gap:4px;
-}
+.edition-bar { display:flex; justify-content:space-between; padding:4px 18px; font-family:'Courier Prime',monospace; font-size:9.5px; border-bottom:2px solid var(--ink); background:rgba(0,0,0,0.04); flex-wrap:wrap; gap:4px; }
 
-/* SECTION LABEL */
-.section-label {
-  background:var(--ink); color:var(--paper);
-  font-family:'Old Standard TT',serif; font-size:11px; letter-spacing:0.2em;
-  text-transform:uppercase; text-align:center; padding:5px;
-}
-
-/* PAGES */
-.page-section { display:none; animation:fadeIn 0.3s ease; }
-.page-section.active { display:block; }
+/* ── SECTIONS ── */
+.section-label { background:var(--ink); color:var(--paper); font-family:'Old Standard TT',serif; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; text-align:center; padding:5px; }
+.page-section { display:none; }
+.page-section.active { display:block; animation:fadeIn 0.3s ease; }
 .page-content { display:none; }
 .page-content.active { display:block; animation:fadeIn 0.3s ease; }
 @keyframes fadeIn { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:translateY(0)} }
 .section-body { padding:22px 26px; }
 
-/* TYPOGRAPHY */
+/* ── TYPOGRAPHY ── */
 h2.headline { font-family:'Playfair Display',serif; font-size:clamp(20px,4.5vw,32px); font-weight:900; line-height:1.1; color:var(--ink); margin-bottom:5px; }
 .deck { font-family:'IM Fell English',serif; font-style:italic; font-size:13px; color:var(--gold); margin-bottom:5px; }
 .byline { font-family:'Courier Prime',monospace; font-size:9.5px; letter-spacing:0.1em; text-transform:uppercase; color:#777; border-bottom:1px solid var(--crease); padding-bottom:8px; margin-bottom:14px; }
@@ -85,32 +67,60 @@ h2.headline { font-family:'Playfair Display',serif; font-size:clamp(20px,4.5vw,3
 .body-text p:first-child::first-letter { font-family:'Old Standard TT',serif; font-size:50px; font-weight:700; float:left; line-height:0.82; margin:4px 6px 0 0; color:var(--red); }
 .rule { border:none; border-top:1px solid var(--crease); margin:14px 0; }
 .pull-quote { border-top:2px solid var(--ink); border-bottom:2px solid var(--ink); padding:10px 18px; margin:14px 0; font-family:'Playfair Display',serif; font-style:italic; font-size:15px; font-weight:700; text-align:center; color:var(--red); }
+.submit-note { font-family:'Courier Prime',monospace; font-size:10px; letter-spacing:0.06em; color:var(--gold); text-align:center; margin-top:16px; border-top:1px dashed var(--crease); padding-top:10px; }
 
-/* TWO COLUMN */
+/* ── TWO COLUMN ── */
 .columns-2 { display:grid; grid-template-columns:1fr 1px 1fr; gap:0 18px; }
 .col-div { background:var(--crease); }
 .col h3 { font-family:'Playfair Display',serif; font-size:15px; font-weight:700; border-bottom:1px solid var(--crease); padding-bottom:4px; margin-bottom:8px; }
 .col .col-byline { font-family:'Courier Prime',monospace; font-size:9px; letter-spacing:0.08em; color:var(--gold); margin-bottom:6px; text-transform:uppercase; }
 .col p { font-family:'IM Fell English',serif; font-size:13px; line-height:1.75; color:var(--ink); text-align:justify; margin-bottom:9px; }
 
-/* NAV */
+/* ── NAV ── */
 .nav-bar { display:flex; justify-content:space-between; align-items:center; padding:10px 18px; border-top:3px double var(--ink); background:rgba(0,0,0,0.03); flex-wrap:wrap; gap:6px; }
 .nav-btn { font-family:'Old Standard TT',serif; font-size:12px; font-weight:700; background:var(--ink); color:var(--paper); border:none; padding:7px 18px; cursor:pointer; letter-spacing:0.06em; transition:background 0.2s; }
 .nav-btn:hover { background:var(--red); }
 .nav-btn:disabled { background:var(--crease); color:#aaa; cursor:default; }
 .page-indicator { font-family:'Courier Prime',monospace; font-size:10px; color:var(--gold); letter-spacing:0.12em; text-align:center; }
 
-/* MARKET */
-.market-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:14px; margin-top:12px; }
-.market-card { border:1px solid var(--ink); padding:14px; background:rgba(255,255,255,0.3); position:relative; }
-.market-card::before { content:''; position:absolute; top:3px; left:3px; right:-3px; bottom:-3px; border:1px solid var(--crease); z-index:-1; }
-.market-card h3 { font-family:'Playfair Display',serif; font-size:15px; font-weight:700; color:var(--ink); border-bottom:1px solid var(--crease); padding-bottom:5px; margin-bottom:8px; }
-.market-card .market-tag { font-family:'Courier Prime',monospace; font-size:9px; letter-spacing:0.12em; text-transform:uppercase; color:var(--red); margin-bottom:6px; }
-.market-card p { font-family:'IM Fell English',serif; font-size:12.5px; line-height:1.6; color:var(--ink); }
-.market-card .slurl { display:block; margin-top:8px; font-family:'Courier Prime',monospace; font-size:10px; color:var(--blue); word-break:break-all; }
-.submit-note { font-family:'Courier Prime',monospace; font-size:10px; letter-spacing:0.06em; color:var(--gold); text-align:center; margin-top:16px; border-top:1px dashed var(--crease); padding-top:10px; }
+/* ══════════════════════════════════════
+   MARKET
+══════════════════════════════════════ */
+.market-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:20px; margin-top:16px; }
+.market-card { border:1px solid var(--ink); background:rgba(255,255,255,0.3); display:flex; flex-direction:column; box-shadow:4px 4px 0 var(--crease); }
+.market-card-img { width:100%; aspect-ratio:16/9; overflow:hidden; border-bottom:2px solid var(--ink); background:var(--aged); display:flex; align-items:center; justify-content:center; cursor:pointer; }
+.market-card-img img { width:100%; height:100%; object-fit:cover; filter:sepia(15%) contrast(105%); transition:transform 0.4s ease; display:block; }
+.market-card-img img:hover { transform:scale(1.05); }
+.img-placeholder { font-family:'Courier Prime',monospace; font-size:10px; color:var(--crease); text-align:center; padding:16px; line-height:1.6; }
+.market-card-body { padding:12px 14px; flex:1; display:flex; flex-direction:column; }
+.market-tag { font-family:'Courier Prime',monospace; font-size:9px; letter-spacing:0.12em; text-transform:uppercase; color:var(--red); margin-bottom:5px; }
+.market-card h3 { font-family:'Playfair Display',serif; font-size:16px; font-weight:700; color:var(--ink); border-bottom:1px solid var(--crease); padding-bottom:5px; margin-bottom:8px; }
+.market-card p { font-family:'IM Fell English',serif; font-size:12.5px; line-height:1.65; color:var(--ink); flex:1; margin-bottom:10px; }
+.market-btns { display:flex; flex-direction:column; gap:6px; margin-top:auto; }
+/* SLurl TP button — big and obvious */
+.btn-slurl {
+  display:block; padding:7px 10px;
+  font-family:'Courier Prime',monospace; font-size:10px; font-weight:700;
+  letter-spacing:0.08em; text-transform:uppercase; text-align:center;
+  text-decoration:none; border:none; cursor:pointer;
+  background:#4a6741; color:#f4ead0;
+  transition:background 0.2s;
+}
+.btn-slurl:hover { background:#2e4028; }
+/* Website link — secondary */
+.btn-website {
+  display:block; padding:6px 10px;
+  font-family:'Courier Prime',monospace; font-size:10px;
+  letter-spacing:0.08em; text-transform:uppercase; text-align:center;
+  text-decoration:none; border:none; cursor:pointer;
+  background:var(--blue); color:#f4ead0;
+  transition:background 0.2s;
+}
+.btn-website:hover { background:var(--red); }
 
-/* RECIPES */
+/* ══════════════════════════════════════
+   RECIPES
+══════════════════════════════════════ */
 .recipe-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:14px; margin-top:12px; }
 .recipe-card { border:1px solid var(--crease); padding:14px; background:rgba(255,255,255,0.2); }
 .recipe-card h3 { font-family:'Playfair Display',serif; font-size:14px; font-weight:700; color:var(--ink); margin-bottom:3px; }
@@ -119,17 +129,85 @@ h2.headline { font-family:'Playfair Display',serif; font-size:clamp(20px,4.5vw,3
 .recipe-card ul { list-style:none; }
 .recipe-card ul li { font-family:'Courier Prime',monospace; font-size:11px; color:var(--ink); padding:2px 0; border-bottom:1px dotted var(--crease); display:flex; justify-content:space-between; }
 .recipe-card ul li:last-child { border-bottom:none; }
+/* Recipe with image */
+.recipe-card img { width:100%; border:2px solid var(--ink); margin:8px 0; filter:sepia(30%) contrast(105%); cursor:pointer; }
 
-/* PHOTOS */
-.photo-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(175px,1fr)); gap:16px; margin-top:12px; }
-.photo-slot { display:flex; flex-direction:column; align-items:center; }
-.photo-frame { width:100%; aspect-ratio:4/3; border:3px solid var(--ink); background:var(--aged); display:flex; align-items:center; justify-content:center; overflow:hidden; box-shadow:3px 3px 0 var(--crease); }
-.photo-frame img { width:100%; height:100%; object-fit:cover; display:block; }
-.photo-placeholder { display:flex; flex-direction:column; align-items:center; justify-content:center; color:var(--crease); font-family:'Courier Prime',monospace; font-size:10px; text-align:center; padding:10px; gap:6px; width:100%; height:100%; }
-.photo-caption { font-family:'IM Fell English',serif; font-style:italic; font-size:12px; color:var(--ink); text-align:center; margin-top:6px; padding:0 4px; }
-.photo-caption span { font-family:'Courier Prime',monospace; font-size:9.5px; font-style:normal; color:var(--gold); display:block; margin-top:2px; }
+/* ══════════════════════════════════════
+   CHIMERA PHOTOS
+══════════════════════════════════════ */
+.chimera-magazine { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:24px; margin-top:20px; }
+.chimera-card { position:relative; }
+.chimera-frame { position:relative; border:6px solid #2d1f12; background:var(--aged); box-shadow:0 0 0 3px var(--crease), 8px 8px 0 rgba(0,0,0,0.3); overflow:hidden; aspect-ratio:4/3; cursor:pointer; }
+.chimera-frame img { width:100%; height:100%; object-fit:cover; filter:sepia(20%) contrast(105%); transition:transform 0.4s ease; display:block; }
+.chimera-frame:hover img { transform:scale(1.07); }
+.chimera-badge { position:absolute; top:-10px; left:-10px; background:linear-gradient(145deg,#d4af37,#b8901f); color:#fff; font-family:'Courier Prime',monospace; font-size:9px; padding:6px 10px; letter-spacing:0.15em; text-transform:uppercase; box-shadow:2px 2px 5px rgba(0,0,0,0.4); z-index:5; }
+.chimera-caption { font-family:'IM Fell English',serif; font-style:italic; font-size:13px; margin-top:8px; text-align:center; }
+.chimera-caption span { display:block; font-family:'Courier Prime',monospace; font-size:10px; font-style:normal; color:var(--gold); margin-top:3px; }
+.frame-empty { width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; color:var(--crease); font-family:'Courier Prime',monospace; font-size:10px; text-align:center; gap:6px; padding:10px; line-height:1.6; }
 
-/* EVENTS */
+/* ══════════════════════════════════════
+   ABOUT US
+══════════════════════════════════════ */
+.about-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+@media (max-width: 560px) { .about-hero { grid-template-columns: 1fr; } }
+.about-person {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.about-portrait {
+  width: 100%;
+  max-width: 240px;
+  aspect-ratio: 3/4;
+  border: 6px solid #2d1f12;
+  box-shadow: 0 0 0 3px var(--crease), 6px 6px 0 rgba(0,0,0,0.3);
+  overflow: hidden;
+  background: var(--aged);
+  cursor: pointer;
+  margin-bottom: 12px;
+}
+.about-portrait img { width:100%; height:100%; object-fit:cover; filter:sepia(15%) contrast(105%); display:block; transition:transform 0.4s; }
+.about-portrait:hover img { transform:scale(1.05); }
+.about-name { font-family:'Playfair Display',serif; font-size:18px; font-weight:900; color:var(--ink); }
+.about-title { font-family:'Courier Prime',monospace; font-size:9px; letter-spacing:0.15em; text-transform:uppercase; color:var(--red); margin-top:3px; margin-bottom:8px; }
+.about-bio { font-family:'IM Fell English',serif; font-size:13px; line-height:1.75; color:var(--ink); text-align:justify; }
+
+.about-divider {
+  text-align: center;
+  font-family: 'Old Standard TT', serif;
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  margin: 20px 0;
+  border-top: 1px solid var(--crease);
+  border-bottom: 1px solid var(--crease);
+  padding: 6px;
+}
+
+/* Friends grid */
+.friends-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:20px; margin-top:16px; }
+.friend-card { display:flex; flex-direction:column; align-items:center; text-align:center; }
+.friend-portrait {
+  width:100%; aspect-ratio:1/1;
+  border:4px solid #2d1f12;
+  box-shadow:0 0 0 2px var(--crease), 4px 4px 0 rgba(0,0,0,0.25);
+  overflow:hidden; background:var(--aged); cursor:pointer;
+  margin-bottom:8px;
+}
+.friend-portrait img { width:100%; height:100%; object-fit:cover; filter:sepia(15%) contrast(105%); display:block; transition:transform 0.4s; }
+.friend-portrait:hover img { transform:scale(1.07); }
+.friend-name { font-family:'Playfair Display',serif; font-size:13px; font-weight:700; color:var(--ink); }
+.friend-note { font-family:'IM Fell English',serif; font-style:italic; font-size:11px; color:var(--gold); margin-top:2px; }
+
+/* ══════════════════════════════════════
+   EVENTS
+══════════════════════════════════════ */
 .events-list { margin-top:12px; }
 .event-item { display:grid; grid-template-columns:80px 1fr; gap:0 14px; border-bottom:1px solid var(--crease); padding:12px 0; }
 .event-item:last-child { border-bottom:none; }
@@ -141,7 +219,9 @@ h2.headline { font-family:'Playfair Display',serif; font-size:clamp(20px,4.5vw,3
 .event-meta { font-family:'Courier Prime',monospace; font-size:9.5px; letter-spacing:0.06em; color:var(--red); text-transform:uppercase; margin-bottom:5px; }
 .event-info p { font-family:'IM Fell English',serif; font-size:13px; line-height:1.65; color:var(--ink); }
 
-/* COMICS */
+/* ══════════════════════════════════════
+   COMICS
+══════════════════════════════════════ */
 .comic-strip { border:2px solid var(--ink); margin-bottom:22px; background:white; }
 .comic-title-bar { background:var(--ink); color:var(--paper); text-align:center; padding:6px; font-family:'Playfair Display',serif; font-size:13px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; }
 .comic-panels { display:grid; }
@@ -149,19 +229,26 @@ h2.headline { font-family:'Playfair Display',serif; font-size:clamp(20px,4.5vw,3
 .comic-panels.p4 { grid-template-columns:1fr 1fr 1fr 1fr; }
 .comic-panels.p2 { grid-template-columns:1fr 1fr; }
 .comic-panel { border:1.5px solid var(--ink); display:flex; flex-direction:column; }
-.panel-image { flex:1; overflow:hidden; min-height:130px; }
+.panel-image { flex:1; overflow:hidden; min-height:130px; cursor:pointer; }
 .panel-image img { width:100%; height:100%; object-fit:cover; display:block; }
-.panel-placeholder { flex:1; min-height:130px; background:#f0ead8; display:flex; align-items:center; justify-content:center; font-family:'Courier Prime',monospace; font-size:10px; color:#bbb; text-align:center; padding:10px; }
+.panel-placeholder { flex:1; min-height:130px; background:#f0ead8; display:flex; align-items:center; justify-content:center; font-family:'Courier Prime',monospace; font-size:10px; color:#bbb; text-align:center; padding:10px; line-height:1.6; }
 .panel-caption { background:white; border-top:1.5px solid var(--ink); padding:5px 8px; font-family:'IM Fell English',serif; font-size:12px; line-height:1.4; color:var(--ink); font-style:italic; min-height:32px; }
 
-/* EDIT NOTE */
-.edit-note { max-width:820px; width:100%; margin-top:12px; background:rgba(0,0,0,0.5); color:#c9b48a; font-family:'Courier Prime',monospace; font-size:10px; letter-spacing:0.05em; padding:10px 16px; line-height:1.8; border-left:3px solid var(--red); }
+/* ══════════════════════════════════════
+   LIGHTBOX
+══════════════════════════════════════ */
+#lightbox { position:fixed; inset:0; background:rgba(0,0,0,0.88); display:none; align-items:center; justify-content:center; z-index:9999; cursor:pointer; }
+#lightbox img { max-width:88%; max-height:88%; border:6px solid #f4ead0; box-shadow:0 0 30px black; }
+#lightbox .lb-close { position:absolute; top:18px; right:22px; color:#f4ead0; font-size:28px; font-family:'Courier Prime',monospace; cursor:pointer; }
+
+/* ── EDIT NOTE ── */
+.edit-note { max-width:900px; width:100%; margin-top:12px; background:rgba(0,0,0,0.5); color:#c9b48a; font-family:'Courier Prime',monospace; font-size:10px; letter-spacing:0.05em; padding:10px 16px; line-height:2; border-left:3px solid var(--red); }
 .edit-note strong { color:#f4ead0; }
 </style>
 </head>
 <body>
 
-<!-- TAB BAR -->
+<!-- ── TABS ── -->
 <div class="section-nav">
   <button class="section-btn active" onclick="showSection('front',this)">📰 Front Page</button>
   <button class="section-btn" onclick="showSection('market',this)">🏪 Market</button>
@@ -169,6 +256,7 @@ h2.headline { font-family:'Playfair Display',serif; font-size:clamp(20px,4.5vw,3
   <button class="section-btn" onclick="showSection('chimera',this)">📸 Time With My Chimera</button>
   <button class="section-btn" onclick="showSection('events',this)">📅 Events</button>
   <button class="section-btn" onclick="showSection('comics',this)">🗒️ Comics</button>
+  <button class="section-btn" onclick="showSection('aboutus',this)">👥 About Us</button>
 </div>
 
 <div class="book-wrap">
@@ -192,7 +280,7 @@ h2.headline { font-family:'Playfair Display',serif; font-size:clamp(20px,4.5vw,3
     <span>FEBRUARY 2026</span>
   </div>
 
-  <!-- ═══ FRONT PAGE ═══ -->
+  <!-- ═══════════════ FRONT PAGE ═══════════════ -->
   <div class="page-section active" id="section-front">
     <div class="section-label">§ Front Page &amp; News</div>
 
@@ -213,9 +301,9 @@ h2.headline { font-family:'Playfair Display',serif; font-size:clamp(20px,4.5vw,3
           <div class="col">
             <h3>This Week In Skeeterville</h3>
             <p>Replace this text with your top news story of the week. What happened around the sim? New residents, a big event, exciting news from the chimera world?</p>
-            <p>Write as much or as little as you like here. This column is yours each week to fill with whatever the community most needs to know.</p>
+            <p>Write as much or as little as you like. This column is yours each week to fill with whatever the community most needs to know.</p>
             <div class="pull-quote" style="font-size:13px;padding:8px;">"Skeeterville — where every avatar has a story."</div>
-            <p>More stories inside. Check the tabs above to explore all sections of this week's paper.</p>
+            <p>Click the tabs above to explore all sections of this week's paper.</p>
           </div>
         </div>
       </div>
@@ -227,9 +315,9 @@ h2.headline { font-family:'Playfair Display',serif; font-size:clamp(20px,4.5vw,3
         <div class="deck">Stories from around Skeeterville and beyond</div>
         <div class="byline">Staff Reporter &bull; Community Desk</div>
         <div class="body-text">
-          <p>Replace this with your second news story of the week. This is a great place to go deeper on a topic or introduce a separate community story.</p>
-          <p>Write your story the way you would tell it to a friend. The Gazette doesn't need to be fancy — just honest, fun, and full of the things that matter to people in Skeeterville.</p>
-          <p>To add more front page articles, copy this page-content block, paste it below, give it the next ID (front-p3, front-p4...), and update the frontTotal number in the script at the bottom.</p>
+          <p>Replace this with your second news story of the week. This is a great place to go deeper on a topic or share a totally separate community story.</p>
+          <p>Write it the way you would tell it to a friend. The Gazette doesn't need to be fancy — just honest, fun, and full of the things that matter to Skeeterville.</p>
+          <p>To add more articles: copy this page-content block, paste it below, change the ID to front-p3, and update frontTotal to 3 in the script.</p>
         </div>
       </div>
     </div>
@@ -241,133 +329,163 @@ h2.headline { font-family:'Playfair Display',serif; font-size:clamp(20px,4.5vw,3
     </div>
   </div>
 
-  <!-- ═══ MARKET ═══ -->
+  <!-- ═══════════════ MARKET ═══════════════
+  HOW TO ADD A MARKET LISTING:
+  1. Put your market screenshot in the "market" folder next to index.html
+  2. Copy one full market-card block below
+  3. Fill in: image filename, tag, name, description
+  4. GREEN BUTTON = Second Life SLurl (teleport link) — paste it into the href
+  5. BLUE BUTTON = their website/marketplace URL — paste it into the href
+     If they have no website, delete the btn-website line entirely
+  ══════════════════════════════════════════ -->
   <div class="page-section" id="section-market">
     <div class="section-label">§ Chimera Market Listings</div>
     <div class="section-body">
       <h2 class="headline">Skeeterville Market Guide</h2>
-      <div class="deck">The finest chimera markets, breeders &amp; vendors in Second Life</div>
+      <div class="deck">The finest chimera markets, breeders &amp; vendors in Second Life — click the green button to teleport!</div>
       <div class="byline">Compiled by the Gazette Market Desk &bull; Updated each edition</div>
+
       <div class="market-grid">
 
+        <!-- ═ MARKET CARD — copy this whole block to add more ═ -->
         <div class="market-card">
-          <div class="market-tag">● Featured Market</div>
-          <h3>Market Name Here</h3>
-          <p>Describe what this market sells. What kinds of chimeras or items do they carry? Known for rare traits, good prices, friendly staff?</p>
-          <span class="slurl">SLurl: Paste Second Life location link here</span>
+          <div class="market-card-img" onclick="openLightbox(this.querySelector('img'))">
+            <img src="market/market1.jpg" alt="Market 1"
+                 onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'>📷 Add market1.jpg<br>to your market/ folder</div>'">
+          </div>
+          <div class="market-card-body">
+            <div class="market-tag">● Featured Market</div>
+            <h3>Market Name Here</h3>
+            <p>Describe what this market sells. What kinds of chimeras or items do they carry? Known for rare traits, good prices, friendly staff?</p>
+            <div class="market-btns">
+              <a class="btn-slurl" href="secondlife://PASTE-REGION-NAME/X/Y/Z" target="_blank">🌍 Teleport To Market (SLurl)</a>
+              <a class="btn-website" href="https://PASTE-WEBSITE-URL-HERE" target="_blank">🔗 Visit Their Website</a>
+            </div>
+          </div>
         </div>
 
+        <!-- ═ MARKET CARD 2 ═ -->
         <div class="market-card">
-          <div class="market-tag">● Breeder</div>
-          <h3>Breeder Name Here</h3>
-          <p>Describe this breeder. What are they known for? Any specialties or rare lines they work with? How do readers find them in-world?</p>
-          <span class="slurl">SLurl: Paste Second Life location link here</span>
+          <div class="market-card-img" onclick="openLightbox(this.querySelector('img'))">
+            <img src="market/market2.jpg" alt="Market 2"
+                 onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'>📷 Add market2.jpg<br>to your market/ folder</div>'">
+          </div>
+          <div class="market-card-body">
+            <div class="market-tag">● Breeder</div>
+            <h3>Breeder Name Here</h3>
+            <p>Describe this breeder. What are they known for? Any specialties or rare lines? How do readers find them in-world?</p>
+            <div class="market-btns">
+              <a class="btn-slurl" href="secondlife://PASTE-REGION-NAME/X/Y/Z" target="_blank">🌍 Teleport To Market (SLurl)</a>
+              <a class="btn-website" href="https://PASTE-WEBSITE-URL-HERE" target="_blank">🔗 Visit Their Website</a>
+            </div>
+          </div>
         </div>
 
+        <!-- ═ MARKET CARD 3 ═ -->
         <div class="market-card">
-          <div class="market-tag">● Vendor</div>
-          <h3>Vendor Name Here</h3>
-          <p>Describe this vendor. Potions? Accessories? Food items? Give readers a reason to visit and what to expect when they get there.</p>
-          <span class="slurl">SLurl: Paste Second Life location link here</span>
+          <div class="market-card-img" onclick="openLightbox(this.querySelector('img'))">
+            <img src="market/market3.jpg" alt="Market 3"
+                 onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'>📷 Add market3.jpg<br>to your market/ folder</div>'">
+          </div>
+          <div class="market-card-body">
+            <div class="market-tag">● Vendor</div>
+            <h3>Vendor Name Here</h3>
+            <p>Describe this vendor. Potions? Accessories? Food? Give readers a reason to visit and what to expect when they arrive.</p>
+            <div class="market-btns">
+              <a class="btn-slurl" href="secondlife://PASTE-REGION-NAME/X/Y/Z" target="_blank">🌍 Teleport To Market (SLurl)</a>
+              <a class="btn-website" href="https://PASTE-WEBSITE-URL-HERE" target="_blank">🔗 Visit Their Website</a>
+            </div>
+          </div>
         </div>
 
+        <!-- ═ MARKET CARD 4 ═ -->
         <div class="market-card">
-          <div class="market-tag">● New Listing</div>
-          <h3>Add A Market Here</h3>
-          <p>Copy and paste one of these cards to add more listings. Fill in the name, description and SLurl for each market you want to feature.</p>
-          <span class="slurl">SLurl: Paste Second Life location link here</span>
+          <div class="market-card-img" onclick="openLightbox(this.querySelector('img'))">
+            <img src="market/market4.jpg" alt="Market 4"
+                 onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'>📷 Add market4.jpg<br>to your market/ folder</div>'">
+          </div>
+          <div class="market-card-body">
+            <div class="market-tag">● New Listing</div>
+            <h3>Market Name Here</h3>
+            <p>Copy and paste this entire market-card block to add more listings. Update the image filename, tag, name, description and both button links.</p>
+            <div class="market-btns">
+              <a class="btn-slurl" href="secondlife://PASTE-REGION-NAME/X/Y/Z" target="_blank">🌍 Teleport To Market (SLurl)</a>
+              <a class="btn-website" href="https://PASTE-WEBSITE-URL-HERE" target="_blank">🔗 Visit Their Website</a>
+            </div>
+          </div>
         </div>
 
       </div>
-      <div class="submit-note">TO LIST YOUR MARKET — CONTACT ISAC OR ROXIE DREAMCLAW IN-WORLD &bull; LISTINGS ARE FREE FOR THE COMMUNITY</div>
+
+      <div class="submit-note">
+        TO LIST YOUR MARKET — CONTACT ISAC OR ROXIE DREAMCLAW IN-WORLD &bull; LISTINGS ARE FREE &bull;
+        HOW TO GET AN SLURL: Stand at the market in SL → World menu → Copy SLURL → paste into the green button href above
+      </div>
     </div>
   </div>
 
-  <!-- ═══ RECIPES ═══ -->
+  <!-- ═══════════════ RECIPES ═══════════════
+  HOW TO ADD A RECIPE:
+  - For chimera alchemy recipes: use the plain recipe-card style (ingredient list)
+  - For food/cooking recipes: use the featured card style with an image
+  - Put recipe food photos in the "recipes" folder
+  - Put chimera recipe images (if any) in the "recipes" folder too
+  ═══════════════════════════════════════════ -->
   <div class="page-section" id="section-recipe">
-    <div class="section-label">§ Chimera Recipe Book</div>
+    <div class="section-label">§ Recipe Book</div>
     <div class="section-body">
       <h2 class="headline">The Gazette Recipe Pages</h2>
-      <div class="deck">Community-shared chimera alchemy recipes — ingredients &amp; quantities</div>
+      <div class="deck">Chimera alchemy recipes &amp; community cooking favourites</div>
       <div class="byline">Contributed by Skeeterville residents &bull; Recipe Desk</div>
+
       <div class="recipe-grid">
 
-       <div class="recipe-card" style="border:2px double var(--ink); background:rgba(255,255,255,0.4);">
+        <!-- FEATURED COOKING RECIPE with image from recipes/ folder -->
+        <div class="recipe-card" style="border:2px double var(--ink); background:rgba(255,255,255,0.4);">
+          <div style="text-align:center; font-family:'Courier Prime',monospace; font-size:10px; letter-spacing:0.2em; background:var(--red); color:var(--paper); padding:4px; margin:-14px -14px 10px -14px;">★ FEATURED RECIPE ★</div>
+          <div class="recipe-label">Classic Comfort</div>
+          <h3 style="font-size:16px; text-align:center;">Classic Baked Mac &amp; Cheese</h3>
+          <!-- Image from recipes/ folder — change filename to match yours -->
+          <img src="recipes/mac-and-cheese.jpg" alt="Mac and Cheese"
+               onclick="openLightbox(this)"
+               onerror="this.style.display='none'">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:4px; font-family:'Courier Prime',monospace; font-size:10px; margin-bottom:8px;">
+            <div><strong>Prep:</strong> 15 min</div><div><strong>Cook:</strong> 35 min</div>
+            <div><strong>Total:</strong> 50 min</div><div><strong>Serves:</strong> 6</div>
+          </div>
+          <div class="recipe-desc" style="text-align:center;">Creamy, baked comfort classic with a golden breadcrumb crust.</div>
+          <hr class="rule">
+          <div class="recipe-label">Ingredients</div>
+          <ul>
+            <li><span>Elbow Macaroni</span><span>1½ cups</span></li>
+            <li><span>Butter</span><span>¼ cup</span></li>
+            <li><span>All-Purpose Flour</span><span>2 tbsp</span></li>
+            <li><span>Mustard Powder</span><span>1 tsp</span></li>
+            <li><span>Milk</span><span>2 cups</span></li>
+            <li><span>American Cheese</span><span>8 oz</span></li>
+            <li><span>Velveeta</span><span>8 oz</span></li>
+            <li><span>Bread Crumbs</span><span>¼ cup</span></li>
+          </ul>
+          <hr class="rule">
+          <div class="recipe-label">Directions</div>
+          <p style="font-size:12px; line-height:1.6; margin-top:6px;">Preheat oven to 400°F. Cook macaroni in salted water 6 min until slightly underdone, then drain.</p>
+          <p style="font-size:12px; line-height:1.6;">Melt butter, stir in flour, mustard, and pepper. Whisk in milk until thick. Add cheeses and stir smooth.</p>
+          <p style="font-size:12px; line-height:1.6;">Combine with noodles, pour into buttered dish, sprinkle bread crumbs, cover and bake 20–25 min until bubbly.</p>
+        </div>
 
-  <div style="text-align:center; font-family:'Courier Prime',monospace; 
-              font-size:10px; letter-spacing:0.2em; 
-              background:var(--red); color:var(--paper); 
-              padding:4px; margin:-14px -14px 10px -14px;">
-    ★ FEATURED SUNDAY RECIPE ★
-  </div>
+        <!-- CHIMERA ALCHEMY RECIPE 1 -->
+        <div class="recipe-card">
+          <div class="recipe-label">Elixir</div>
+          <h3>Recipe Name Here</h3>
+          <div class="recipe-desc">What does this make? What does it do?</div>
+          <ul>
+            <li><span>Ingredient One</span><span>25</span></li>
+            <li><span>Ingredient Two</span><span>15</span></li>
+            <li><span>Ingredient Three</span><span>10</span></li>
+          </ul>
+        </div>
 
-  <div class="recipe-label">Classic Comfort</div>
-
-  <h3 style="font-size:18px; text-align:center;">
-    Classic Baked Macaroni & Cheese
-  </h3>
-
-  <img src="Macaroni-and-Cheese.png"
-       alt="Macaroni and Cheese"
-       style="width:100%; border:3px solid var(--ink); 
-              margin:10px 0; 
-              filter: sepia(40%) contrast(105%);">
-
-  <div style="display:grid; grid-template-columns:1fr 1fr; 
-              gap:6px; font-family:'Courier Prime',monospace; 
-              font-size:10px; margin-bottom:10px;">
-
-    <div><strong>Prep:</strong> 15 mins</div>
-    <div><strong>Cook:</strong> 35 mins</div>
-    <div><strong>Total:</strong> 50 mins</div>
-    <div><strong>Serves:</strong> 6</div>
-
-  </div>
-
-  <div class="recipe-desc" style="text-align:center; font-size:12px;">
-    Creamy, baked comfort classic with a golden breadcrumb crust.
-  </div>
-
-  <hr class="rule">
-
-  <div class="recipe-label">Ingredients</div>
-
-  <ul>
-    <li><span>Elbow Macaroni</span><span>1½ cups</span></li>
-    <li><span>Butter</span><span>¼ cup</span></li>
-    <li><span>All-Purpose Flour</span><span>2 tbsp</span></li>
-    <li><span>Mustard Powder</span><span>1 tsp</span></li>
-    <li><span>Black Pepper</span><span>1 tsp</span></li>
-    <li><span>Milk</span><span>2 cups</span></li>
-    <li><span>American Cheese</span><span>8 oz</span></li>
-    <li><span>Velveeta</span><span>8 oz</span></li>
-    <li><span>Bread Crumbs</span><span>¼ cup</span></li>
-  </ul>
-
-  <hr class="rule">
-
-  <div class="recipe-label">Directions</div>
-
-  <p style="font-size:12px; line-height:1.6; margin-top:6px;">
-    Preheat oven to 400°F. Cook macaroni in salted water for about 6 minutes 
-    until slightly underdone, then drain.
-  </p>
-
-  <p style="font-size:12px; line-height:1.6;">
-    In a saucepan, melt butter over medium heat. Stir in flour, mustard powder, 
-    and pepper until smooth. Slowly whisk in milk until thickened. Add cheeses 
-    and stir until smooth and creamy.
-  </p>
-
-  <p style="font-size:12px; line-height:1.6;">
-    Combine noodles with sauce, pour into buttered casserole dish, 
-    sprinkle bread crumbs on top, cover and bake 20–25 minutes 
-    until bubbly and golden.
-  </p>
-
-</div>
-
-
+        <!-- CHIMERA ALCHEMY RECIPE 2 -->
         <div class="recipe-card">
           <div class="recipe-label">Potion</div>
           <h3>Recipe Name Here</h3>
@@ -380,6 +498,7 @@ h2.headline { font-family:'Playfair Display',serif; font-size:clamp(20px,4.5vw,3
           </ul>
         </div>
 
+        <!-- CHIMERA ALCHEMY RECIPE 3 -->
         <div class="recipe-card">
           <div class="recipe-label">Accessory</div>
           <h3>Recipe Name Here</h3>
@@ -391,6 +510,7 @@ h2.headline { font-family:'Playfair Display',serif; font-size:clamp(20px,4.5vw,3
           </ul>
         </div>
 
+        <!-- CHIMERA ALCHEMY RECIPE 4 -->
         <div class="recipe-card">
           <div class="recipe-label">Complex Ingredient</div>
           <h3>Recipe Name Here</h3>
@@ -403,6 +523,7 @@ h2.headline { font-family:'Playfair Display',serif; font-size:clamp(20px,4.5vw,3
           </ul>
         </div>
 
+        <!-- CHIMERA ALCHEMY RECIPE 5 -->
         <div class="recipe-card">
           <div class="recipe-label">Elixir</div>
           <h3>Recipe Name Here</h3>
@@ -414,212 +535,83 @@ h2.headline { font-family:'Playfair Display',serif; font-size:clamp(20px,4.5vw,3
           </ul>
         </div>
 
-        <div class="recipe-card">
-          <div class="recipe-label">Currency</div>
-          <h3>Recipe Name Here</h3>
-          <div class="recipe-desc">What does this make? What does it do?</div>
-          <ul>
-            <li><span>Ingredient One</span><span>5</span></li>
-          </ul>
-        </div>
-
       </div>
-      <div class="submit-note">HAVE A RECIPE TO SHARE? SEND IT TO ISAC OR ROXIE DREAMCLAW IN-WORLD — WE'LL ADD IT TO THE NEXT EDITION</div>
+      <div class="submit-note">HAVE A RECIPE TO SHARE? CONTACT ISAC OR ROXIE DREAMCLAW IN-WORLD — WE'LL ADD IT NEXT EDITION</div>
     </div>
   </div>
 
-  <!-- ═══ TIME WITH MY CHIMERA ═══ -->
-<div class="page-section" id="section-chimera">
-  <div class="section-label">§ Time With My Chimera</div>
+  <!-- ═══════════════ TIME WITH MY CHIMERA ═══════════════
+  HOW TO ADD PHOTOS:
+  1. Put your chimera screenshot in the "photos" folder
+  2. Change src="photos/chimera1.jpg" to match your exact filename
+  3. Update the caption and owner name
+  4. If image is missing it shows a helpful grey box — no broken image icons!
+  5. Click any photo to enlarge it (lightbox)
+  ════════════════════════════════════════════════════════ -->
+  <div class="page-section" id="section-chimera">
+    <div class="section-label">§ Time With My Chimera</div>
+    <div class="section-body">
+      <h2 class="headline">Time With My Chimera</h2>
+      <div class="deck">A Sunday showcase of Skeeterville's most beloved companions</div>
+      <div class="byline">Community Submissions &bull; Photo Desk</div>
 
-  <style>
-  .chimera-magazine {
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
-    gap:24px;
-    margin-top:20px;
-  }
+      <div class="chimera-magazine">
 
-  .chimera-card {
-    position:relative;
-  }
-
-  .chimera-frame {
-    position:relative;
-    border:6px solid #2d1f12;
-    background:#e8d9b8;
-    box-shadow:
-      0 0 0 3px #c9b48a,
-      8px 8px 0 rgba(0,0,0,0.35);
-    overflow:hidden;
-  }
-
-  .chimera-frame img {
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    filter:sepia(25%) contrast(105%);
-    transition:transform .4s ease;
-    cursor:pointer;
-  }
-
-  .chimera-frame:hover img {
-    transform:scale(1.08);
-  }
-
-  .chimera-badge {
-    position:absolute;
-    top:-10px;
-    left:-10px;
-    background:linear-gradient(145deg,#d4af37,#b8901f);
-    color:#fff;
-    font-family:'Courier Prime',monospace;
-    font-size:9px;
-    padding:6px 10px;
-    letter-spacing:.15em;
-    text-transform:uppercase;
-    box-shadow:2px 2px 5px rgba(0,0,0,.4);
-    z-index:5;
-  }
-
-  .chimera-caption {
-    font-family:'IM Fell English',serif;
-    font-style:italic;
-    font-size:13px;
-    margin-top:8px;
-    text-align:center;
-  }
-
-  .chimera-caption span {
-    display:block;
-    font-family:'Courier Prime',monospace;
-    font-size:10px;
-    font-style:normal;
-    color:var(--gold);
-    margin-top:3px;
-  }
-
-  #lightbox {
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.85);
-    display:none;
-    align-items:center;
-    justify-content:center;
-    z-index:9999;
-  }
-
-  #lightbox img {
-    max-width:85%;
-    max-height:85%;
-    border:6px solid #f4ead0;
-    box-shadow:0 0 25px black;
-  }
-  </style>
-
-  <div class="section-body">
-    <h2 class="headline">Time With My Chimera</h2>
-    <div class="deck">A Sunday showcase of Skeeterville’s most beloved companions</div>
-    <div class="byline">Community Submissions • Photo Desk</div>
-
-    <div class="chimera-magazine">
-
-      <!-- PHOTO 1 (Featured) -->
-      <div class="chimera-card">
-        <div class="chimera-badge">Photo of the Week</div>
-        <div class="chimera-frame">
-          <img src="photos/chimera1.png" onclick="openLightbox(this)" alt="Featured Chimera">
+        <div class="chimera-card">
+          <div class="chimera-badge">Photo of the Week</div>
+          <div class="chimera-frame" onclick="openLightbox(this.querySelector('img'))">
+            <img src="photos/chimera1.jpg" alt="Featured Chimera"
+                 onerror="this.parentElement.innerHTML='<div class=\'frame-empty\'>📷<br>Add chimera1.jpg<br>to your photos/ folder</div>'">
+          </div>
+          <div class="chimera-caption">Caption for this chimera<span>Owner: Resident Name</span></div>
         </div>
-        <div class="chimera-caption">
-          Golden Ember resting at dusk
-          <span>Owner: Resident Name</span>
+
+        <div class="chimera-card">
+          <div class="chimera-frame" onclick="openLightbox(this.querySelector('img'))">
+            <img src="photos/hide-and-seek.png" alt="Hide and Seek Chimera"
+                 onerror="this.parentElement.innerHTML='<div class=\'frame-empty\'>📷<br>Add hide-and-seek.png<br>to your photos/ folder</div>'">
+          </div>
+          <div class="chimera-caption">Come Out Come Out<span>Owner: Roxie Dreamclaw</span></div>
         </div>
+
+        <div class="chimera-card">
+          <div class="chimera-frame" onclick="openLightbox(this.querySelector('img'))">
+            <img src="photos/chimera3.jpg" alt="Chimera 3"
+                 onerror="this.parentElement.innerHTML='<div class=\'frame-empty\'>📷<br>Add chimera3.jpg<br>to your photos/ folder</div>'">
+          </div>
+          <div class="chimera-caption">Caption for this chimera<span>Owner: Resident Name</span></div>
+        </div>
+
+        <div class="chimera-card">
+          <div class="chimera-frame" onclick="openLightbox(this.querySelector('img'))">
+            <img src="photos/chimera4.jpg" alt="Chimera 4"
+                 onerror="this.parentElement.innerHTML='<div class=\'frame-empty\'>📷<br>Add chimera4.jpg<br>to your photos/ folder</div>'">
+          </div>
+          <div class="chimera-caption">Caption for this chimera<span>Owner: Resident Name</span></div>
+        </div>
+
+        <div class="chimera-card">
+          <div class="chimera-frame" onclick="openLightbox(this.querySelector('img'))">
+            <img src="photos/chimera5.jpg" alt="Chimera 5"
+                 onerror="this.parentElement.innerHTML='<div class=\'frame-empty\'>📷<br>Add chimera5.jpg<br>to your photos/ folder</div>'">
+          </div>
+          <div class="chimera-caption">Caption for this chimera<span>Owner: Resident Name</span></div>
+        </div>
+
+        <div class="chimera-card">
+          <div class="chimera-frame" onclick="openLightbox(this.querySelector('img'))">
+            <img src="photos/chimera6.jpg" alt="Chimera 6"
+                 onerror="this.parentElement.innerHTML='<div class=\'frame-empty\'>📷<br>Add chimera6.jpg<br>to your photos/ folder</div>'">
+          </div>
+          <div class="chimera-caption">Caption for this chimera<span>Owner: Resident Name</span></div>
+        </div>
+
       </div>
-
-     <!-- PHOTO 2 -->
-<div class="chimera-card">
-  <div class="chimera-frame">
-    <img src="photos/hide-and-seek.png" 
-         onclick="openLightbox(this)" 
-         alt="Hide and Seek Chimera">
-  </div>
-  <div class="chimera-caption">
-    Mail Order Bride playing hide and seek
-    <span>Owner: Roxie Dreamclaw</span>
-  </div>
-</div>
-
-
-      <!-- PHOTO 3 -->
-      <div class="chimera-card">
-        <div class="chimera-frame">
-          <img src="photos/chimera3.png" onclick="openLightbox(this)" alt="Chimera">
-        </div>
-        <div class="chimera-caption">
-          Forest Bloom during spring gathering
-          <span>Owner: Resident Name</span>
-        </div>
-      </div>
-
-      <!-- PHOTO 4 -->
-      <div class="chimera-card">
-        <div class="chimera-frame">
-          <img src="photos/chimera4.png" onclick="openLightbox(this)" alt="Chimera">
-        </div>
-        <div class="chimera-caption">
-          Silverwind soaring above Skeeterville
-          <span>Owner: Resident Name</span>
-        </div>
-      </div>
-
-      <!-- PHOTO 5 -->
-      <div class="chimera-card">
-        <div class="chimera-frame">
-          <img src="photos/chimera5.png" onclick="openLightbox(this)" alt="Chimera">
-        </div>
-        <div class="chimera-caption">
-          Moonshadow beneath the lantern lights
-          <span>Owner: Resident Name</span>
-        </div>
-      </div>
-
-      <!-- PHOTO 6 -->
-      <div class="chimera-card">
-        <div class="chimera-frame">
-          <img src="photos/chimera6.png" onclick="openLightbox(this)" alt="Chimera">
-        </div>
-        <div class="chimera-caption">
-          Emberclaw guarding the market square
-          <span>Owner: Resident Name</span>
-        </div>
-      </div>
-
+      <div class="submit-note">TO SUBMIT YOUR CHIMERA PHOTO — CONTACT ISAC OR ROXIE DREAMCLAW IN-WORLD</div>
     </div>
-
-    <div class="submit-note">
-      TO SUBMIT YOUR CHIMERA PHOTO — CONTACT ISAC OR ROXIE DREAMCLAW IN-WORLD
-    </div>
-
   </div>
-</div>
 
-<!-- LIGHTBOX -->
-<div id="lightbox" onclick="closeLightbox()">
-  <img src="" id="lightbox-img">
-</div>
-
-<script>
-function openLightbox(img){
-  document.getElementById("lightbox").style.display="flex";
-  document.getElementById("lightbox-img").src=img.src;
-}
-function closeLightbox(){
-  document.getElementById("lightbox").style.display="none";
-}
-</script>
-
- 
-  <!-- ═══ EVENTS ═══ -->
+  <!-- ═══════════════ EVENTS ═══════════════ -->
   <div class="page-section" id="section-events">
     <div class="section-label">§ Events &amp; Happenings</div>
     <div class="section-body">
@@ -630,53 +622,34 @@ function closeLightbox(){
 
         <div class="event-item">
           <div class="event-date-box">
-            <div class="event-month">FEB</div>
-            <div class="event-day">28</div>
-            <div class="event-year">2026</div>
+            <div class="event-month">FEB</div><div class="event-day">28</div><div class="event-year">2026</div>
           </div>
           <div class="event-info">
             <h3>Event Name Goes Here</h3>
             <div class="event-meta">📍 Location Name &bull; 🕐 Time (SLT)</div>
-            <p>Describe the event here. What is happening? Who is it for? Any prizes, entry fee, or special guests? Replace this with real event details.</p>
+            <p>Describe the event here. What is happening? Who is it for? Any prizes, entry fee, or special guests?</p>
           </div>
         </div>
 
         <div class="event-item">
           <div class="event-date-box">
-            <div class="event-month">MAR</div>
-            <div class="event-day">07</div>
-            <div class="event-year">2026</div>
+            <div class="event-month">MAR</div><div class="event-day">07</div><div class="event-year">2026</div>
           </div>
           <div class="event-info">
             <h3>Event Name Goes Here</h3>
             <div class="event-meta">📍 Location Name &bull; 🕐 Time (SLT)</div>
-            <p>Describe the event here. To add more events just copy one of these event-item blocks and paste it below, then fill in the real details.</p>
+            <p>Copy this event-item block to add more events. Update the month, day, year and all the details.</p>
           </div>
         </div>
 
         <div class="event-item">
           <div class="event-date-box">
-            <div class="event-month">MAR</div>
-            <div class="event-day">14</div>
-            <div class="event-year">2026</div>
+            <div class="event-month">MAR</div><div class="event-day">14</div><div class="event-year">2026</div>
           </div>
           <div class="event-info">
             <h3>Event Name Goes Here</h3>
             <div class="event-meta">📍 Location Name &bull; 🕐 Time (SLT)</div>
-            <p>Describe the event here. Update the month, day, and year in the date box to match the real event date.</p>
-          </div>
-        </div>
-
-        <div class="event-item">
-          <div class="event-date-box">
-            <div class="event-month">MAR</div>
-            <div class="event-day">21</div>
-            <div class="event-year">2026</div>
-          </div>
-          <div class="event-info">
-            <h3>Event Name Goes Here</h3>
-            <div class="event-meta">📍 Location Name &bull; 🕐 Time (SLT)</div>
-            <p>Describe the event here. You can list as many events as you want — just keep copying and filling in the blocks.</p>
+            <p>You can list as many events as you want — just keep copying and filling in the blocks.</p>
           </div>
         </div>
 
@@ -685,7 +658,13 @@ function closeLightbox(){
     </div>
   </div>
 
-  <!-- ═══ COMICS ═══ -->
+  <!-- ═══════════════ COMICS ═══════════════
+  HOW TO ADD YOUR COMIC ART:
+  1. Put your comic panel images in the "comics" folder
+  2. Replace the panel-placeholder div with:
+     <div class="panel-image"><img src="comics/your-panel.jpg" alt="panel" onclick="openLightbox(this)"></div>
+  3. Update the strip title and captions below each panel
+  ════════════════════════════════════════ -->
   <div class="page-section" id="section-comics">
     <div class="section-label">§ The Sunday Funnies</div>
     <div class="section-body">
@@ -693,22 +672,21 @@ function closeLightbox(){
       <div class="deck">Original comics by Isac &amp; Roxie Dreamclaw</div>
       <div class="byline">Comics &bull; Skeeterville Gazette</div>
 
-      <!-- STRIP 1 — 3 panels -->
+      <!-- STRIP 1 — 3 panels. Change p3 to p2 or p4 for different panel counts -->
       <div class="comic-strip">
-        <div class="comic-title-bar">★ YOUR COMIC STRIP TITLE HERE ★ — No. 1</div>
+        <div class="comic-title-bar">★ YOUR STRIP TITLE HERE ★ — No. 1</div>
         <div class="comic-panels p3">
           <div class="comic-panel">
-            <!-- TO ADD YOUR ART: Replace panel-placeholder div with:
-                 <div class="panel-image"><img src="YOUR-IMAGE-URL" alt="panel 1"></div> -->
-            <div class="panel-placeholder">Panel 1<br>Paste your image URL here</div>
+            <!-- Replace with: <div class="panel-image"><img src="comics/strip1-panel1.jpg" alt="panel" onclick="openLightbox(this)"></div> -->
+            <div class="panel-placeholder">Panel 1<br>Put image in comics/ folder<br>then replace this block</div>
             <div class="panel-caption">Caption or dialogue for panel one.</div>
           </div>
           <div class="comic-panel">
-            <div class="panel-placeholder">Panel 2<br>Paste your image URL here</div>
+            <div class="panel-placeholder">Panel 2<br>Put image in comics/ folder<br>then replace this block</div>
             <div class="panel-caption">Caption or dialogue for panel two.</div>
           </div>
           <div class="comic-panel">
-            <div class="panel-placeholder">Panel 3<br>Paste your image URL here</div>
+            <div class="panel-placeholder">Panel 3<br>Put image in comics/ folder<br>then replace this block</div>
             <div class="panel-caption">Caption or dialogue for panel three.</div>
           </div>
         </div>
@@ -716,45 +694,175 @@ function closeLightbox(){
 
       <!-- STRIP 2 — 4 panels -->
       <div class="comic-strip">
-        <div class="comic-title-bar">★ YOUR COMIC STRIP TITLE HERE ★ — No. 2</div>
+        <div class="comic-title-bar">★ YOUR STRIP TITLE HERE ★ — No. 2</div>
         <div class="comic-panels p4">
           <div class="comic-panel">
-            <div class="panel-placeholder">Panel 1<br>Paste your image URL here</div>
+            <div class="panel-placeholder">Panel 1<br>comics/ folder</div>
             <div class="panel-caption">Caption for panel one.</div>
           </div>
           <div class="comic-panel">
-            <div class="panel-placeholder">Panel 2<br>Paste your image URL here</div>
+            <div class="panel-placeholder">Panel 2<br>comics/ folder</div>
             <div class="panel-caption">Caption for panel two.</div>
           </div>
           <div class="comic-panel">
-            <div class="panel-placeholder">Panel 3<br>Paste your image URL here</div>
+            <div class="panel-placeholder">Panel 3<br>comics/ folder</div>
             <div class="panel-caption">Caption for panel three.</div>
           </div>
           <div class="comic-panel">
-            <div class="panel-placeholder">Panel 4<br>Paste your image URL here</div>
+            <div class="panel-placeholder">Panel 4<br>comics/ folder</div>
             <div class="panel-caption">Caption for panel four.</div>
           </div>
         </div>
       </div>
 
-      <div class="submit-note">
-        TO ADD YOUR COMIC ART: Upload image to imgur.com (free) → right-click image → Copy Image Address → paste that URL into the HTML where it says "Paste your image URL here"
+      <div class="submit-note">COMICS FOLDER: Put your panel images in the comics/ folder → replace the panel-placeholder div with a panel-image div containing your img tag</div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ ABOUT US ═══════════════
+  HOW TO UPDATE THIS PAGE:
+  1. Put your avatar photos in the "about-us" folder
+  2. Change src="about-us/isac.jpg" and src="about-us/roxie.jpg" to your actual filenames
+  3. Update the bio text for each of you
+  4. For friends: change the image filenames and names/notes
+  5. Copy a friend-card block to add more friends
+  ════════════════════════════════════════════ -->
+  <div class="page-section" id="section-aboutus">
+    <div class="section-label">§ About Us — The Team Behind The Gazette</div>
+    <div class="section-body">
+      <h2 class="headline">Meet The Team</h2>
+      <div class="deck">The husband and wife duo bringing you Skeeterville's finest news every Sunday</div>
+      <div class="byline">The Skeeterville Gazette &bull; Est. 2026</div>
+
+      <!-- ISAC & ROXIE PORTRAITS -->
+      <div class="about-hero">
+
+        <div class="about-person">
+          <div class="about-portrait" onclick="openLightbox(this.querySelector('img'))">
+            <img src="about-us/isac.jpg" alt="Isac Dreamclaw"
+                 onerror="this.parentElement.innerHTML='<div class=\'frame-empty\'>📷<br>Add isac.jpg<br>to about-us/ folder</div>'">
+          </div>
+          <div class="about-name">Isac Dreamclaw</div>
+          <div class="about-title">Editor-in-Chief &bull; Co-Founder</div>
+          <p class="about-bio">Write a little bit about yourself here. How long have you been in Second Life? How did you find Skeeterville? What do you love most about the chimera community? What made you want to start this newspaper? Write it in your own words — people love knowing the person behind the paper.</p>
+        </div>
+
+        <div class="about-person">
+          <div class="about-portrait" onclick="openLightbox(this.querySelector('img'))">
+            <img src="about-us/roxie.jpg" alt="Roxie Dreamclaw"
+                 onerror="this.parentElement.innerHTML='<div class=\'frame-empty\'>📷<br>Add roxie.jpg<br>to about-us/ folder</div>'">
+          </div>
+          <div class="about-name">Roxie Dreamclaw</div>
+          <div class="about-title">Editor-in-Chief &bull; Co-Founder</div>
+          <p class="about-bio">Write a little bit about Roxie here. Her story, what she enjoys in Second Life, her favourite chimeras, what she contributes to the Gazette, or whatever she'd like the community to know about her. This is her space to introduce herself in her own words.</p>
+        </div>
+
       </div>
+
+      <!-- OUR STORY -->
+      <div class="pull-quote">"We built this paper together — because Skeeterville deserves one."</div>
+
+      <div class="body-text" style="margin-bottom:20px;">
+        <p>Write your shared story here if you like. How did you two meet in Second Life? How did the idea for the Gazette come about? What do you hope it becomes for the community? This is a great spot to let readers feel like they know you both a little better.</p>
+      </div>
+
+      <div class="about-divider">✦ &nbsp; Our Friends &nbsp; ✦</div>
+
+      <!-- FRIENDS GRID -->
+      <div class="friends-grid">
+
+        <!-- FRIEND 1 — copy this block to add more friends -->
+        <div class="friend-card">
+          <div class="friend-portrait" onclick="openLightbox(this.querySelector('img'))">
+            <img src="about-us/friend1.jpg" alt="Friend 1"
+                 onerror="this.parentElement.innerHTML='<div class=\'frame-empty\'>📷<br>Add friend1.jpg<br>to about-us/ folder</div>'">
+          </div>
+          <div class="friend-name">Friend Name Here</div>
+          <div class="friend-note">How you know them / their role in SL</div>
+        </div>
+
+        <!-- FRIEND 2 -->
+        <div class="friend-card">
+          <div class="friend-portrait" onclick="openLightbox(this.querySelector('img'))">
+            <img src="about-us/friend2.jpg" alt="Friend 2"
+                 onerror="this.parentElement.innerHTML='<div class=\'frame-empty\'>📷<br>Add friend2.jpg<br>to about-us/ folder</div>'">
+          </div>
+          <div class="friend-name">Friend Name Here</div>
+          <div class="friend-note">How you know them / their role in SL</div>
+        </div>
+
+        <!-- FRIEND 3 -->
+        <div class="friend-card">
+          <div class="friend-portrait" onclick="openLightbox(this.querySelector('img'))">
+            <img src="about-us/friend3.jpg" alt="Friend 3"
+                 onerror="this.parentElement.innerHTML='<div class=\'frame-empty\'>📷<br>Add friend3.jpg<br>to about-us/ folder</div>'">
+          </div>
+          <div class="friend-name">Friend Name Here</div>
+          <div class="friend-note">How you know them / their role in SL</div>
+        </div>
+
+        <!-- FRIEND 4 -->
+        <div class="friend-card">
+          <div class="friend-portrait" onclick="openLightbox(this.querySelector('img'))">
+            <img src="about-us/friend4.jpg" alt="Friend 4"
+                 onerror="this.parentElement.innerHTML='<div class=\'frame-empty\'>📷<br>Add friend4.jpg<br>to about-us/ folder</div>'">
+          </div>
+          <div class="friend-name">Friend Name Here</div>
+          <div class="friend-note">How you know them / their role in SL</div>
+        </div>
+
+        <!-- FRIEND 5 -->
+        <div class="friend-card">
+          <div class="friend-portrait" onclick="openLightbox(this.querySelector('img'))">
+            <img src="about-us/friend5.jpg" alt="Friend 5"
+                 onerror="this.parentElement.innerHTML='<div class=\'frame-empty\'>📷<br>Add friend5.jpg<br>to about-us/ folder</div>'">
+          </div>
+          <div class="friend-name">Friend Name Here</div>
+          <div class="friend-note">How you know them / their role in SL</div>
+        </div>
+
+        <!-- FRIEND 6 -->
+        <div class="friend-card">
+          <div class="friend-portrait" onclick="openLightbox(this.querySelector('img'))">
+            <img src="about-us/friend6.jpg" alt="Friend 6"
+                 onerror="this.parentElement.innerHTML='<div class=\'frame-empty\'>📷<br>Add friend6.jpg<br>to about-us/ folder</div>'">
+          </div>
+          <div class="friend-name">Friend Name Here</div>
+          <div class="friend-note">How you know them / their role in SL</div>
+        </div>
+
+      </div>
+
+      <div class="submit-note">WANT TO BE FEATURED ON THIS PAGE? REACH OUT TO ISAC OR ROXIE DREAMCLAW IN-WORLD</div>
     </div>
   </div>
 
 </div><!-- /newspaper -->
 </div><!-- /book-wrap -->
 
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="closeLightbox()">
+  <span class="lb-close">✕</span>
+  <img src="" id="lightbox-img" alt="enlarged photo">
+</div>
+
+<!-- EDITOR GUIDE -->
 <div class="edit-note">
-  <strong>✏️ UPDATING THE PAPER:</strong> Open index.html in Notepad → find the section → change text → save → drag file back to GitHub folder → Commit &amp; Push. &nbsp;|&nbsp;
-  <strong>ADDING A PHOTO:</strong> Upload to imgur.com → get direct image link → replace the photo-placeholder div with &lt;img src="LINK" alt="chimera"&gt; &nbsp;|&nbsp;
-  <strong>ADDING A NEW TAB/SECTION:</strong> Ask the Gazette's tech team (that's us!) and we'll build it for you. &nbsp;|&nbsp;
-  <strong>ADDING MORE FRONT PAGE ARTICLES:</strong> Copy a page-content block → paste below last one → change ID to front-p3 → change frontTotal in script to 3.
+  <strong>📁 YOUR COMPLETE FOLDER STRUCTURE:</strong>
+  index.html &nbsp;|&nbsp;
+  photos/ (chimera photos) &nbsp;|&nbsp;
+  market/ (market screenshots) &nbsp;|&nbsp;
+  recipes/ (food photos) &nbsp;|&nbsp;
+  comics/ (comic panel art) &nbsp;|&nbsp;
+  about-us/ (isac.jpg, roxie.jpg, friend1.jpg, friend2.jpg...)
+  &nbsp;— all folders sit in the same folder as index.html &nbsp;|&nbsp;
+  <strong>🌍 SLURL FORMAT:</strong> In Second Life → World menu → Copy SLURL → paste it into the green Teleport button href. It looks like: secondlife://RegionName/128/128/25 &nbsp;|&nbsp;
+  <strong>📷 IMAGES NOT SHOWING?</strong> Check the filename matches exactly — capitals and the extension (.jpg vs .png) both matter! &nbsp;|&nbsp;
+  <strong>➕ ADD MORE FRIENDS:</strong> Copy a friend-card block in About Us and paste it into the friends-grid
 </div>
 
 <script>
-// SECTION TABS
+// ── SECTION TABS ──
 function showSection(name, btn) {
   document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
   document.querySelectorAll('.section-btn').forEach(b => b.classList.remove('active'));
@@ -763,9 +871,9 @@ function showSection(name, btn) {
   window.scrollTo(0, 0);
 }
 
-// FRONT PAGE PAGINATION
+// ── FRONT PAGE PAGINATION ──
 let frontCurrent = 1;
-const frontTotal = 2; // ← UPDATE THIS NUMBER when you add more front page articles
+const frontTotal = 2; // ← update this when you add more front page articles
 
 function changeFrontPage(dir) {
   document.getElementById('front-p' + frontCurrent).classList.remove('active');
@@ -776,6 +884,19 @@ function changeFrontPage(dir) {
   document.getElementById('front-next').disabled = frontCurrent === frontTotal;
   window.scrollTo(0, 0);
 }
+
+// ── LIGHTBOX ──
+function openLightbox(img) {
+  if (!img || !img.src || img.src === window.location.href) return;
+  document.getElementById('lightbox-img').src = img.src;
+  document.getElementById('lightbox').style.display = 'flex';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').style.display = 'none';
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeLightbox();
+});
 </script>
 </body>
 </html>
