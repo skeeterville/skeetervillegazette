@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Skeeterville Gazette</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=IM+Fell+English:ital@0;1&family=Courier+Prime&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1008;
+    --paper: #f2e8d5;
+    --aged: #e8d9b8;
+    --crease: #c9b48a;
+    --red: #8b1a1a;
+    --gold: #8a6e2f;
+  }
+
+  body {
+    background: #3a2e1e;
+    background-image: repeating-linear-gradient(45deg, rgba(0,0,0,0.05) 0px, rgba(0,0,0,0.05) 1px, transparent 1px, transparent 10px);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    font-family: 'IM Fell English', serif;
+  }
+
+  .book-wrap {
+    max-width: 780px;
+    width: 100%;
+    position: relative;
+  }
+
+  /* Paper shadow layers for depth */
+  .book-wrap::before {
+    content: '';
+    position: absolute;
+    inset: 8px -6px -8px 6px;
+    background: #c9b48a;
+    border-radius: 2px;
+    z-index: 0;
+  }
+  .book-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 4px -3px -4px 3px;
+    background: #d9c89a;
+    border-radius: 2px;
+    z-index: 0;
+  }
+
+  .newspaper {
+    position: relative;
+    z-index: 1;
+    background: var(--paper);
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
+    border: 1px solid var(--crease);
+    padding: 0;
+    min-height: 600px;
+  }
+
+  /* Top rule */
+  .top-rule {
+    border-top: 4px double var(--ink);
+    border-bottom: 1px solid var(--ink);
+    padding: 3px 0;
+    margin: 0 16px;
+  }
+
+  .meta-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 20px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 10px;
+    letter-spacing: 0.05em;
+    color: var(--ink);
+    border-bottom: 1px solid var(--crease);
+  }
+
+  .masthead {
+    text-align: center;
+    padding: 16px 20px 10px;
+    border-bottom: 4px double var(--ink);
+  }
+
+  .masthead h1 {
+    font-family: 'Old Standard TT', serif;
+    font-size: clamp(32px, 8vw, 64px);
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0 rgba(0,0,0,0.12);
+  }
+
+  .masthead .tagline {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--gold);
+    margin-top: 4px;
+    letter-spacing: 0.15em;
+  }
+
+  .edition-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 20px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 10px;
+    border-top: 1px solid var(--crease);
+    border-bottom: 2px solid var(--ink);
+    background: rgba(0,0,0,0.03);
+  }
+
+  /* PAGE CONTENT */
+  .page-content {
+    padding: 24px 28px;
+    min-height: 480px;
+    display: none;
+    animation: fadeIn 0.3s ease;
+  }
+  .page-content.active { display: block; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* FRONT PAGE LAYOUT */
+  .front-headline {
+    text-align: center;
+    border-bottom: 3px double var(--ink);
+    padding-bottom: 14px;
+    margin-bottom: 14px;
+  }
+
+  .front-headline h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 5vw, 38px);
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--ink);
+  }
+
+  .front-headline .deck {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--gold);
+    margin-top: 5px;
+  }
+
+  .columns {
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    gap: 0 16px;
+  }
+
+  .col-divider {
+    background: var(--crease);
+    width: 1px;
+  }
+
+  .col h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--crease);
+    color: var(--ink);
+  }
+
+  .col p {
+    font-family: 'IM Fell English', serif;
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: var(--ink);
+    text-align: justify;
+    margin-bottom: 10px;
+  }
+
+  .col .byline {
+    font-family: 'Courier Prime', monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  /* INNER PAGE ARTICLE */
+  .article-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(20px, 4vw, 30px);
+    font-weight: 900;
+    line-height: 1.15;
+    color: var(--ink);
+    margin-bottom: 6px;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 8px;
+  }
+
+  .article-subtitle {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+
+  .article-byline {
+    font-family: 'Courier Prime', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 14px;
+    border-bottom: 1px solid var(--crease);
+    padding-bottom: 8px;
+  }
+
+  .article-body {
+    font-family: 'IM Fell English', serif;
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--ink);
+    text-align: justify;
+  }
+
+  .article-body p { margin-bottom: 12px; }
+
+  .article-body p:first-child::first-letter {
+    font-family: 'Old Standard TT', serif;
+    font-size: 52px;
+    font-weight: 700;
+    float: left;
+    line-height: 0.8;
+    margin: 4px 6px 0 0;
+    color: var(--red);
+  }
+
+  /* TABLE OF CONTENTS PAGE */
+  .toc-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 900;
+    text-align: center;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 10px;
+    margin-bottom: 16px;
+  }
+
+  .toc-list {
+    list-style: none;
+  }
+
+  .toc-list li {
+    display: flex;
+    align-items: baseline;
+    padding: 5px 0;
+    border-bottom: 1px dotted var(--crease);
+    font-family: 'IM Fell English', serif;
+    font-size: 14px;
+    color: var(--ink);
+  }
+
+  .toc-list li span.toc-dots {
+    flex: 1;
+    border-bottom: 1px dotted var(--crease);
+    margin: 0 8px;
+    height: 1em;
+  }
+
+  .toc-list li .toc-pg {
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+  }
+
+  /* CLASSIFIEDS */
+  .classifieds-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 8px;
+  }
+
+  .classified-ad {
+    border: 1px solid var(--ink);
+    padding: 10px;
+    font-family: 'IM Fell English', serif;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .classified-ad strong {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  /* NAV */
+  .nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-top: 2px double var(--ink);
+    background: rgba(0,0,0,0.03);
+  }
+
+  .nav-btn {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 700;
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    padding: 7px 18px;
+    cursor: pointer;
+    letter-spacing: 0.05em;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .nav-btn:hover { background: var(--red); }
+  .nav-btn:disabled { background: var(--crease); color: #999; cursor: default; }
+
+  .page-indicator {
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+  }
+
+  .section-rule {
+    border: none;
+    border-top: 1px solid var(--crease);
+    margin: 14px 0;
+  }
+
+  .pull-quote {
+    border-top: 2px solid var(--ink);
+    border-bottom: 2px solid var(--ink);
+    padding: 10px 16px;
+    margin: 14px 0;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    color: var(--red);
+  }
+</style>
+</head>
+<body>
+
+<div class="book-wrap">
+  <div class="newspaper">
+
+    <div class="top-rule"></div>
+
+    <div class="meta-bar">
+      <span>EST. IN THE VIRTUAL YEAR OF OUR LORD 2026</span>
+      <span>★ TRUTH &bull; COMMUNITY &bull; SECOND LIFE ★</span>
+      <span>PRICE: FREE TO ALL READERS</span>
+    </div>
+
+    <div class="masthead">
+      <h1>The Skeeterville Gazette</h1>
+      <div class="tagline">"All The News That's Fit To Read In Second Life"</div>
+    </div>
+
+    <div class="edition-bar">
+      <span id="edition-vol">VOL. 1 &nbsp;&bull;&nbsp; NO. 1</span>
+      <span>SKEETERVILLE, SECOND LIFE</span>
+      <span id="edition-date">FEBRUARY 2026</span>
+    </div>
+
+    <!-- PAGE 1: FRONT PAGE -->
+    <div class="page-content active" id="page-1">
+      <div class="front-headline">
+        <h2>Welcome To The Skeeterville Gazette!</h2>
+        <div class="deck">Your Neighbourhood Paper Has Arrived — Community News From The Heart of Skeeterville</div>
+      </div>
+      <div class="columns">
+        <div class="col">
+          <div class="byline">By The Editor &bull; Skeeterville Desk</div>
+          <h3>A Word From Your Editor</h3>
+          <p>Good people of Skeeterville, welcome to the very first edition of your community newspaper. This publication exists to serve you — the residents, visitors, and friends of this fine corner of Second Life.</p>
+          <p>Every edition will bring you the latest happenings, events, community notices, classifieds, and stories from around town. We are proud to be your source for all things Skeeterville.</p>
+          <p>We invite you to submit your own stories, announcements, and advertisements. This is YOUR paper as much as it is ours.</p>
+        </div>
+        <div class="col-divider"></div>
+        <div class="col">
+          <h3>This Week In Skeeterville</h3>
+          <div class="byline">Staff Reporter</div>
+          <p>This week in Skeeterville has been a busy one. Residents gathered at the town square for the monthly meeting where plans for upcoming events were discussed at length.</p>
+          <p>New arrivals to the sim have been welcomed warmly by long-time community members, with several already making themselves at home along the main street.</p>
+          <p>Turn to Page 3 for a full rundown of upcoming events, and Page 4 for community classifieds.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 2: TABLE OF CONTENTS -->
+    <div class="page-content" id="page-2">
+      <div class="toc-title">— Table of Contents —</div>
+      <ul class="toc-list">
+        <li>Front Page &amp; Editor's Note <span class="toc-dots"></span><span class="toc-pg">Page 1</span></li>
+        <li>Table of Contents <span class="toc-dots"></span><span class="toc-pg">Page 2</span></li>
+        <li>Community News &amp; Events <span class="toc-dots"></span><span class="toc-pg">Page 3</span></li>
+        <li>Classifieds &amp; Announcements <span class="toc-dots"></span><span class="toc-pg">Page 4</span></li>
+        <li>Featured Resident Spotlight <span class="toc-dots"></span><span class="toc-pg">Page 5</span></li>
+        <li>Closing &amp; Submission Info <span class="toc-dots"></span><span class="toc-pg">Page 6</span></li>
+      </ul>
+      <hr class="section-rule">
+      <div style="text-align:center; font-family:'IM Fell English',serif; font-style:italic; font-size:13px; color:var(--gold); margin-top:16px;">
+        Use the buttons below to navigate through the paper.<br>
+        New editions published regularly — check back often!
+      </div>
+    </div>
+
+    <!-- PAGE 3: COMMUNITY NEWS -->
+    <div class="page-content" id="page-3">
+      <div class="article-title">Community News &amp; Upcoming Events</div>
+      <div class="article-subtitle">Everything happening around Skeeterville this season</div>
+      <div class="article-byline">Staff Reporter &bull; Community Desk</div>
+      <div class="article-body">
+        <p>Skeeterville continues to grow and thrive with each passing week. The community has welcomed a number of new residents this month, and the sim has never felt more alive with activity and good spirit.</p>
+        <div class="pull-quote">"Skeeterville is more than a sim — it's a home."</div>
+        <p>The town council has announced that a community event is being planned for the coming weeks. Details are still being finalized, but residents can expect food, music, and activities for all. Watch this paper for further announcements as they develop.</p>
+        <p>In other news, the local market stalls have seen an increase in vendors this month. If you are interested in setting up your own stall to sell goods or services, please speak with the sim management.</p>
+        <p><strong>Upcoming Events:</strong> Replace this text with your actual upcoming events, dates, and locations. You can list as many as you like right here in plain language.</p>
+      </div>
+    </div>
+
+    <!-- PAGE 4: CLASSIFIEDS -->
+    <div class="page-content" id="page-4">
+      <div class="article-title">Classifieds &amp; Announcements</div>
+      <div class="article-subtitle">Community notices, for sale, wanted, and more</div>
+      <div class="article-byline">Submitted By Residents &bull; Classifieds Desk</div>
+      <div class="classifieds-grid">
+        <div class="classified-ad">
+          <strong>FOR SALE</strong>
+          Replace with your item for sale. Include what it is, asking price in L$, and how to contact you in-world.
+        </div>
+        <div class="classified-ad">
+          <strong>WANTED</strong>
+          Replace with something you are looking for. Describe what you need and your contact name.
+        </div>
+        <div class="classified-ad">
+          <strong>ANNOUNCEMENT</strong>
+          Place any community announcement here. Grand openings, new businesses, events — anything the community should know.
+        </div>
+        <div class="classified-ad">
+          <strong>HELP WANTED</strong>
+          Are you hiring for your in-world business? Post your opening here with the role and how to apply.
+        </div>
+      </div>
+      <hr class="section-rule">
+      <p style="font-family:'Courier Prime',monospace; font-size:10px; text-align:center; color:var(--gold); margin-top:8px;">TO PLACE A CLASSIFIED: CONTACT THE GAZETTE EDITOR IN-WORLD</p>
+    </div>
+
+    <!-- PAGE 5: RESIDENT SPOTLIGHT -->
+    <div class="page-content" id="page-5">
+      <div class="article-title">Resident Spotlight</div>
+      <div class="article-subtitle">Getting to know the people who make Skeeterville great</div>
+      <div class="article-byline">By The Editor &bull; Features</div>
+      <div class="article-body">
+        <p>Each edition of the Gazette will shine a light on one of Skeeterville's own. This week we sat down with a long-time resident to learn about their Second Life journey and what brings them back to Skeeterville time and again.</p>
+        <p><em>Replace this paragraph with your featured resident's story. You can interview them in-world and write up their answers here. Talk about how long they've been in SL, what they enjoy doing, what they love about the community, any projects they're working on, and anything else interesting about them.</em></p>
+        <p>This is one of the best parts of any community paper — letting neighbours get to know one another a little better. If you would like to be featured or nominate someone for the spotlight, reach out to the editor in-world.</p>
+        <div class="pull-quote">"Every avatar has a story worth telling."</div>
+      </div>
+    </div>
+
+    <!-- PAGE 6: CLOSING -->
+    <div class="page-content" id="page-6">
+      <div class="article-title">From The Editor's Desk</div>
+      <div class="article-subtitle">Thank you for reading the Skeeterville Gazette</div>
+      <div class="article-byline">The Editor &bull; Skeeterville Gazette</div>
+      <div class="article-body">
+        <p>Thank you for picking up this first edition of the Skeeterville Gazette. It has been a joy to put together and we hope it becomes a beloved part of this community for a long time to come.</p>
+        <p>This paper belongs to all of you. We welcome submissions of any kind — news tips, event announcements, letters to the editor, classified ads, resident spotlights, and more. No experience necessary. If you have something to share with Skeeterville, we want to hear it.</p>
+        <p>To reach the Gazette, contact the editor directly in-world. We look forward to hearing from you and to bringing you many more editions in the weeks and months ahead.</p>
+        <p style="text-align:center; margin-top:20px;"><em>— The Editor, Skeeterville Gazette</em></p>
+      </div>
+      <hr class="section-rule">
+      <div style="text-align:center; font-family:'Old Standard TT',serif; font-size:28px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink); margin-top:12px;">The Skeeterville Gazette</div>
+      <div style="text-align:center; font-family:'Courier Prime',monospace; font-size:10px; color:var(--gold); margin-top:4px; letter-spacing:0.1em;">★ END OF EDITION ★</div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <div class="nav-bar">
+      <button class="nav-btn" id="prevBtn" onclick="changePage(-1)" disabled>◄ PREV</button>
+      <span class="page-indicator" id="pageIndicator">PAGE 1 OF 6</span>
+      <button class="nav-btn" id="nextBtn" onclick="changePage(1)">NEXT ►</button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  let current = 1;
+  const total = 6;
+
+  function changePage(dir) {
+    document.getElementById('page-' + current).classList.remove('active');
+    current += dir;
+    document.getElementById('page-' + current).classList.add('active');
+    document.getElementById('pageIndicator').textContent = 'PAGE ' + current + ' OF ' + total;
+    document.getElementById('prevBtn').disabled = current === 1;
+    document.getElementById('nextBtn').disabled = current === total;
+    window.scrollTo(0, 0);
+  }
+</script>
+
+</body>
+</html>
