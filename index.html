@@ -1023,22 +1023,32 @@ Chimera Training, Wilds, Fishing, Mining, Seasonal Quests, Combats, and Jousting
   </div>
 
   <!-- RECIPES -->
-  <div class="page-section" id="section-recipe">
-    <div class="section-label">§ Recipe Book</div>
-    <div class="section-body">
-      <h2 class="headline">The Gazette Recipe Pages</h2>
-      <div class="deck"> community cooking favourites</div>
-      <div class="byline">Contributed by Skeeterville residents &bull; Recipe Desk</div>
-      <div class="recipe-grid">
-        <div class="recipe-card" style="border:2px double var(--ink); background:rgba(255,255,255,0.4);">
-          <div style="text-align:center; font-family:'Courier Prime',monospace; font-size:10px; letter-spacing:0.2em; background:var(--red); color:var(--paper); padding:4px; margin:-14px -14px 10px -14px;">★ FEATURED RECIPE ★</div>
-          <div class="recipe-label">Classic Comfort</div>
-          <h3 style="font-size:16px; text-align:center;">Classic Baked Mac &amp; Cheese</h3>
-          <img src="recipes/Macaroni-and-Cheese.png" alt="Mac and Cheese" onclick="openLightbox(this)" onerror="this.style.display='none'">
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:4px; font-family:'Courier Prime',monospace; font-size:10px; margin-bottom:8px;">
-            <div><strong>Prep:</strong> 15 min</div><div><strong>Cook:</strong> 35 min</div>
-            <div><strong>Total:</strong> 50 min</div><div><strong>Serves:</strong> 6</div>
-          </div>
+  <!-- RECIPES -->
+<div class="page-section" id="section-recipe">
+  <div class="section-label">§ Recipe Book</div>
+  <div class="section-body">
+    <h2 class="headline">The Gazette Recipe Pages</h2>
+    <div class="deck">community cooking favourites</div>
+    <div class="byline">Contributed by Skeeterville Residents • Recipe Desk</div>
+
+    <div class="recipe-grid">
+
+      <!-- MAC & CHEESE -->
+      <div class="recipe-item" onclick="openRecipe('mac')">
+        <img src="recipes/Macaroni-and-Cheese.png" alt="Classic Baked Mac & Cheese">
+        <div class="recipe-title">Classic Baked Mac & Cheese</div>
+      </div>
+
+      <!-- GUMBO -->
+      <div class="recipe-item" onclick="openRecipe('gumbo')">
+        <img src="recipes/gumbo.jpg" alt="Swamp Gumbo">
+        <div class="recipe-title">Swamp Gumbo</div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
           <div class="recipe-desc" style="text-align:center;">Creamy, baked comfort classic with a golden breadcrumb crust.</div>
           <hr class="rule">
           <div class="recipe-label">Ingredients</div>
