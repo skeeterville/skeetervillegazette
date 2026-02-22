@@ -585,6 +585,25 @@ footer a:hover { color: var(--gold); }
 #gazette-wrap .event-meta { color: #8b1a1a !important; }
 #gazette-wrap .panel-caption { color: #1a1008 !important; background: white !important; }
 
+/* ── HIDE GOOGLE CALENDAR FOOTER ── */
+/* Wraps the iframe in a container that clips the bottom footer off */
+.calendar-wrap {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+.calendar-wrap iframe {
+  display: block;
+  margin-bottom: -60px;
+}
+.calendar-footer-cover {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 62px;
+  background: #f4ead0;
+  z-index: 10;
+}
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
   --ink: #1a1008; --paper: #f4ead0; --aged: #e8d9b8;
@@ -1042,12 +1061,15 @@ It’s shaping up to be a mighty fine week in Skeeterville.</p>
       <div class="deck">Everything happening in Skeeterville and the wider Second Life chimera community</div>
       <div class="byline">Events Desk &bull; Submit your event to be listed</div>
       <div style="margin:40px 0; border-top:3px solid #2e2a25; padding-top:30px;">
-        <iframe
-          src="https://calendar.google.com/calendar/embed?src=skeeterville2026%40gmail.com&ctz=America%2FLos_Angeles&mode=AGENDA"
-          style="border:0; width:100%; height:600px;"
-          frameborder="0"
-          scrolling="no">
-        </iframe>
+        <div class="calendar-wrap">
+          <iframe
+            src="https://calendar.google.com/calendar/embed?src=skeeterville2026%40gmail.com&ctz=America%2FLos_Angeles&mode=AGENDA&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=0&showCalendars=0&showTz=0"
+            style="border:0; width:100%; height:660px;"
+            frameborder="0"
+            scrolling="no">
+          </iframe>
+          <div class="calendar-footer-cover"></div>
+        </div>
       </div>
       <div class="submit-note">TO LIST YOUR EVENT — EMAIL <a href="mailto:skeeterville2026@gmail.com" style="text-decoration:none; font-weight:bold;">skeeterville2026@gmail.com</a> &bull; ALL COMMUNITY EVENTS LISTED FREE</div>
     </div>
@@ -1161,7 +1183,7 @@ Chief &amp; Co-Editor</p>
           <li><strong>One Promotional Image or Advertisement Graphic</strong> (attached to email)</li>
         </ul>
         <p style="margin-top:30px;">Please send all required materials to:</p>
-        <p style="font-size:18px; font-weight:bold;"><a href="mailto:skeeterville2026@gmail.com" style="color:#2e2a25; text-decoration:none;">skeeterville2026@gmail.com</a></p>
+        <p style="font-size:18px; font-weight:bold;"><a href="/cdn-cgi/l/email-protection#aeddc5cbcbdacbdcd8c7c2c2cb9c9e9c98eec9c3cfc7c280cdc1c3" style="color:#2e2a25; text-decoration:none;"><span class="__cf_email__" data-cfemail="4330282626372631352a2f2f267173717503242e222a2f6d202c2e">[email&#160;protected]</span></a></p>
         <p style="margin-top:20px; font-size:14px; color:#555;">Submissions are reviewed prior to publication. The Skeeterville Gazette reserves the right to edit content for clarity, formatting, and length. Submission does not guarantee placement.</p>
       </section>
 
@@ -1359,6 +1381,7 @@ Chief &amp; Co-Editor</p>
   <div class="popup-note">Send Isac or Roxie your name &amp; photo in-world to be listed here</div>
 </div>
 
+
 <script>
 function gazetteShowSection(name, btn) {
   document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
@@ -1387,7 +1410,6 @@ function openLightbox(img) {
 function closeLightbox() {
   document.getElementById('lightbox').style.display = 'none';
 }
-
 function showSection(name, btn) {
   document.querySelectorAll('.site-section').forEach(s => s.classList.remove('active'));
   document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
@@ -1403,16 +1425,6 @@ function closePopup(id) {
   document.getElementById(id).classList.remove('open');
   document.body.style.overflow = '';
 }
-/* fix cloudflare email cloaking - build email via JS */
-document.querySelectorAll('a[href="mailto:skeeterville2026@gmail.com"]').forEach(a => {
-  const u = 'skeeterville2026';
-  const d = 'gmail.com';
-  a.href = 'mailto:' + u + '@' + d;
-  if (a.textContent.includes('protected') || a.textContent.trim() === '') {
-    a.textContent = u + '@' + d;
-  }
-});
-
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') {
     document.querySelectorAll('.gallery-popup.open').forEach(p => {
@@ -1421,7 +1433,14 @@ document.addEventListener('keydown', e => {
     });
   }
 });
-
+window.addEventListener('load', function() {
+  document.querySelectorAll('a').forEach(a => {
+    if (a.textContent.includes('protected') || (a.href && a.href.includes('cdn-cgi'))) {
+      a.href = 'mailto:skeeterville2026@gmail.com';
+      a.textContent = 'skeeterville2026@gmail.com';
+    }
+  });
+});
 </script>
 </body>
 </html>
