@@ -1347,8 +1347,14 @@ function changeFrontPage(dir) {
   window.scrollTo(0, 0);
 }
 function openLightbox(img) {
-  if (!img
-
+  if (!img || !img.src) return;
+  const lb = document.getElementById('lightbox');
+  document.getElementById('lightbox-img').src = img.src;
+  lb.style.display = 'flex';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').style.display = 'none';
+}
 
 function showSection(name, btn) {
   document.querySelectorAll('.site-section').forEach(s => s.classList.remove('active'));
