@@ -727,66 +727,7 @@ footer a:hover { color: var(--gold); }
 #gazette-wrap .panel-caption { background:white; border-top:1.5px solid var(--ink); padding:5px 8px; font-family:'IM Fell English',serif; font-size:12px; line-height:1.4; color:var(--ink); font-style:italic; min-height:32px; }
 #gazette-wrap #lightbox { position:fixed; inset:0; background:rgba(0,0,0,0.88); display:none; align-items:center; justify-content:center; z-index:9999; cursor:pointer; }
 #gazette-wrap #lightbox img { max-width:88%; max-height:88%; border:6px solid #f4ead0; box-shadow:0 0 30px black; }
-#gazette-wrap #lightbox .lb-close { position:absolute; top:18px; right:22px; color:#f4ead0; font-size:28px; font-family:'Courier Prime',monospace; cursor:pointer; }
-/* Cookbook Recipe Upgrade */
-#gazette-wrap .recipe-item {
-  cursor: pointer;
-  text-align: center;
-}
-#gazette-wrap .recipe-item img {
-  width: 100%;
-  border: 3px solid var(--ink);
-  box-shadow: 4px 4px 0 var(--crease);
-  transition: transform 0.3s ease;
-}
-#gazette-wrap .recipe-item img:hover {
-  transform: scale(1.05);
-}
-#gazette-wrap .recipe-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 14px;
-  font-weight: 700;
-  margin-top: 8px;
-  color: var(--ink);
-}
-.cookbook-popup {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.85);
-  z-index: 9999;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
-.cookbook-popup.open {
-  display: flex;
-}
-.cookbook-card {
-  background: var(--paper);
-  color: var(--ink);
-  max-width: 600px;
-  width: 100%;
-  padding: 30px;
-  border: 6px double var(--ink);
-  box-shadow: 0 0 40px rgba(0,0,0,0.7);
-  font-family: 'IM Fell English', serif;
-  position: relative;
-}
-.cookbook-close {
-  position: absolute;
-  top: 10px;
-  right: 14px;
-  background: var(--ink);
-  color: var(--paper);
-  border: none;
-  padding: 6px 12px;
-  cursor: pointer;
-  font-family: 'Courier Prime', monospace;
-  font-size: 10px;
-}
-
-</style>
+#gazette-wrap #lightbox .lb-close { position:absolute; top:18px; right:22px; color:#f4ead0; font-size:28px; font-family:'Courier Prime',monospace; cursor:pointer; }</style>
 </head>
 <body>
 
@@ -1023,33 +964,48 @@ Chimera Training, Wilds, Fishing, Mining, Seasonal Quests, Combats, and Jousting
   </div>
 
   <!-- RECIPES -->
-  <!-- RECIPES -->
-<!-- RECIPES -->
-<div class="page-section" id="section-recipe">
-  <div class="section-label">§ Recipe Book</div>
-  <div class="section-body">
-    <h2 class="headline">The Gazette Recipe Pages</h2>
-    <div class="deck">community cooking favourites</div>
-    <div class="byline">Contributed by Skeeterville Residents • Recipe Desk</div>
-
-    <div class="recipe-grid">
-
-      <!-- MAC & CHEESE -->
-      <div class="recipe-item" onclick="openRecipe('mac')">
-        <img src="recipes/Macaroni-and-Cheese.png" alt="Classic Baked Mac & Cheese">
-        <div class="recipe-title">Classic Baked Mac & Cheese</div>
+  <div class="page-section" id="section-recipe">
+    <div class="section-label">§ Recipe Book</div>
+    <div class="section-body">
+      <h2 class="headline">The Gazette Recipe Pages</h2>
+      <div class="deck"> community cooking favourites</div>
+      <div class="byline">Contributed by Skeeterville residents &bull; Recipe Desk</div>
+      <div class="recipe-grid">
+        <div class="recipe-card" style="border:2px double var(--ink); background:rgba(255,255,255,0.4);">
+          <div style="text-align:center; font-family:'Courier Prime',monospace; font-size:10px; letter-spacing:0.2em; background:var(--red); color:var(--paper); padding:4px; margin:-14px -14px 10px -14px;">★ FEATURED RECIPE ★</div>
+          <div class="recipe-label">Classic Comfort</div>
+          <h3 style="font-size:16px; text-align:center;">Classic Baked Mac &amp; Cheese</h3>
+          <img src="recipes/Macaroni-and-Cheese.png" alt="Mac and Cheese" onclick="openLightbox(this)" onerror="this.style.display='none'">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:4px; font-family:'Courier Prime',monospace; font-size:10px; margin-bottom:8px;">
+            <div><strong>Prep:</strong> 15 min</div><div><strong>Cook:</strong> 35 min</div>
+            <div><strong>Total:</strong> 50 min</div><div><strong>Serves:</strong> 6</div>
+          </div>
+          <div class="recipe-desc" style="text-align:center;">Creamy, baked comfort classic with a golden breadcrumb crust.</div>
+          <hr class="rule">
+          <div class="recipe-label">Ingredients</div>
+          <ul>
+            <li><span>Elbow Macaroni</span><span>1½ cups</span></li>
+            <li><span>Butter</span><span>¼ cup</span></li>
+            <li><span>All-Purpose Flour</span><span>2 tbsp</span></li>
+            <li><span>Mustard Powder</span><span>1 tsp</span></li>
+            <li><span>Milk</span><span>2 cups</span></li>
+            <li><span>American Cheese</span><span>8 oz</span></li>
+            <li><span>Velveeta</span><span>8 oz</span></li>
+            <li><span>Bread Crumbs</span><span>¼ cup</span></li>
+          </ul>
+          <hr class="rule">
+          <div class="recipe-label">Directions</div>
+          <p style="font-size:12px; line-height:1.6; margin-top:6px;">Preheat oven to 400°F. Cook macaroni in salted water 6 min until slightly underdone, then drain.</p>
+          <p style="font-size:12px; line-height:1.6;">Melt butter, stir in flour, mustard, and pepper. Whisk in milk until thick. Add cheeses and stir smooth.</p>
+          <p style="font-size:12px; line-height:1.6;">Combine with noodles, pour into buttered dish, sprinkle bread crumbs, cover and bake 20–25 min until bubbly.</p>
+        </div>
+                        <div class="recipe-card">
+         
+        <div class="recipe-card"><div class="recipe-label">submitted by</div><h3>Recipe Name Here</h3><div class="recipe-desc">What does this make? What does it do?</div><ul><li><span>Ingredient One</span><span>50</span></li><li><span>Ingredient Two</span><span>25</span></li><li><span>Ingredient Three</span><span>8</span></li><li><span>Ingredient Four</span><span>3</span></li></ul></div>
+        <div class="recipe-card"><div class="recipe-label">submitted by</div><h3>Recipe Name Here</h3><div class="recipe-desc">What does this make? What does it do?</div><ul><li><span>Ingredient One</span><span>10</span></li><li><span>Ingredient Two</span><span>5</span></li><li><span>Ingredient Three</span><span>20</span></li></ul></div>
+        <div class="recipe-card"><div class="recipe-label">submitted by</div><h3>Recipe Name Here</h3><div class="recipe-desc">What does this make? What does it do?</div><ul><li><span>Ingredient One</span><span>72</span></li><li><span>Ingredient Two</span><span>63</span></li><li><span>Ingredient Three</span><span>12</span></li><li><span>Ingredient Four</span><span>1</span></li></ul></div>
+        <div class="recipe-card"><div class="recipe-label">submitted by</div><h3>Recipe Name Here</h3><div class="recipe-desc">What does this make? What does it do?</div><ul><li><span>Ingredient One</span><span>100</span></li><li><span>Ingredient Two</span><span>100</span></li><li><span>Special Item</span><span>1</span></li></ul></div>
       </div>
-
-      <!-- GUMBO -->
-      <div class="recipe-item" onclick="openRecipe('gumbo')">
-        <img src="recipes/gumbo.jpg" alt="Swamp Gumbo">
-        <div class="recipe-title">Swamp Gumbo</div>
-      </div>
-
-    </div>
-
-  </div>
-</div>
       <div class="submit-note">HAVE A RECIPE TO SHARE? CONTACT ISAC OR ROXIE DREAMCLAW IN-WORLD — WE'LL ADD IT NEXT EDITION</div>
     </div>
   </div>
@@ -1488,53 +1444,5 @@ window.addEventListener('load', function() {
   });
 });
 </script>
-
-<!-- COOKBOOK POPUP -->
-<div id="cookbookPopup" class="cookbook-popup">
-  <div class="cookbook-card">
-    <button class="cookbook-close" onclick="closeRecipe()">Close ✕</button>
-    <div id="cookbookContent"></div>
-  </div>
-</div>
-
-<script>
-const recipes = {
-  mac: `
-    <h2>Classic Baked Mac & Cheese</h2>
-    <h3>Ingredients</h3>
-    <ul>
-      <li>1½ cups elbow macaroni</li>
-      <li>¼ cup butter</li>
-      <li>2 tbsp flour</li>
-      <li>2 cups milk</li>
-      <li>8 oz cheese</li>
-    </ul>
-    <h3>Directions</h3>
-    <p>Preheat oven to 400°F. Cook macaroni slightly underdone. 
-    Make cheese sauce, combine, bake 25 minutes until golden.</p>
-  `,
-  gumbo: `
-    <h2>Swamp Gumbo</h2>
-    <h3>Ingredients</h3>
-    <ul>
-      <li>1 lb sausage</li>
-      <li>1 lb chicken</li>
-      <li>2 cups okra</li>
-      <li>4 cups broth</li>
-    </ul>
-    <h3>Directions</h3>
-    <p>Brown meat. Add okra and broth. Simmer 45 minutes. Serve over rice.</p>
-  `
-};
-
-function openRecipe(id) {
-  document.getElementById("cookbookContent").innerHTML = recipes[id];
-  document.getElementById("cookbookPopup").classList.add("open");
-}
-function closeRecipe() {
-  document.getElementById("cookbookPopup").classList.remove("open");
-}
-</script>
-
 </body>
 </html>
