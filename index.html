@@ -547,11 +547,43 @@ footer a:hover { color: var(--gold); }
    GAZETTE EMBEDDED STYLES
 ══════════════════════════ */
 #gazette-wrap {
-  background: #2a2018;
-  background-image: repeating-linear-gradient(45deg, rgba(0,0,0,0.07) 0px, rgba(0,0,0,0.07) 1px, transparent 1px, transparent 12px);
+  background: #2a2018 !important;
+  background-image: repeating-linear-gradient(45deg, rgba(0,0,0,0.07) 0px, rgba(0,0,0,0.07) 1px, transparent 1px, transparent 12px) !important;
   padding: 24px 16px;
   display: flex; flex-direction: column; align-items: center;
+  color: #1a1008;
 }
+/* Force all gazette text to be dark on light paper — prevent juke joint styles bleeding in */
+#gazette-wrap .newspaper { background: #f4ead0 !important; color: #1a1008 !important; }
+#gazette-wrap .section-body { background: #f4ead0 !important; color: #1a1008 !important; }
+#gazette-wrap p,
+#gazette-wrap li,
+#gazette-wrap span:not(.chimera-badge):not(.event-month):not(.event-day):not(.event-year),
+#gazette-wrap div:not(.section-label):not(.masthead):not(.edition-bar):not(.nav-bar):not(.meta-bar):not(.top-rule) {
+  color: #1a1008 !important;
+  opacity: 1 !important;
+}
+#gazette-wrap .section-label { background: #1a1008 !important; color: #f4ead0 !important; }
+#gazette-wrap h2, #gazette-wrap h3 { color: #1a1008 !important; }
+#gazette-wrap .deck { color: #7a5e20 !important; }
+#gazette-wrap .byline { color: #777 !important; }
+#gazette-wrap .about-title { color: #8b1a1a !important; }
+#gazette-wrap .pull-quote { color: #8b1a1a !important; }
+#gazette-wrap .submit-note { color: #7a5e20 !important; }
+#gazette-wrap .nav-btn { background: #1a1008 !important; color: #f4ead0 !important; }
+#gazette-wrap .nav-btn:disabled { background: #c9b48a !important; color: #aaa !important; }
+#gazette-wrap .page-indicator { color: #7a5e20 !important; }
+#gazette-wrap .market-tag { color: #8b1a1a !important; }
+#gazette-wrap .col-byline { color: #7a5e20 !important; }
+#gazette-wrap .recipe-label { color: #8b1a1a !important; }
+#gazette-wrap .chimera-caption { color: #1a1008 !important; }
+#gazette-wrap .chimera-caption span { color: #7a5e20 !important; }
+#gazette-wrap .friend-name { color: #1a1008 !important; }
+#gazette-wrap .friend-note { color: #7a5e20 !important; }
+#gazette-wrap .about-name { color: #1a1008 !important; }
+#gazette-wrap .event-info h3 { color: #1a1008 !important; }
+#gazette-wrap .event-meta { color: #8b1a1a !important; }
+#gazette-wrap .panel-caption { color: #1a1008 !important; background: white !important; }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
@@ -1017,7 +1049,7 @@ It’s shaping up to be a mighty fine week in Skeeterville.</p>
           scrolling="no">
         </iframe>
       </div>
-      <div class="submit-note">TO LIST YOUR EVENT — EMAIL <a href="/cdn-cgi/l/email-protection#75061e1010011007031c19191047454743351218141c195b161a18" style="text-decoration:none; font-weight:bold;"><span class="__cf_email__" data-cfemail="21524a444455445357484d4d441311131761464c40484d0f424e4c">[email&#160;protected]</span></a> &bull; ALL COMMUNITY EVENTS LISTED FREE</div>
+      <div class="submit-note">TO LIST YOUR EVENT — EMAIL <a href="mailto:skeeterville2026@gmail.com" style="text-decoration:none; font-weight:bold;">skeeterville2026@gmail.com</a> &bull; ALL COMMUNITY EVENTS LISTED FREE</div>
     </div>
   </div>
 
@@ -1129,7 +1161,7 @@ Chief &amp; Co-Editor</p>
           <li><strong>One Promotional Image or Advertisement Graphic</strong> (attached to email)</li>
         </ul>
         <p style="margin-top:30px;">Please send all required materials to:</p>
-        <p style="font-size:18px; font-weight:bold;"><a href="/cdn-cgi/l/email-protection#8efde5ebebfaebfcf8e7e2e2ebbcbebcb8cee9e3efe7e2a0ede1e3" style="color:#2e2a25; text-decoration:none;"><span class="__cf_email__" data-cfemail="ee9d858b8b9a8b9c988782828bdcdedcd8ae89838f8782c08d8183">[email&#160;protected]</span></a></p>
+        <p style="font-size:18px; font-weight:bold;"><a href="mailto:skeeterville2026@gmail.com" style="color:#2e2a25; text-decoration:none;">skeeterville2026@gmail.com</a></p>
         <p style="margin-top:20px; font-size:14px; color:#555;">Submissions are reviewed prior to publication. The Skeeterville Gazette reserves the right to edit content for clarity, formatting, and length. Submission does not guarantee placement.</p>
       </section>
 
@@ -1371,6 +1403,16 @@ function closePopup(id) {
   document.getElementById(id).classList.remove('open');
   document.body.style.overflow = '';
 }
+/* fix cloudflare email cloaking - build email via JS */
+document.querySelectorAll('a[href="mailto:skeeterville2026@gmail.com"]').forEach(a => {
+  const u = 'skeeterville2026';
+  const d = 'gmail.com';
+  a.href = 'mailto:' + u + '@' + d;
+  if (a.textContent.includes('protected') || a.textContent.trim() === '') {
+    a.textContent = u + '@' + d;
+  }
+});
+
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') {
     document.querySelectorAll('.gallery-popup.open').forEach(p => {
