@@ -727,7 +727,66 @@ footer a:hover { color: var(--gold); }
 #gazette-wrap .panel-caption { background:white; border-top:1.5px solid var(--ink); padding:5px 8px; font-family:'IM Fell English',serif; font-size:12px; line-height:1.4; color:var(--ink); font-style:italic; min-height:32px; }
 #gazette-wrap #lightbox { position:fixed; inset:0; background:rgba(0,0,0,0.88); display:none; align-items:center; justify-content:center; z-index:9999; cursor:pointer; }
 #gazette-wrap #lightbox img { max-width:88%; max-height:88%; border:6px solid #f4ead0; box-shadow:0 0 30px black; }
-#gazette-wrap #lightbox .lb-close { position:absolute; top:18px; right:22px; color:#f4ead0; font-size:28px; font-family:'Courier Prime',monospace; cursor:pointer; }</style>
+#gazette-wrap #lightbox .lb-close { position:absolute; top:18px; right:22px; color:#f4ead0; font-size:28px; font-family:'Courier Prime',monospace; cursor:pointer; }
+/* Cookbook Recipe Upgrade */
+#gazette-wrap .recipe-item {
+  cursor: pointer;
+  text-align: center;
+}
+#gazette-wrap .recipe-item img {
+  width: 100%;
+  border: 3px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--crease);
+  transition: transform 0.3s ease;
+}
+#gazette-wrap .recipe-item img:hover {
+  transform: scale(1.05);
+}
+#gazette-wrap .recipe-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  font-weight: 700;
+  margin-top: 8px;
+  color: var(--ink);
+}
+.cookbook-popup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.cookbook-popup.open {
+  display: flex;
+}
+.cookbook-card {
+  background: var(--paper);
+  color: var(--ink);
+  max-width: 600px;
+  width: 100%;
+  padding: 30px;
+  border: 6px double var(--ink);
+  box-shadow: 0 0 40px rgba(0,0,0,0.7);
+  font-family: 'IM Fell English', serif;
+  position: relative;
+}
+.cookbook-close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  background: var(--ink);
+  color: var(--paper);
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-family: 'Courier Prime', monospace;
+  font-size: 10px;
+}
+
+</style>
 </head>
 <body>
 
@@ -1477,5 +1536,53 @@ window.addEventListener('load', function() {
   });
 });
 </script>
+
+<!-- COOKBOOK POPUP -->
+<div id="cookbookPopup" class="cookbook-popup">
+  <div class="cookbook-card">
+    <button class="cookbook-close" onclick="closeRecipe()">Close ✕</button>
+    <div id="cookbookContent"></div>
+  </div>
+</div>
+
+<script>
+const recipes = {
+  mac: `
+    <h2>Classic Baked Mac & Cheese</h2>
+    <h3>Ingredients</h3>
+    <ul>
+      <li>1½ cups elbow macaroni</li>
+      <li>¼ cup butter</li>
+      <li>2 tbsp flour</li>
+      <li>2 cups milk</li>
+      <li>8 oz cheese</li>
+    </ul>
+    <h3>Directions</h3>
+    <p>Preheat oven to 400°F. Cook macaroni slightly underdone. 
+    Make cheese sauce, combine, bake 25 minutes until golden.</p>
+  `,
+  gumbo: `
+    <h2>Swamp Gumbo</h2>
+    <h3>Ingredients</h3>
+    <ul>
+      <li>1 lb sausage</li>
+      <li>1 lb chicken</li>
+      <li>2 cups okra</li>
+      <li>4 cups broth</li>
+    </ul>
+    <h3>Directions</h3>
+    <p>Brown meat. Add okra and broth. Simmer 45 minutes. Serve over rice.</p>
+  `
+};
+
+function openRecipe(id) {
+  document.getElementById("cookbookContent").innerHTML = recipes[id];
+  document.getElementById("cookbookPopup").classList.add("open");
+}
+function closeRecipe() {
+  document.getElementById("cookbookPopup").classList.remove("open");
+}
+</script>
+
 </body>
 </html>
