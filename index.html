@@ -1266,78 +1266,122 @@ Chimera Training, Wilds, Fishing, Mining, Seasonal Quests, Combats, and Jousting
     <div class="section-label">§ Recipe Book</div>
     <div class="section-body">
       <h2 class="headline">The Gazette Recipe Pages</h2>
-      <div class="deck"> community cooking favourites</div>
+      <div class="deck">Community cooking favourites — click any photo to open the full recipe</div>
       <div class="byline">Contributed by Skeeterville residents &bull; Recipe Desk</div>
-      <div class="recipe-grid">
-        <div class="recipe-card" style="border:2px double var(--ink); background:rgba(255,255,255,0.4);">
-          <div style="text-align:center; font-family:'Courier Prime',monospace; font-size:10px; letter-spacing:0.2em; background:var(--red); color:var(--paper); padding:4px; margin:-14px -14px 10px -14px;">★ FEATURED RECIPE ★</div>
-          <div class="recipe-label">Classic Comfort</div>
-          <h3 style="font-size:16px; text-align:center;">Classic Baked Mac &amp; Cheese</h3>
-          <img src="recipes/Macaroni-and-Cheese.png" alt="Mac and Cheese" onclick="openLightbox(this)" onerror="this.style.display='none'">
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:4px; font-family:'Courier Prime',monospace; font-size:10px; margin-bottom:8px;">
-            <div><strong>Prep:</strong> 15 min</div><div><strong>Cook:</strong> 35 min</div>
-            <div><strong>Total:</strong> 50 min</div><div><strong>Serves:</strong> 6</div>
+
+      <!-- RECIPE PHOTO GALLERY -->
+      <div class="recipe-gallery">
+
+        <div class="recipe-thumb" onclick="openRecipePopup('rpop-mac')">
+          <img src="recipes/Macaroni-and-Cheese.png" alt="Classic Baked Mac and Cheese" onerror="this.style.display='none'">
+          <div class="recipe-thumb-overlay">
+            <div class="recipe-thumb-tag">Classic Comfort</div>
+            <div class="recipe-thumb-name">Classic Baked Mac &amp; Cheese</div>
           </div>
-          <div class="recipe-desc" style="text-align:center;">Creamy, baked comfort classic with a golden breadcrumb crust.</div>
-          <hr class="rule">
-          <div class="recipe-label">Ingredients</div>
-          <ul>
-            <li><span>Elbow Macaroni</span><span>1½ cups</span></li>
-            <li><span>Butter</span><span>¼ cup</span></li>
-            <li><span>All-Purpose Flour</span><span>2 tbsp</span></li>
-            <li><span>Mustard Powder</span><span>1 tsp</span></li>
-            <li><span>Milk</span><span>2 cups</span></li>
-            <li><span>American Cheese</span><span>8 oz</span></li>
-            <li><span>Velveeta</span><span>8 oz</span></li>
-            <li><span>Bread Crumbs</span><span>¼ cup</span></li>
-          </ul>
-          <hr class="rule">
-          <div class="recipe-label">Directions</div>
-          <p style="font-size:12px; line-height:1.6; margin-top:6px;">Preheat oven to 400°F. Cook macaroni in salted water 6 min until slightly underdone, then drain.</p>
-          <p style="font-size:12px; line-height:1.6;">Melt butter, stir in flour, mustard, and pepper. Whisk in milk until thick. Add cheeses and stir smooth.</p>
-          <p style="font-size:12px; line-height:1.6;">Combine with noodles, pour into buttered dish, sprinkle bread crumbs, cover and bake 20–25 min until bubbly.</p>
+          <div class="recipe-thumb-badge">★ Featured</div>
         </div>
-                        <div class="recipe-card">
-          <div class="recipe-label">● Southern</div>
-          <h3>Swamp Gumbo</h3>
-          <div class="recipe-desc">Warm Up The Belly With Some Great Gumbo</div>
-        <img src="recipes/swamp-gumbo.png" alt="Swamp Gumbo" onclick="openLightbox(this)" onerror="this.style.display='none'">
-          <div class="recipe-label" style="margin-top:10px;">Ingredients</div>
-          <ul>
-          <li><span>For the Roux:</span>For the Roux:</li>
-          <li><span>1 cup all-purpose flour, , a little more may be needed</span>1 cup all-purpose flour, , a little more may be needed</li>
-          <li><span>2/3 cup oil, (vegetable or canola oil)</span>2/3 cup oil, (vegetable or canola oil)</li>
-          <li><span>For the Gumbo:</span>For the Gumbo:</li>
-          <li><span>1 bunch celery, , diced, leaves and all</span>1 bunch celery, , diced, leaves and all</li>
-          <li><span>1 green bell pepper, , diced</span>1 green bell pepper, , diced</li>
-          <li><span>1 large yellow onion, , diced</span>1 large yellow onion, , diced</li>
-          <li><span>1 bunch green onions, , finely chopped</span>1 bunch green onions, , finely chopped</li>
-          <li><span>1 bunch fresh chopped parsley, , finely chopped</span>1 bunch fresh chopped parsley, , finely chopped</li>
-          <li><span>2-3 cloves garlic</span>2-3 cloves garlic</li>
-          <li><span>1-2 Tablespoons Cajun seasoning, *</span>1-2 Tablespoons Cajun seasoning, *</li>
-          <li><span>8-10 cups chicken broth, *, you can add a little chicken bouillon paste to enhance the flavor of your chicken broth.</span>8-10 cups chicken broth, *, you can add a little chicken bouillon paste to enhance the flavor of your chicken broth.</li>
-          <li><span>12 ounce package andouille sausages, , sliced into 'coins' (substitute Polska Kielbasa if you can't find a good Andouille)</span>12 ounce package andouille sausages, , sliced into 'coins' (substitute Polska Kielbasa if you can't find a good Andouille)</li>
-          <li><span>Meat from 1 Rotisserie Chicken*</span>Meat from 1 Rotisserie Chicken*</li>
-          <li><span>2 cups Shrimp, , uncooked or pre-cooked</span>2 cups Shrimp, , uncooked or pre-cooked</li>
-          <li><span>hot cooked rice, for serving</span>hot cooked rice, for serving</li>
-          </ul>
-          <div class="recipe-label" style="margin-top:10px;">Instructions</div>
-          <div class="recipe-step"><strong>1.</strong> Instructions</div>
-          <div class="recipe-step"><strong>2.</strong> Make the Roux*: In a large, heavy bottom stock pot combine flour and oil. Cook on medium-low heat, stirring constantly for 30-45 minutes. This part takes patience--when it's finished it should be as dark as chocolate and have a soft, &quot;cookie dough&quot; like consistency. Be careful not to let it burn! Feel free to add a little more flour or oil as needed to reach this consistency.</div>
-          <div class="recipe-step"><strong>3.</strong> Brown the sausage. In a separate skillet on medium-high heat place the sausage slices in one layer in the pan. Brown them well on one side (2-3 minutes) and then use a fork to flip each over onto the other side to brown. Remove to a plate.</div>
-          <div class="recipe-step"><strong>4.</strong> Cook the vegetables in broth. Add ½ cup of the chicken broth to the hot skillet that had the sausage to deglaze the pan. Pour the broth and drippings into your large soup pot.</div>
-          <div class="recipe-step"><strong>5.</strong> Add remaining 5 ½ cups of chicken broth. Add veggies, parsley, garlic and roux to the pot and stir well.</div>
-          <div class="recipe-step"><strong>6.</strong> Bring to a boil over medium heat and boil for 5-7 minutes, or until the vegetables are slightly tender. (Skim off any foam that may rise to the top of the pot.) Stir in cajun seasoning, to taste. Add uncooked shrimp, if using and cook 2 minutes.</div>
-          <div class="recipe-step"><strong>7.</strong> Add meat. Add chicken, sausage, and pre-cooked shrimp, if using.</div>
-          <div class="recipe-step"><strong>8.</strong> Taste and serve. At this point taste it and add more seasonings to your liking--salt, pepper, chicken bullion paste, garlic, more Joe's stuff or more chicken broth--until you reach the perfect flavor. Serve warm over rice. (Tastes even better the next day!)</div>
-        <div class="recipe-credit" style="font-family:'Courier Prime',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#7a5e20;margin-top:8px;border-top:1px dashed #c9b48a;padding-top:6px;">Submitted by: roxiedreamclaw resident</div>
+
+        <div class="recipe-thumb" onclick="openRecipePopup('rpop-gumbo')">
+          <img src="recipes/swamp-gumbo.png" alt="Swamp Gumbo" onerror="this.style.display='none'">
+          <div class="recipe-thumb-overlay">
+            <div class="recipe-thumb-tag">Southern</div>
+            <div class="recipe-thumb-name">Swamp Gumbo</div>
+          </div>
         </div>
-        <div class="recipe-card"><div class="recipe-label">submitted by</div><h3>Recipe Name Here</h3><div class="recipe-desc">What does this make? What does it do?</div><ul><li><span>Ingredient One</span><span>50</span></li><li><span>Ingredient Two</span><span>25</span></li><li><span>Ingredient Three</span><span>8</span></li><li><span>Ingredient Four</span><span>3</span></li></ul></div>
-        <div class="recipe-card"><div class="recipe-label">submitted by</div><h3>Recipe Name Here</h3><div class="recipe-desc">What does this make? What does it do?</div><ul><li><span>Ingredient One</span><span>10</span></li><li><span>Ingredient Two</span><span>5</span></li><li><span>Ingredient Three</span><span>20</span></li></ul></div>
-        <div class="recipe-card"><div class="recipe-label">submitted by</div><h3>Recipe Name Here</h3><div class="recipe-desc">What does this make? What does it do?</div><ul><li><span>Ingredient One</span><span>72</span></li><li><span>Ingredient Two</span><span>63</span></li><li><span>Ingredient Three</span><span>12</span></li><li><span>Ingredient Four</span><span>1</span></li></ul></div>
-        <div class="recipe-card"><div class="recipe-label">submitted by</div><h3>Recipe Name Here</h3><div class="recipe-desc">What does this make? What does it do?</div><ul><li><span>Ingredient One</span><span>100</span></li><li><span>Ingredient Two</span><span>100</span></li><li><span>Special Item</span><span>1</span></li></ul></div>
+
       </div>
+
       <div class="submit-note">HAVE A RECIPE TO SHARE? CONTACT ISAC OR ROXIE DREAMCLAW IN-WORLD — WE'LL ADD IT NEXT EDITION</div>
+    </div>
+  </div>
+
+  <!-- RECIPE POPUPS -->
+  <div class="recipe-popup-overlay" id="rpop-mac" onclick="if(event.target===this)closeRecipePopup('rpop-mac')">
+    <div class="recipe-popup">
+      <button class="recipe-popup-close" onclick="closeRecipePopup('rpop-mac')"><span>★ Classic Baked Mac &amp; Cheese</span><span>✕ Close</span></button>
+      <div class="recipe-popup-hero"><img src="recipes/Macaroni-and-Cheese.png" alt="Mac and Cheese"></div>
+      <div class="recipe-popup-body">
+        <div class="recipe-popup-tag">● Classic Comfort</div>
+        <div class="recipe-popup-title">Classic Baked Mac &amp; Cheese</div>
+        <div class="recipe-popup-desc">Creamy, baked comfort classic with a golden breadcrumb crust.</div>
+        <div class="recipe-popup-meta">
+          <span><strong>Prep:</strong> 15 min</span>
+          <span><strong>Cook:</strong> 35 min</span>
+          <span><strong>Total:</strong> 50 min</span>
+          <span><strong>Serves:</strong> 6</span>
+        </div>
+        <div class="recipe-popup-cols">
+          <div>
+            <div class="recipe-popup-section-label">Ingredients</div>
+            <ul class="recipe-popup-ingredients">
+              <li><span>Elbow Macaroni</span><span class="qty">1½ cups</span></li>
+              <li><span>Butter</span><span class="qty">¼ cup</span></li>
+              <li><span>All-Purpose Flour</span><span class="qty">2 tbsp</span></li>
+              <li><span>Mustard Powder</span><span class="qty">1 tsp</span></li>
+              <li><span>Milk</span><span class="qty">2 cups</span></li>
+              <li><span>American Cheese</span><span class="qty">8 oz</span></li>
+              <li><span>Velveeta</span><span class="qty">8 oz</span></li>
+              <li><span>Bread Crumbs</span><span class="qty">¼ cup</span></li>
+            </ul>
+          </div>
+          <div class="recipe-popup-col-div"></div>
+          <div>
+            <div class="recipe-popup-section-label">Directions</div>
+            <div class="recipe-popup-steps">
+              <div class="recipe-popup-step"><span class="step-num">1.</span><span>Preheat oven to 400°F. Cook macaroni in salted water 6 min until slightly underdone, then drain.</span></div>
+              <div class="recipe-popup-step"><span class="step-num">2.</span><span>Melt butter, stir in flour, mustard, and pepper. Whisk in milk until thick. Add cheeses and stir smooth.</span></div>
+              <div class="recipe-popup-step"><span class="step-num">3.</span><span>Combine with noodles, pour into buttered dish, sprinkle bread crumbs, cover and bake 20–25 min until bubbly.</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="recipe-popup-overlay" id="rpop-gumbo" onclick="if(event.target===this)closeRecipePopup('rpop-gumbo')">
+    <div class="recipe-popup">
+      <button class="recipe-popup-close" onclick="closeRecipePopup('rpop-gumbo')"><span>★ Swamp Gumbo</span><span>✕ Close</span></button>
+      <div class="recipe-popup-hero"><img src="recipes/swamp-gumbo.png" alt="Swamp Gumbo"></div>
+      <div class="recipe-popup-body">
+        <div class="recipe-popup-tag">● Southern</div>
+        <div class="recipe-popup-title">Swamp Gumbo</div>
+        <div class="recipe-popup-desc">Warm Up The Belly With Some Great Gumbo — tastes even better the next day!</div>
+        <div class="recipe-popup-cols">
+          <div>
+            <div class="recipe-popup-section-label">Ingredients</div>
+            <ul class="recipe-popup-ingredients">
+              <li><span>All-purpose flour</span><span class="qty">1 cup</span></li>
+              <li><span>Vegetable or canola oil</span><span class="qty">⅔ cup</span></li>
+              <li><span>Celery, diced (leaves and all)</span><span class="qty">1 bunch</span></li>
+              <li><span>Green bell pepper, diced</span><span class="qty">1</span></li>
+              <li><span>Large yellow onion, diced</span><span class="qty">1</span></li>
+              <li><span>Green onions, finely chopped</span><span class="qty">1 bunch</span></li>
+              <li><span>Fresh parsley, finely chopped</span><span class="qty">1 bunch</span></li>
+              <li><span>Garlic cloves</span><span class="qty">2–3</span></li>
+              <li><span>Cajun seasoning</span><span class="qty">1–2 tbsp</span></li>
+              <li><span>Chicken broth</span><span class="qty">8–10 cups</span></li>
+              <li><span>Andouille sausage, sliced into coins</span><span class="qty">12 oz</span></li>
+              <li><span>Rotisserie chicken, meat pulled</span><span class="qty">1 whole</span></li>
+              <li><span>Shrimp, uncooked or pre-cooked</span><span class="qty">2 cups</span></li>
+              <li><span>Hot cooked rice, for serving</span><span class="qty">as needed</span></li>
+            </ul>
+          </div>
+          <div class="recipe-popup-col-div"></div>
+          <div>
+            <div class="recipe-popup-section-label">Directions</div>
+            <div class="recipe-popup-steps">
+              <div class="recipe-popup-step"><span class="step-num">1.</span><span>Make the Roux: In a large heavy-bottom pot combine flour and oil. Cook on medium-low, stirring constantly 30–45 minutes until dark chocolate color. Don't let it burn.</span></div>
+              <div class="recipe-popup-step"><span class="step-num">2.</span><span>Brown sausage in a skillet on medium-high, 2–3 min per side. Remove to a plate.</span></div>
+              <div class="recipe-popup-step"><span class="step-num">3.</span><span>Deglaze hot skillet with ½ cup broth. Pour broth and drippings into your large soup pot.</span></div>
+              <div class="recipe-popup-step"><span class="step-num">4.</span><span>Add remaining broth, veggies, parsley, garlic, and roux. Stir well.</span></div>
+              <div class="recipe-popup-step"><span class="step-num">5.</span><span>Bring to boil, cook 5–7 min until veggies are slightly tender. Add Cajun seasoning. Add uncooked shrimp and cook 2 more minutes.</span></div>
+              <div class="recipe-popup-step"><span class="step-num">6.</span><span>Add chicken, sausage, and pre-cooked shrimp. Taste and adjust seasoning.</span></div>
+              <div class="recipe-popup-step"><span class="step-num">7.</span><span>Serve warm over rice. Tastes even better the next day!</span></div>
+            </div>
+            <div class="recipe-popup-credit">Submitted by: Roxie Dreamclaw</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -1409,7 +1453,7 @@ Chimera Training, Wilds, Fishing, Mining, Seasonal Quests, Combats, and Jousting
           <div class="calendar-footer-cover"></div>
         </div>
       </div>
-      <div class="submit-note">TO LIST YOUR EVENT — EMAIL <a href="/cdn-cgi/l/email-protection#a4d7cfc1c1d0c1d6d2cdc8c8c196949692e4c3c9c5cdc88ac7cbc9" style="text-decoration:none; font-weight:bold;"><span class="__cf_email__" data-cfemail="a7d4ccc2c2d3c2d5d1cecbcbc295979591e7c0cac6cecb89c4c8ca">[email&#160;protected]</span></a> &bull; ALL COMMUNITY EVENTS LISTED FREE</div>
+      <div class="submit-note">TO LIST YOUR EVENT — EMAIL <a href="mailto:skeeterville2026@gmail.com" style="text-decoration:none; font-weight:bold;">skeeterville2026@gmail.com</a> &bull; ALL COMMUNITY EVENTS LISTED FREE</div>
     </div>
   </div>
 
@@ -1521,7 +1565,7 @@ Chief &amp; Co-Editor</p>
           <li><strong>One Promotional Image or Advertisement Graphic</strong> (attached to email)</li>
         </ul>
         <p style="margin-top:30px;">Please send all required materials to:</p>
-        <p style="font-size:18px; font-weight:bold;"><a href="/cdn-cgi/l/email-protection#57243c3232233225213e3b3b326567656117303a363e3b7934383a" style="color:#2e2a25; text-decoration:none;"><span class="__cf_email__" data-cfemail="deadb5bbbbaabbaca8b7b2b2bbeceeece89eb9b3bfb7b2f0bdb1b3">[email&#160;protected]</span></a></p>
+        <p style="font-size:18px; font-weight:bold;"><a href="mailto:skeeterville2026@gmail.com" style="color:#2e2a25; text-decoration:none;">skeeterville2026@gmail.com</a></p>
         <p style="margin-top:20px; font-size:14px; color:#555;">Submissions are reviewed prior to publication. The Skeeterville Gazette reserves the right to edit content for clarity, formatting, and length. Submission does not guarantee placement.</p>
       </section>
 
