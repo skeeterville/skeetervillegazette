@@ -784,8 +784,249 @@ footer a:hover { color: var(--gold); }
 #gazette-wrap .contest-submit-box h3{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--ink);margin-bottom:6px;}
 #gazette-wrap .contest-submit-box p{font-family:'IM Fell English',serif;font-size:12px;color:var(--gold);line-height:1.6;}
 </style>
+
+<script defer>
+var CONTEST_DATA = {
+  id: 'contest-1',
+  title: 'Contest Coming Soon',
+  theme: 'Stay tuned for this month\'s contest!',
+  deadline: 'TBA',
+  prize: 'Feature on the Gazette Front Page',
+  entries: []
+};
+
+function contestInit() {
+  if (!CONTEST_DATA.entries || !CONTEST_DATA.entries.length) return;
+  var t = document.getElementById('contest-title');
+  var th = document.getElementById('contest-theme');
+  var d = document.getElementById('contest-deadline');
+  var p = document.getElementById('contest-prize');
+  var c = document.getElementById('contest-entry-count');
+  if (t) t.textContent = CONTEST_DATA.title;
+  if (th) th.textContent = CONTEST_DATA.theme;
+  if (d) d.textContent = CONTEST_DATA.deadline;
+  if (p) p.textContent = CONTEST_DATA.prize;
+  if (c) c.textContent = CONTEST_DATA.entries.length;
+  contestRender();
+}
+
+function contestGetVotes() {
+  try { return JSON.parse(localStorage.getItem('gaz_v_' + CONTEST_DATA.id)) || {}; }
+  catch(e) { return {}; }
+}
+function contestSaveVotes(v) {
+  try { localStorage.setItem('gaz_v_' + CONTEST_DATA.id, JSON.stringify(v)); } catch(e) {}
+}
+function contestGetMyVote() {
+  try { return localStorage.getItem('gaz_mv_' + CONTEST_DATA.id) || null; } catch(e) { return null; }
+}
+function contestSetMyVote(entryId, username) {
+  try { localStorage.setItem('gaz_mv_' + CONTEST_DATA.id, entryId + '|' + username); } catch(e) {}
+}
+
+function contestRender() {
+  var votes = contestGetVotes();
+  var myVote = contestGetMyVote();
+  var myEntryId = myVote ? myVote.split('|')[0] : null;
+  var voted = !!myVote;
+
+  if (voted) {
+    var msg = document.getElementById('contest-already-voted');
+    var inp = document.getElementById('sl-username');
+    var lbl = document.querySelector('#contest-vote-gate label');
+    if (msg) msg.style.display = 'block';
+    if (inp) inp.style.display = 'none';
+    if (lbl) lbl.style.display = 'none';
+  }
+
+  var sorted = CONTEST_DATA.entries.slice().sort(function(a, b) {
+    return (votes[b.id] || 0) - (votes[a.id] || 0);
+  });
+  var maxV = 1;
+  CONTEST_DATA.entries.forEach(function(e) {
+    if ((votes[e.id] || 0) > maxV) maxV = votes[e.id] || 0;
+  });
+
+  var ranks = ['🥇', '🥈', '🥉'];
+  var rankCls = ['gold-rank', 'silver-rank', 'bronze-rank'];
+  var lbHtml = '';
+  sorted.forEach(function(entry, i) {
+    var v = votes[entry.id] || 0;
+    var pct = Math.round((v / maxV) * 100);
+    var row = document.createElement('div');
+    row.className = 'leaderboard-row';
+    row.innerHTML =
+      '<span class="lb-rank ' + (rankCls[i] || '') + '">' + (ranks[i] || (i + 1) + '.') + '</span>' +
+      '<span class="lb-name">' + entry.resident + '</span>' +
+      '<span class="lb-entry">' + entry.title + '</span>' +
+      '<div class="lb-bar-wrap"><div class="lb-bar ' + (i === 0 ? 'gold-bar' : '') + '" style="width:' + pct + '%"></div></div>' +
+      '<span class="lb-votes">' + v + ' vote' + (v !== 1 ? 's' : '') + '</span>';
+    lbHtml += row.outerHTML;
+  });
+  var lb = document.getElementById('contest-leaderboard');
+  if (lb && lbHtml) lb.innerHTML = lbHtml;
+
+  var topId = sorted[0] && (votes[sorted[0].id] || 0) > 0 ? sorted[0].id : null;
+  var grid = document.getElementById('contest-grid');
+  if (!grid) return;
+  grid.innerHTML = '';
+
+  if (!CONTEST_DATA.entries.length) {
+    grid.innerHTML = '<div style="font-family:\'Courier Prime\',monospace;font-size:11px;color:#9a8060;padding:10px;text-align:center;">No entries yet — check back soon!</div>';
+    return;
+  }
+
+  CONTEST_DATA.entries.forEach(function(entry) {
+    var v = votes[entry.id] || 0;
+    var isMyVote = myEntryId === entry.id;
+    var isTop = entry.id === topId;
+
+    var card = document.createElement('div');
+    card.className = 'entry-card' + (isTop ? ' winner-card' : '');
+
+    var ribbon = isTop ? '<div class="winner-ribbon">★ Leading</div>' : '';
+
+    var photoDiv = document.createElement('div');
+    photoDiv.className = 'entry-photo';
+    if (entry.photo) {
+      var img = document.createElement('img');
+      img.src = entry.photo;
+      img.alt = entry.title;
+      img.onerror = function() { this.style.display = 'none'; };
+      photoDiv.appendChild(img);
+    } else {
+      photoDiv.innerHTML = '<span style="font-size:52px;">🐉</span>';
+    }
+
+    var btnLabel = isMyVote ? '✔ Your Vote' : (voted ? '✔ Voted' : '▲ Vote');
+    var btnClass = 'btn-vote' + (isMyVote ? ' voted-btn' : '');
+
+    var info = document.createElement('div');
+    info.className = 'entry-info';
+    info.innerHTML =
+      '<div class="entry-resident">● ' + entry.resident + '</div>' +
+      '<div class="entry-title">' + entry.title + '</div>' +
+      '<div class="entry-caption">' + entry.caption + '</div>' +
+      '<div class="vote-row">' +
+        '<div class="vote-count"><strong>' + v + '</strong> vote' + (v !== 1 ? 's' : '') + '</div>' +
+        '<button class="' + btnClass + '" ' + (voted ? 'disabled' : '') + '>' + btnLabel + '</button>' +
+      '</div>';
+
+    var btn = info.querySelector('.btn-vote');
+    if (btn && !voted) {
+      btn.addEventListener('click', function() { contestCastVote(entry.id); });
+    }
+
+    card.innerHTML = ribbon;
+    card.appendChild(photoDiv);
+    card.appendChild(info);
+    grid.appendChild(card);
+  });
+}
+
+function contestCastVote(entryId) {
+  if (contestGetMyVote()) return;
+  var inp = document.getElementById('sl-username');
+  var username = inp ? inp.value.trim() : '';
+  if (!username) {
+    if (inp) {
+      inp.style.border = '2px solid #8b1a1a';
+      inp.placeholder = 'Enter your SL username first!';
+      inp.focus();
+    }
+    return;
+  }
+  var votes = contestGetVotes();
+  votes[entryId] = (votes[entryId] || 0) + 1;
+  contestSaveVotes(votes);
+  contestSetMyVote(entryId, username);
+  contestRender();
+}
+
+window.addEventListener('load', contestInit);
+
+function gazetteShowSection(name, btn) {
+  document.querySelectorAll('.page-section').forEach(function(s) { s.classList.remove('active'); });
+  document.querySelectorAll('.section-btn').forEach(function(b) { b.classList.remove('active'); });
+  document.getElementById('section-' + name).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+var frontCurrent = 1;
+var frontTotal = 2;
+
+function changeFrontPage(dir) {
+  document.getElementById('front-p' + frontCurrent).classList.remove('active');
+  frontCurrent += dir;
+  document.getElementById('front-p' + frontCurrent).classList.add('active');
+  document.getElementById('front-indicator').textContent = 'PAGE ' + frontCurrent + ' OF ' + frontTotal;
+  document.getElementById('front-prev').disabled = frontCurrent === 1;
+  document.getElementById('front-next').disabled = frontCurrent === frontTotal;
+  window.scrollTo(0, 0);
+}
+
+function openLightbox(img) {
+  if (!img || !img.src) return;
+  var lb = document.getElementById('lightbox');
+  document.getElementById('lightbox-img').src = img.src;
+  lb.style.display = 'flex';
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').style.display = 'none';
+}
+
+function openRecipePopup(id) {
+  document.getElementById(id).classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeRecipePopup(id) {
+  document.getElementById(id).classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function showSection(name, btn) {
+  document.querySelectorAll('.site-section').forEach(function(s) { s.classList.remove('active'); });
+  document.querySelectorAll('.nav-btn').forEach(function(b) { b.classList.remove('active'); });
+  document.getElementById('section-' + name).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+function openPopup(id) {
+  document.getElementById(id).classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closePopup(id) {
+  document.getElementById(id).classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.recipe-popup-overlay.open, .gallery-popup.open').forEach(function(p) {
+      p.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  }
+});
+
+window.addEventListener('load', function() {
+  document.querySelectorAll('a').forEach(function(a) {
+    if (a.textContent.includes('protected') || (a.href && a.href.includes('cdn-cgi'))) {
+      a.href = 'mailto:skeeterville2026@gmail.com';
+      a.textContent = 'skeeterville2026@gmail.com';
+    }
+  });
+});
+
+</script>
 </head>
 <body>
+
 
 
 
@@ -1168,7 +1409,7 @@ Chimera Training, Wilds, Fishing, Mining, Seasonal Quests, Combats, and Jousting
           <div class="calendar-footer-cover"></div>
         </div>
       </div>
-      <div class="submit-note">TO LIST YOUR EVENT — EMAIL <a href="/cdn-cgi/l/email-protection#7a09111f1f0e1f080c1316161f484a484c3a1d171b131654191517" style="text-decoration:none; font-weight:bold;"><span class="__cf_email__" data-cfemail="93e0f8f6f6e7f6e1e5fafffff6a1a3a1a5d3f4fef2faffbdf0fcfe">[email&#160;protected]</span></a> &bull; ALL COMMUNITY EVENTS LISTED FREE</div>
+      <div class="submit-note">TO LIST YOUR EVENT — EMAIL <a href="/cdn-cgi/l/email-protection#a4d7cfc1c1d0c1d6d2cdc8c8c196949692e4c3c9c5cdc88ac7cbc9" style="text-decoration:none; font-weight:bold;"><span class="__cf_email__" data-cfemail="a7d4ccc2c2d3c2d5d1cecbcbc295979591e7c0cac6cecb89c4c8ca">[email&#160;protected]</span></a> &bull; ALL COMMUNITY EVENTS LISTED FREE</div>
     </div>
   </div>
 
@@ -1280,7 +1521,7 @@ Chief &amp; Co-Editor</p>
           <li><strong>One Promotional Image or Advertisement Graphic</strong> (attached to email)</li>
         </ul>
         <p style="margin-top:30px;">Please send all required materials to:</p>
-        <p style="font-size:18px; font-weight:bold;"><a href="/cdn-cgi/l/email-protection#d8abb3bdbdacbdaaaeb1b4b4bdeae8eaee98bfb5b9b1b4f6bbb7b5" style="color:#2e2a25; text-decoration:none;"><span class="__cf_email__" data-cfemail="87f4ece2e2f3e2f5f1eeebebe2b5b7b5b1c7e0eae6eeeba9e4e8ea">[email&#160;protected]</span></a></p>
+        <p style="font-size:18px; font-weight:bold;"><a href="/cdn-cgi/l/email-protection#57243c3232233225213e3b3b326567656117303a363e3b7934383a" style="color:#2e2a25; text-decoration:none;"><span class="__cf_email__" data-cfemail="deadb5bbbbaabbaca8b7b2b2bbeceeece89eb9b3bfb7b2f0bdb1b3">[email&#160;protected]</span></a></p>
         <p style="margin-top:20px; font-size:14px; color:#555;">Submissions are reviewed prior to publication. The Skeeterville Gazette reserves the right to edit content for clarity, formatting, and length. Submission does not guarantee placement.</p>
       </section>
 
@@ -1524,167 +1765,5 @@ Chief &amp; Co-Editor</p>
   </div>
   <div class="popup-note">Send Isac or Roxie your name &amp; photo in-world to be listed here</div>
 </div>
-
-
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-// ══════════════════════════════════════════
-// CONTEST — edit this section each month
-// Change id each new contest to reset votes
-// ══════════════════════════════════════════
-var CONTEST_DATA = {
-  id: 'contest-1',
-  title: 'Contest Coming Soon',
-  theme: '"Stay tuned for this month\'s contest!"',
-  deadline: 'TBA',
-  prize: 'Feature on the Gazette Front Page',
-  entries: [
-    // ADD ENTRIES HERE each month using the editor tool
-    // { id:'e1', resident:'Resident Name', title:'Chimera Name', caption:'A caption.', photo:'photos/filename.png' }
-  ]
-};
-
-function contestInit() {
-  if (!CONTEST_DATA.entries || !CONTEST_DATA.entries.length) return;
-  var t=document.getElementById('contest-title'), th=document.getElementById('contest-theme'),
-      d=document.getElementById('contest-deadline'), p=document.getElementById('contest-prize'),
-      c=document.getElementById('contest-entry-count');
-  if(t) t.textContent=CONTEST_DATA.title;
-  if(th) th.textContent=CONTEST_DATA.theme;
-  if(d) d.textContent=CONTEST_DATA.deadline;
-  if(p) p.textContent=CONTEST_DATA.prize;
-  if(c) c.textContent=CONTEST_DATA.entries.length;
-  contestRender();
-}
-function contestGetVotes() {
-  try { return JSON.parse(localStorage.getItem('gaz_v_'+CONTEST_DATA.id))||{}; } catch(e){ return {}; }
-}
-function contestSaveVotes(v) {
-  try { localStorage.setItem('gaz_v_'+CONTEST_DATA.id, JSON.stringify(v)); } catch(e){}
-}
-function contestGetMyVote() {
-  try { return localStorage.getItem('gaz_mv_'+CONTEST_DATA.id)||null; } catch(e){ return null; }
-}
-function contestSetMyVote(entryId, username) {
-  try { localStorage.setItem('gaz_mv_'+CONTEST_DATA.id, entryId+'|'+username); } catch(e){}
-}
-function contestRender() {
-  var votes=contestGetVotes(), myVote=contestGetMyVote(),
-      myEntryId=myVote?myVote.split('|')[0]:null, voted=!!myVote;
-  if(voted) {
-    var msg=document.getElementById('contest-already-voted'),
-        inp=document.getElementById('sl-username'),
-        lbl=document.querySelector('#contest-vote-gate label');
-    if(msg) msg.style.display='block';
-    if(inp) inp.style.display='none';
-    if(lbl) lbl.style.display='none';
-  }
-  var sorted=CONTEST_DATA.entries.slice().sort(function(a,b){return (votes[b.id]||0)-(votes[a.id]||0);});
-  var maxV=1;
-  CONTEST_DATA.entries.forEach(function(e){ if((votes[e.id]||0)>maxV) maxV=votes[e.id]||0; });
-  var ranks=['🥇','🥈','🥉'], rankCls=['gold-rank','silver-rank','bronze-rank'];
-  var lbHtml='';
-  sorted.forEach(function(entry,i){
-    var v=votes[entry.id]||0, pct=Math.round((v/maxV)*100);
-    lbHtml+='<div class="leaderboard-row">'+
-      '<span class="lb-rank '+(rankCls[i]||'')+'">'+( ranks[i]||(i+1)+'.' )+'</span>'+
-      '<span class="lb-name">'+entry.resident+'</span>'+
-      '<span class="lb-entry">'+entry.title+'</span>'+
-      '<div class="lb-bar-wrap"><div class="lb-bar '+(i===0?'gold-bar':'')+'" style="width:'+pct+'%"></div></div>'+
-      '<span class="lb-votes">'+v+' vote'+(v!==1?'s':'')+'</span></div>';
-  });
-  var lb=document.getElementById('contest-leaderboard');
-  if(lb && lbHtml) lb.innerHTML=lbHtml;
-  var topId=sorted[0]&&(votes[sorted[0].id]||0)>0?sorted[0].id:null;
-  var gridHtml='';
-  CONTEST_DATA.entries.forEach(function(entry){
-    var v=votes[entry.id]||0, isMyVote=myEntryId===entry.id, isTop=entry.id===topId;
-    var photoHtml=entry.photo
-      ? '<img src="'+entry.photo+'" alt="'+entry.title+'" onerror="this.style.display='none'">'
-      : '<span style="font-size:52px;">🐉</span>';
-    gridHtml+='<div class="entry-card '+(isTop?'winner-card':'')+'">'+
-      (isTop?'<div class="winner-ribbon">★ Leading</div>':'')+
-      '<div class="entry-photo">'+photoHtml+'</div>'+
-      '<div class="entry-info">'+
-      '<div class="entry-resident">● '+entry.resident+'</div>'+
-      '<div class="entry-title">'+entry.title+'</div>'+
-      '<div class="entry-caption">'+entry.caption+'</div>'+
-      '<div class="vote-row">'+
-      '<div class="vote-count"><strong>'+v+'</strong> vote'+(v!==1?'s':'')+'</div>'+
-      '<button class="btn-vote '+(isMyVote?'voted-btn':'')+'" '+
-        (voted?'disabled':'')+
-        ' onclick="contestCastVote(''+entry.id+'')">'+
-        (isMyVote?'✔ Your Vote':voted?'✔ Voted':'▲ Vote')+
-      '</button></div></div></div>';
-  });
-  var grid=document.getElementById('contest-grid');
-  if(grid) grid.innerHTML=gridHtml||'<div style="font-family:'Courier Prime',monospace;font-size:11px;color:#9a8060;padding:10px;text-align:center;">No entries yet — check back soon!</div>';
-}
-function contestCastVote(entryId) {
-  if(contestGetMyVote()) return;
-  var inp=document.getElementById('sl-username'), username=inp?inp.value.trim():'';
-  if(!username) {
-    if(inp){ inp.style.border='2px solid #8b1a1a'; inp.placeholder='Enter your SL username first!'; inp.focus(); }
-    return;
-  }
-  var votes=contestGetVotes();
-  votes[entryId]=(votes[entryId]||0)+1;
-  contestSaveVotes(votes);
-  contestSetMyVote(entryId,username);
-  contestRender();
-}
-window.addEventListener('load', contestInit);
-
-function gazetteShowSection(name, btn) {
-  document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('.section-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('section-' + name).classList.add('active');
-  btn.classList.add('active');
-  window.scrollTo(0, 0);
-}
-let frontCurrent = 1;
-const frontTotal = 2;
-function changeFrontPage(dir) {
-  document.getElementById('front-p' + frontCurrent).classList.remove('active');
-  frontCurrent += dir;
-  document.getElementById('front-p' + frontCurrent).classList.add('active');
-  document.getElementById('front-indicator').textContent = 'PAGE ' + frontCurrent + ' OF ' + frontTotal;
-  document.getElementById('front-prev').disabled = frontCurrent === 1;
-  document.getElementById('front-next').disabled = frontCurrent === frontTotal;
-  window.scrollTo(0, 0);
-}
-function openLightbox(img) {
-  if (!img || !img.src) return;
-  const lb = document.getElementById('lightbox');
-  document.getElementById('lightbox-img').src = img.src;
-  lb.style.display = 'flex';
-}
-function closeLightbox() {
-  document.getElementById('lightbox').style.display = 'none';
-}
-function openRecipePopup(id) {
-  document.getElementById(id).classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeRecipePopup(id) {
-  document.getElementById(id).classList.remove('open');
-  document.body.style.overflow = '';
-}
-function showSection(name, btn) {
-  document.querySelectorAll('.site-section').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('section-' + name).classList.add('active');
-  btn.classList.add('active');
-  window.scrollTo(0, 0);
-}
-function openPopup(id) {
-  document.getElementById(id).classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closePopup(id) {
-  document.getElementById(id).classList.remove('open');
-  document.body.style.overflow = '';
-}
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') {
-    document.querySelectorAll('.recipe-popup-overlay.open, .gallery-popup.open').forEach(p => {
-      p.clas
+</body>
+</html>
