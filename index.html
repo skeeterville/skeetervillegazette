@@ -1058,12 +1058,11 @@ document.addEventListener('keydown', function(e) {
 // CONTEST VOTING SYSTEM
 // ══════════════════════════
 (function() {
-  var CONTEST_ID   = 'skeeterville-march-2026';   // ← change this each month to reset all votes
+   var CONTEST_ID   = 'skeeterville-march-2026';   // ← change this each month to reset all votes
   var VOTING_OPEN  = true;                          // ← set to false to close voting
 
   var ENTRIES = [
-    // { id:'e1', resident:'Resident Name', title:'Chimera Name', caption:'Caption here.', photo:'contests/photo1.png' },
-    // Add real entries here or use the editor tool to generate this block
+  { id:'e1', resident:'Test', title:'Eample', caption:'Got the lucky pot', photo:'examplehillbillypapa-stpatty.png' }
   ];
 
   var STORAGE_KEY = 'sv_voted_' + CONTEST_ID;
@@ -1208,7 +1207,7 @@ window.addEventListener('load', function() {
   <button class="section-btn" onclick="gazetteShowSection('events',this)">📅 Events</button>
   <button class="section-btn" onclick="gazetteShowSection('comics',this)">🗒️ Comics</button>
   <button class="section-btn" onclick="gazetteShowSection('aboutus',this)">👥 About Us</button>
-  <button class="section-btn" onclick="gazetteShowSection('contest',this)">🏆 Contest</button>
+  <button class="section-btn" onclick="gazetteShowSection('contest',this)">🏆 Chimera Contest</button>
 </div>
 
 <div class="book-wrap">
@@ -1780,9 +1779,9 @@ Chief &amp; Co-Editor</p>
     <div class="section-label">§ Community Contest</div>
     <div class="section-body">
       <div class="contest-banner">
-        <div class="contest-banner-title" id="contest-title-display">Skeeterville Community Contest</div>
-        <div class="contest-banner-theme" id="contest-theme-display">"Check back soon for our next contest!"</div>
-        <div class="contest-banner-meta" id="contest-meta-display">VOTING OPENS SOON &bull; PRIZE: FEATURE IN THE GAZETTE</div>
+        <div class="contest-banner-title" id="contest-title-display">March 2026 — Best Chimera Photo</div>
+        <div class="contest-banner-theme" id="contest-theme-display">"Show us your favourite chimera — In St -Patty Scene"</div>
+        <div class="contest-banner-meta" id="contest-meta-display">VOTING CLOSES MARCH 31 2026 · PRIZE: 250 CHIMERA GIFT CARD</div>
       </div>
       <div class="contest-voting-closed" id="contest-closed-banner" style="display:none;">
         ⚑ Voting Is Currently Closed — Thank You To Everyone Who Voted!
