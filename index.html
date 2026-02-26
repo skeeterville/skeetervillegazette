@@ -1202,7 +1202,7 @@ window.addEventListener('load', function() {
   <div id="gazette-wrap">
 <div class="section-nav">
   <button class="section-btn active" onclick="gazetteShowSection('front',this)">📰 Front Page</button>
-  <button class="section-btn" onclick="gazetteShowSection('market',this)">🏪 Market</button>
+  <button class="section-btn" onclick="gazetteShowSection('market',this)">🏪 Chimera Markets</button>
   <button class="section-btn" onclick="gazetteShowSection('recipe',this)">📜 Recipes</button>
   <button class="section-btn" onclick="gazetteShowSection('chimera',this)">📸 Time With My Chimera</button>
   <button class="section-btn" onclick="gazetteShowSection('events',this)">📅 Events</button>
@@ -1325,45 +1325,47 @@ It's shaping up to be a mighty fine month in Skeeterville.</p>
     </div>
   </div>
 
-  <!-- MARKET -->
+  <!-- CHIMERA MARKETS -->
   <div class="page-section" id="section-market">
-    <div class="section-label">§ Chimera Market Listings</div>
+    <div class="section-label">§ Chimera Markets</div>
     <div class="section-body">
-      <h2 class="headline">Skeeterville Market Guide</h2>
+      <h2 class="headline">Chimera Markets</h2>
       <div class="deck">The finest chimera markets, breeders &amp; vendors in Second Life — click the green button to teleport!</div>
       <div class="byline">Compiled by the Gazette Market Desk &bull; Updated each edition</div>
       <div class="market-grid">
+
+        <!-- CARD 1: Market Skeeterville -->
         <div class="market-card">
           <div class="market-card-img" onclick="openLightbox(this.querySelector('img'))">
-            <img src="market/market1.jpg" alt="Market 1" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'>📷 Add market1.jpg<br>to your market/ folder</div>'">
+            <img src="market/market1.jpg" alt="Market Skeeterville" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'>📷 Add market1.jpg<br>to your market/ folder</div>'">
           </div>
           <div class="market-card-body">
             <div class="market-tag">● Skeeterville Juke Joint</div>
             <h3>Market Skeeterville</h3>
-            <p>skeeterville is a place of much fun fishing traing mining and the wilds with apex Known for rare traits, good prices, friendly staff?</p>
+            <p>Skeeterville is a place of much fun — fishing, training, mining and the wilds with Apex. Known for rare traits, good prices, and friendly staff!</p>
             <div class="market-btns">
-              <a class="btn-slurl" href="http://maps.secondlife.com/secondlife/Seafoam/180/198/22"_blank">🌍 Teleport To Market (SLurl)</a>
-              <a class="btn-website" href="https://skeeterville2026.wixsite.com/skeeterville-juke-jo">🔗 Visit Their Website</a>
+              <a class="btn-slurl" href="http://maps.secondlife.com/secondlife/Seafoam/180/198/22" target="_blank">🌍 Teleport To Market (SLurl)</a>
+              <a class="btn-website" href="https://skeeterville2026.wixsite.com/skeeterville-juke-jo" target="_blank">🔗 Visit Their Website</a>
             </div>
           </div>
         </div>
-                <div class="market-card">
+
+        <!-- CARD 2: Stones Throw -->
+        <div class="market-card">
           <div class="market-card-img" onclick="openLightbox(this.querySelector('img'))">
             <img src="market/stones-throw.png" alt="Stones Throw" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'>📷 Add stones-throw.png<br>to your market/ folder</div>'">
           </div>
           <div class="market-card-body">
             <div class="market-tag">● Market</div>
             <h3>Stones Throw</h3>
-            <p>The oldest established Dragonary on the grid.
-                  COME BE PART OF THE FAMILY!
-        Pens &amp; Stores available 
-      Come on over, Whether shopping or selling
-               we've got something you need!</p>
+            <p>The oldest established Dragonary on the grid. COME BE PART OF THE FAMILY! Pens &amp; Stores available. Come on over — whether shopping or selling, we've got something you need!</p>
             <div class="market-btns">
               <a class="btn-slurl" href="http://maps.secondlife.com/secondlife/Phoenix%20Emporium/71/160/4000" target="_blank">🌍 Teleport To Market (SLurl)</a>
             </div>
           </div>
         </div>
+
+        <!-- CARD 3: Ravens Nest -->
         <div class="market-card">
           <div class="market-card-img" onclick="openLightbox(this.querySelector('img'))">
             <img src="market/ravens-nest.png" alt="Ravens Nest" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'>📷 Add ravens-nest.png<br>to your market/ folder</div>'">
@@ -1371,49 +1373,91 @@ It's shaping up to be a mighty fine month in Skeeterville.</p>
           <div class="market-card-body">
             <div class="market-tag">● Market</div>
             <h3>Ravens Nest</h3>
-            <p>Rooted in dark elegance and disciplined design, the Nest serves as both a refuge and a proving ground—supporting every stage of the Obsidian Chimera journey, from first bond to advanced competitive combat.
-
-Featuring:
-Chimera Training, Wilds, Fishing, Mining, Seasonal Quests, Combats, and Jousting in addition to Stables and Retail Rentals.</p>
+            <p>Rooted in dark elegance and disciplined design, the Nest serves as both a refuge and a proving ground — supporting every stage of the Obsidian Chimera journey. Featuring: Chimera Training, Wilds, Fishing, Mining, Seasonal Quests, Combats, Jousting, Stables and Retail Rentals.</p>
             <div class="market-btns">
               <a class="btn-slurl" href="https://maps.secondlife.com/secondlife/Raven%20Crest/37/8/22" target="_blank">🌍 Teleport To Market (SLurl)</a>
               <a class="btn-website" href="https://raevynscrestsl.wordpress.com/" target="_blank">🔗 Visit Their Website</a>
             </div>
           </div>
         </div>
+
+        <!-- CARD 4: Arizona's Chimeras -->
         <div class="market-card">
           <div class="market-card-img" onclick="openLightbox(this.querySelector('img'))">
-            <img src="market/market4.jpg" alt="Market 4" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'>📷 Add market4.jpg<br>to your market/ folder</div>'">
-          </div>
-                  <div class="market-card">
-          <div class="market-card-img" onclick="openLightbox(this.querySelector('img'))">
-            <img src="market/Arizonas-Chimeras .png" alt="🌵 ARIZONA’S CHIMERAS 🌵" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'>📷 Add Arizonas-Chimeras .png<br>to your market/ folder</div>'">
+            <img src="market/Arizonas-Chimeras.png" alt="Arizona's Chimeras" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'>📷 Add Arizonas-Chimeras.png<br>to your market/ folder</div>'">
           </div>
           <div class="market-card-body">
             <div class="market-tag">● Chimera Market</div>
-            <h3>🌵 ARIZONA’S CHIMERAS 🌵</h3>
-            <p>🌵 ARIZONA’S CHIMERAS 🌵
-Owned by Ringo &amp; Madie
-Experience a stunning Arizona-themed sim featuring two incredible fishing locations, breathtaking scenery, and a warm, friendly community. Whether you’re here to relax, compete, or grow your skills — there’s something for everyone!
-✨ What We Offer:
-🎣 Training Fishing • Wilds • Apex
-🛍️ Rental Sale Stalls
-⚔️ Circuit Battles
-⛏️ Mining
-🐾 Chimera Vendors
-🎣 Fishing Vendors
-🧼 Cleaning Tables
-✨ What We Offer Circuits:
-Monday &amp; Tuesday 430 pm slt 
-        Circuits 1-4
-Come explore, meet great people, and check out all our amazing sellers.
-Stop by and say hello — your next adventure starts here!</p>
+            <h3>🌵 Arizona's Chimeras 🌵</h3>
+            <p>Owned by Ringo &amp; Madie. Experience a stunning Arizona-themed sim featuring two incredible fishing locations, breathtaking scenery, and a warm, friendly community. Offering: Training Fishing • Wilds • Apex • Rental Sale Stalls • Circuit Battles • Mining • Chimera Vendors • Fishing Vendors • Cleaning Tables. Circuits: Monday &amp; Tuesday 4:30 PM SLT — Circuits 1–4. Come explore, meet great people, and stop by and say hello — your next adventure starts here!</p>
             <div class="market-btns">
               <a class="btn-slurl" href="https://maps.secondlife.com/secondlife/Serena%20Anthea/233/214/26" target="_blank">🌍 Teleport To Market (SLurl)</a>
             </div>
           </div>
         </div>
-      <div class="submit-note">TO LIST YOUR MARKET — CONTACT ISAC OR ROXIE DREAMCLAW IN-WORLD &bull; LISTINGS ARE FREE &bull; </div>
+
+        <!-- CARD 5: Empty slot -->
+        <div class="market-card" style="border:1px dashed rgba(26,16,8,0.25);opacity:0.5;">
+          <div class="market-card-img" style="background:var(--aged);display:flex;align-items:center;justify-content:center;">
+            <div class="img-placeholder">📷 Add your image<br>to your market/ folder</div>
+          </div>
+          <div class="market-card-body">
+            <div class="market-tag">● New Listing</div>
+            <h3>Market Name Here</h3>
+            <p>Use the editor tool to generate a market card, or copy this block and fill in the details.</p>
+            <div class="market-btns">
+              <a class="btn-slurl" href="#" target="_blank">🌍 Teleport To Market (SLurl)</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 6: Empty slot -->
+        <div class="market-card" style="border:1px dashed rgba(26,16,8,0.25);opacity:0.5;">
+          <div class="market-card-img" style="background:var(--aged);display:flex;align-items:center;justify-content:center;">
+            <div class="img-placeholder">📷 Add your image<br>to your market/ folder</div>
+          </div>
+          <div class="market-card-body">
+            <div class="market-tag">● New Listing</div>
+            <h3>Market Name Here</h3>
+            <p>Use the editor tool to generate a market card, or copy this block and fill in the details.</p>
+            <div class="market-btns">
+              <a class="btn-slurl" href="#" target="_blank">🌍 Teleport To Market (SLurl)</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 7: Empty slot -->
+        <div class="market-card" style="border:1px dashed rgba(26,16,8,0.25);opacity:0.5;">
+          <div class="market-card-img" style="background:var(--aged);display:flex;align-items:center;justify-content:center;">
+            <div class="img-placeholder">📷 Add your image<br>to your market/ folder</div>
+          </div>
+          <div class="market-card-body">
+            <div class="market-tag">● New Listing</div>
+            <h3>Market Name Here</h3>
+            <p>Use the editor tool to generate a market card, or copy this block and fill in the details.</p>
+            <div class="market-btns">
+              <a class="btn-slurl" href="#" target="_blank">🌍 Teleport To Market (SLurl)</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 8: Empty slot -->
+        <div class="market-card" style="border:1px dashed rgba(26,16,8,0.25);opacity:0.5;">
+          <div class="market-card-img" style="background:var(--aged);display:flex;align-items:center;justify-content:center;">
+            <div class="img-placeholder">📷 Add your image<br>to your market/ folder</div>
+          </div>
+          <div class="market-card-body">
+            <div class="market-tag">● New Listing</div>
+            <h3>Market Name Here</h3>
+            <p>Use the editor tool to generate a market card, or copy this block and fill in the details.</p>
+            <div class="market-btns">
+              <a class="btn-slurl" href="#" target="_blank">🌍 Teleport To Market (SLurl)</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="submit-note">TO LIST YOUR MARKET — CONTACT ISAC OR ROXIE DREAMCLAW IN-WORLD &bull; LISTINGS ARE FREE</div>
     </div>
   </div>
 
