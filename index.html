@@ -804,6 +804,181 @@ footer a:hover { color: var(--gold); }
 .step-num { font-family:'Old Standard TT',serif; font-weight:700; font-size:15px; color:var(--red); min-width:22px; }
 .recipe-popup-credit { font-family:'Courier Prime',monospace; font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); margin-top:14px; border-top:1px dashed var(--crease); padding-top:10px; }
 
+/* ══════════════════════════
+   FEATURED SPOTLIGHTS — Front Page
+══════════════════════════ */
+#gazette-wrap .spotlight-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 16px 0 4px 0;
+}
+@media (max-width: 560px) { #gazette-wrap .spotlight-row { grid-template-columns: 1fr; } }
+#gazette-wrap .spotlight-card {
+  border: 2px solid var(--ink);
+  background: rgba(255,255,255,0.25);
+  display: flex; flex-direction: column;
+  box-shadow: 3px 3px 0 var(--crease);
+  overflow: hidden;
+}
+#gazette-wrap .spotlight-img {
+  width: 100%; aspect-ratio: 16/9; overflow: hidden;
+  background: var(--aged); cursor: pointer;
+  border-bottom: 2px solid var(--ink);
+}
+#gazette-wrap .spotlight-img img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: sepia(15%) contrast(105%);
+  transition: transform 0.35s;
+  display: block;
+}
+#gazette-wrap .spotlight-img:hover img { transform: scale(1.05); }
+#gazette-wrap .spotlight-body { padding: 10px 12px; flex: 1; display: flex; flex-direction: column; }
+#gazette-wrap .spotlight-label {
+  font-family: 'Courier Prime', monospace;
+  font-size: 8px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--red);
+  border-bottom: 1px solid var(--crease);
+  padding-bottom: 4px; margin-bottom: 6px;
+}
+#gazette-wrap .spotlight-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px; font-weight: 700;
+  color: var(--ink); margin-bottom: 5px;
+}
+#gazette-wrap .spotlight-desc {
+  font-family: 'IM Fell English', serif;
+  font-style: italic; font-size: 12px;
+  line-height: 1.65; color: var(--ink);
+  flex: 1; margin-bottom: 8px;
+}
+#gazette-wrap .spotlight-btns { display: flex; flex-direction: column; gap: 5px; margin-top: auto; }
+#gazette-wrap .spotlight-img-placeholder {
+  width: 100%; aspect-ratio: 16/9;
+  background: var(--aged); border-bottom: 2px solid var(--ink);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Courier Prime', monospace; font-size: 10px;
+  color: var(--crease); text-align: center; padding: 10px;
+}
+
+/* ══════════════════════════
+   SUPPORTER SLURL BUTTON
+══════════════════════════ */
+.supporter-slurl {
+  display: inline-block;
+  font-family: 'Courier Prime', monospace;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  text-decoration: none; padding: 8px 16px;
+  background: #4a6741; color: var(--cream);
+  transition: background 0.2s;
+  margin-top: 4px; text-align: center; width: 100%;
+}
+.supporter-slurl:hover { background: #2e4028; }
+
+/* ══════════════════════════
+   CONTEST SECTION
+══════════════════════════ */
+#gazette-wrap .contest-banner {
+  background: var(--ink); color: var(--paper);
+  padding: 14px 18px; text-align: center;
+  border-bottom: 3px double var(--crease);
+  margin-bottom: 18px;
+}
+#gazette-wrap .contest-banner-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(16px, 3.5vw, 22px);
+  font-weight: 900; color: var(--crease);
+  margin-bottom: 4px;
+}
+#gazette-wrap .contest-banner-theme {
+  font-family: 'IM Fell English', serif;
+  font-style: italic; font-size: 13px;
+  color: rgba(244,234,208,0.7);
+  margin-bottom: 8px;
+}
+#gazette-wrap .contest-banner-meta {
+  font-family: 'Courier Prime', monospace;
+  font-size: 9px; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--crease);
+  opacity: 0.6;
+}
+#gazette-wrap .contest-voting-closed {
+  font-family: 'Courier Prime', monospace;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--red); text-align: center;
+  padding: 8px; background: rgba(139,26,26,0.08);
+  border: 1px solid rgba(139,26,26,0.25);
+  margin-bottom: 16px;
+}
+#gazette-wrap .contest-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 18px; margin-top: 4px;
+}
+#gazette-wrap .contest-card {
+  border: 2px solid var(--ink);
+  background: rgba(255,255,255,0.2);
+  box-shadow: 3px 3px 0 var(--crease);
+  overflow: hidden;
+  display: flex; flex-direction: column;
+}
+#gazette-wrap .contest-photo {
+  width: 100%; aspect-ratio: 4/3; overflow: hidden;
+  background: var(--aged); cursor: pointer;
+  border-bottom: 2px solid var(--ink);
+}
+#gazette-wrap .contest-photo img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: sepia(10%) contrast(105%);
+  transition: transform 0.35s; display: block;
+}
+#gazette-wrap .contest-photo:hover img { transform: scale(1.07); }
+#gazette-wrap .contest-card-body {
+  padding: 10px 12px; flex: 1;
+  display: flex; flex-direction: column;
+}
+#gazette-wrap .contest-entry-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 14px; font-weight: 700; color: var(--ink);
+  margin-bottom: 2px;
+}
+#gazette-wrap .contest-entry-resident {
+  font-family: 'Courier Prime', monospace;
+  font-size: 9px; letter-spacing: 0.08em;
+  color: var(--gold); text-transform: uppercase;
+  margin-bottom: 5px;
+}
+#gazette-wrap .contest-entry-caption {
+  font-family: 'IM Fell English', serif;
+  font-style: italic; font-size: 12px;
+  color: var(--ink); flex: 1; margin-bottom: 8px;
+  line-height: 1.5;
+}
+#gazette-wrap .contest-vote-count {
+  font-family: 'Courier Prime', monospace;
+  font-size: 10px; letter-spacing: 0.08em;
+  color: var(--gold); margin-bottom: 6px;
+  text-align: center;
+}
+#gazette-wrap .btn-contest-vote {
+  width: 100%; padding: 7px;
+  font-family: 'Courier Prime', monospace;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  background: var(--red); color: var(--paper);
+  border: none; cursor: pointer;
+  transition: background 0.2s;
+}
+#gazette-wrap .btn-contest-vote:hover { background: #6a1010; }
+#gazette-wrap .btn-contest-vote.voted {
+  background: var(--gold); color: var(--ink); cursor: default;
+}
+#gazette-wrap .btn-contest-vote:disabled {
+  background: var(--crease); color: #888; cursor: default;
+}
+
 </style>
 
 <script defer>
@@ -874,8 +1049,106 @@ document.addEventListener('keydown', function(e) {
       p.classList.remove('open');
       document.body.style.overflow = '';
     });
+    var cl = document.getElementById('contest-lightbox');
+    if (cl) cl.style.display = 'none';
   }
 });
+
+// ══════════════════════════
+// CONTEST VOTING SYSTEM
+// ══════════════════════════
+(function() {
+  var CONTEST_ID   = 'skeeterville-march-2026';   // ← change this each month to reset all votes
+  var VOTING_OPEN  = true;                          // ← set to false to close voting
+
+  var ENTRIES = [
+    // { id:'e1', resident:'Resident Name', title:'Chimera Name', caption:'Caption here.', photo:'contests/photo1.png' },
+    // Add real entries here or use the editor tool to generate this block
+  ];
+
+  var STORAGE_KEY = 'sv_voted_' + CONTEST_ID;
+
+  function getVotes() {
+    try { return JSON.parse(localStorage.getItem('sv_votes_' + CONTEST_ID) || '{}'); } catch(e) { return {}; }
+  }
+  function saveVotes(v) {
+    try { localStorage.setItem('sv_votes_' + CONTEST_ID, JSON.stringify(v)); } catch(e) {}
+  }
+  function hasVoted() {
+    try { return localStorage.getItem(STORAGE_KEY) === '1'; } catch(e) { return false; }
+  }
+  function recordVote(entryId) {
+    var votes = getVotes();
+    votes[entryId] = (votes[entryId] || 0) + 1;
+    saveVotes(votes);
+    try { localStorage.setItem(STORAGE_KEY, '1'); } catch(e) {}
+  }
+
+  function renderContest() {
+    var wrap = document.getElementById('contest-entries-wrap');
+    if (!wrap) return;
+    var votes = getVotes();
+    var voted = hasVoted();
+
+    if (ENTRIES.length === 0) {
+      wrap.innerHTML = '<div class="submit-note" style="padding:30px 0;">Contest entries will be posted soon — check back!</div>';
+      return;
+    }
+
+    var html = '<div class="contest-grid">';
+    ENTRIES.forEach(function(e) {
+      var count = votes[e.id] || 0;
+      var myVote = voted && (localStorage.getItem(STORAGE_KEY + '_for') === e.id);
+      var btnLabel = myVote ? '★ You Voted For This' : '♥ Vote For This Entry';
+      var btnClass = myVote ? 'btn-contest-vote voted' : 'btn-contest-vote';
+      var btnDisabled = (!VOTING_OPEN || voted) && !myVote ? 'disabled' : '';
+      var photoHtml = e.photo
+        ? '<img src="' + e.photo + '" alt="' + e.title + '" onclick="openContestPhoto(\'' + e.photo.replace(/'/g,"\\'") + '\',\'' + e.title.replace(/'/g,"\\'") + '\')">'
+        : '<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:\'Courier Prime\',monospace;font-size:10px;color:#c9b48a;">No photo yet</div>';
+      var voteBtn = VOTING_OPEN
+        ? '<button class="' + btnClass + '" ' + btnDisabled + ' onclick="castVote(\'' + e.id + '\')">' + btnLabel + '</button>'
+        : '';
+      html += '<div class="contest-card">';
+      html += '<div class="contest-photo">' + photoHtml + '</div>';
+      html += '<div class="contest-card-body">';
+      html += '<div class="contest-entry-name">' + e.title + '</div>';
+      html += '<div class="contest-entry-resident">By ' + e.resident + '</div>';
+      if (e.caption) html += '<div class="contest-entry-caption">' + e.caption + '</div>';
+      html += '<div class="contest-vote-count" id="vc-' + e.id + '">♥ ' + count + ' vote' + (count === 1 ? '' : 's') + '</div>';
+      html += voteBtn;
+      html += '</div></div>';
+    });
+    html += '</div>';
+    wrap.innerHTML = html;
+
+    // Show closed banner if voting off
+    var closedBanner = document.getElementById('contest-closed-banner');
+    if (closedBanner) closedBanner.style.display = VOTING_OPEN ? 'none' : 'block';
+  }
+
+  window.castVote = function(entryId) {
+    if (!VOTING_OPEN || hasVoted()) return;
+    recordVote(entryId);
+    try { localStorage.setItem(STORAGE_KEY + '_for', entryId); } catch(e) {}
+    renderContest();
+  };
+
+  window.openContestPhoto = function(src, title) {
+    var lb = document.getElementById('contest-lightbox');
+    var lbImg = document.getElementById('contest-lightbox-img');
+    if (!lb || !lbImg) return;
+    lbImg.src = src; lbImg.alt = title;
+    lb.style.display = 'flex';
+    lb.style.alignItems = 'center';
+    lb.style.justifyContent = 'center';
+  };
+  window.closeContestLightbox = function() {
+    var lb = document.getElementById('contest-lightbox');
+    if (lb) lb.style.display = 'none';
+  };
+
+  document.addEventListener('DOMContentLoaded', renderContest);
+})();
 
 window.addEventListener('load', function() {
   document.querySelectorAll('a').forEach(function(a) {
@@ -935,7 +1208,7 @@ window.addEventListener('load', function() {
   <button class="section-btn" onclick="gazetteShowSection('events',this)">📅 Events</button>
   <button class="section-btn" onclick="gazetteShowSection('comics',this)">🗒️ Comics</button>
   <button class="section-btn" onclick="gazetteShowSection('aboutus',this)">👥 About Us</button>
-
+  <button class="section-btn" onclick="gazetteShowSection('contest',this)">🏆 Contest</button>
 </div>
 
 <div class="book-wrap">
@@ -968,40 +1241,21 @@ window.addEventListener('load', function() {
     <div class="page-content active" id="front-p1">
       <div class="section-body">
         <h2 class="headline" style="text-align:center;border-bottom:3px double var(--ink);padding-bottom:12px;margin-bottom:14px;">
-          Welcome To The First Sunday Edition<br>Of The Skeeterville Gazette!
+          Welcome To The Community Monthly<br>Chimera Spotlights!
         </h2>
         <div class="columns-2">
           <div class="col">
-            <div class="col-byline">By Isac &amp; Roxie Dreamclaw &bull; Editors</div>
-            <h3>A Word From Your Editors</h3>
-            <p>Well now… gather ‘round, good folks of Skeeterville,
-We’re mighty proud to lay before you the very first Sunday edition of The Skeeterville Gazette — printed straight from the heart of our little patch of bayou in Second Life.
-This ain’t some big city paper.
-
-It’s porch-talk in print.
-
-It’s dock-side stories and juke joint laughter set down in ink.
-Each month we’ll be bringing you the happenings of home — community news, market listings, fish tales (the honest and the not-so-honest kind), recipes passed down the line, upcoming events, snapshots of familiar faces, and comic strips to make you grin like a gator in the sun.
-If it’s whispered over coffee, hollered across the swamp, or sung under the string lights — it belongs here.
-This paper belongs to all of us — the residents, the wanderers, the friends who pulled up a chair and decided to stay awhile.
-So don’t be shy.
-Send us your stories.
-
-Share your photos.
-
-Tell us about your shop, your event, your big catch, or your tall tale.
-Reach out to us in-world and let’s keep the bayou talking.
-Because in Skeeterville, we look out for our own —
-
-and now we’ve got the paper to prove it.
-Est. 2026 — Inked slow, dried in the swamp air.</p>
-           
-            <p>Submit your stories, listings, photos, recipes and events by reaching out to us in-world. The Gazette belongs to all of us.</p>
+            <div class="col-byline">Chimera Community &bull; Monthly Roundup</div>
+            <h3>Chimera Community News</h3>
+            <p>Welcome to your monthly roundup of everything happening in the Skeeterville chimera community! Each month we bring you the latest news, highlights, and happenings from around our little patch of bayou and beyond.</p>
+            <p>Whether it's a new chimera making their debut, a big catch at the fishing hole, a milestone reached at the training grounds, or a story worth tellin' — this is where it lives.</p>
+            <p>Got chimera news to share? A milestone, a rare trait, a funny moment with your breedable that the whole community needs to hear about? Reach out to Isac or Roxie Dreamclaw in-world and we'll get it in the next edition.</p>
+            <p>This paper belongs to all of us — the residents, the wanderers, the chimera lovers, and the friends who pulled up a chair and decided to stay awhile. The Gazette belongs to all of us.</p>
           </div>
           <div class="col-div"></div>
           <div class="col">
-            <h3>This Week In Skeeterville</h3>
-            <p>This Week in Skeeterville
+            <h3>Skeeterville Monthly Happenings</h3>
+            <p>The fish are bitin' and the docks are buzzin'…
 
 The fish are bitin’ and the docks are buzzin’…
 
@@ -1018,34 +1272,56 @@ Bring your coin purse.
 Bring your nerve.
 And maybe practice that winning smile.
 
-It’s shaping up to be a mighty fine week in Skeeterville.</p>
+It's shaping up to be a mighty fine month in Skeeterville.</p>
            
-            <div class="pull-quote" style="font-size:13px;padding:8px;">"Skeeterville — where every avatar has a story."</div>
-            <p>Click the tabs above to explore all sections of this week's paper.</p>
+            <div class="pull-quote" style="font-size:13px;padding:8px;">&ldquo;Skeeterville &mdash; where every avatar has a story.&rdquo;</div>
+            <div style="border:2px solid var(--ink);background:rgba(255,255,255,0.15);padding:10px 14px;margin:12px 0;box-shadow:2px 2px 0 var(--crease);">
+              <div style="font-family:'Courier Prime',monospace;font-size:8px;letter-spacing:0.2em;text-transform:uppercase;color:var(--red);margin-bottom:5px;">★ Joke of the Month ★</div>
+              <div style="font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:var(--ink);margin-bottom:6px;">Why did the chimera sit on the clock?</div>
+              <div style="font-family:'IM Fell English',serif;font-style:italic;font-size:12px;color:var(--gold);">Because she wanted to be on time for the fishing contest!</div>
+            </div>
+            <p>Click the tabs above to explore all sections of this month's paper.</p>
+          </div>
+        </div>
+
+        <!-- FEATURED SPOTLIGHTS -->
+        <div style="border-top:3px double var(--ink);margin-top:16px;padding-top:14px;">
+          <div style="font-family:'Old Standard TT',serif;font-size:11px;letter-spacing:0.25em;text-transform:uppercase;text-align:center;color:var(--gold);margin-bottom:12px;">★ This Month's Community Spotlights ★</div>
+          <div class="spotlight-row">
+
+            <!-- FEATURED STORE -->
+            <div class="spotlight-card">
+              <div class="spotlight-img" onclick="openLightbox(this.querySelector('img'))">
+                <img src="market/featured-store.jpg" alt="Featured Store" onerror="this.parentElement.outerHTML='<div class=\'spotlight-img-placeholder\'>📷 Add featured-store.jpg to your market/ folder</div>'">
+              </div>
+              <div class="spotlight-body">
+                <div class="spotlight-label">⭐ Featured Store of the Month</div>
+                <div class="spotlight-name">Store Name Here</div>
+                <div class="spotlight-desc">Add a short description about this featured store — what makes them special, what they sell, why the community loves them.</div>
+                <div class="spotlight-btns">
+                  <a class="btn-slurl" href="secondlife://PASTE-REGION/X/Y/Z" target="_blank">🌍 Teleport To Their Store</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- FEATURED BREEDER -->
+            <div class="spotlight-card">
+              <div class="spotlight-img" onclick="openLightbox(this.querySelector('img'))">
+                <img src="photos/featured-breeder.jpg" alt="Featured Breeder" onerror="this.parentElement.outerHTML='<div class=\'spotlight-img-placeholder\'>📷 Add featured-breeder.jpg to your photos/ folder</div>'">
+              </div>
+              <div class="spotlight-body">
+                <div class="spotlight-label">🐾 Featured Chimera Breeder of the Month</div>
+                <div class="spotlight-name">Breeder Name Here</div>
+                <div class="spotlight-desc">Add a short blurb about this month's featured chimera breeder — their specialty, their chimeras, what makes their work stand out in the community.</div>
+                <div class="spotlight-btns">
+                  <a class="btn-slurl" href="secondlife://PASTE-REGION/X/Y/Z" target="_blank">🌍 Visit Their Chimeras</a>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
-    </div>
-    <div class="page-content" id="front-p2">
-      <div class="section-body">
-        <h2 class="headline">Community News</h2>
-        <div class="deck">Stories from around Skeeterville and beyond</div>
-        <div class="byline">Staff Reporter &bull; Community Desk</div>
-        <div class="body-text">
-          <p>Skeeterville Juke Joint Comes Alive: Community Spirit Stronger Than Ever</p>
-          <p>SKEETERVILLE Juke Joint — If you wandered down past the old dock lights this week, you already know… Skeeterville ain't slowing down anytime soon.</p>
-          <p>From sunrise fishing lines stretching across the water to the late-night jukebox humming out of the Juke Joint, the town has been buzzing with more activity than a summer swamp at dusk.</p>
-          <p>The fishing areas have seen record turnout, with both new faces and longtime locals casting lines and swapping tall tales about "the one that got away." Meanwhile, over at the training grounds, friendly rivalries have sparked up again as folks sharpen their skills for the upcoming jousting matches and elder fights.</p>
-          <p>Store rentals are filling fast along the main stretch, with merchants bringing everything from custom Stones and Lives. Be sure to stop by these wonderful shops. The mining and the wilds have also seen a spike in brave souls looking to strike it lucky.</p>
-          <p>And let's not forget the heart of Skeeterville — the Juke Joint. On any given night, laughter spills out onto the boardwalk as music rolls across the water. New friendships are forming, old ones are getting stronger, and the spirit of this community keeps shining brighter than the lanterns over the bayou.</p>
-          <p>One thing's for sure: Skeeterville isn't just a place on the map — it's a way of life. Stay tuned to the Skeeterville Gazette for upcoming event announcements, spotlight interviews, and a special feature next week.</p>
-        </div>
-      </div>
-    </div>
-    <div class="nav-bar">
-      <button class="nav-btn" id="front-prev" onclick="changeFrontPage(-1)" disabled>◄ PREV</button>
-      <span class="page-indicator" id="front-indicator">PAGE 1 OF 2</span>
-      <button class="nav-btn" id="front-next" onclick="changeFrontPage(1)">NEXT ►</button>
     </div>
   </div>
 
@@ -1252,7 +1528,7 @@ Chimera Training, Wilds, Fishing, Mining, Seasonal Quests, Combats, and Jousting
   <div class="page-section" id="section-chimera">
     <div class="section-label">§ Time With My Chimera</div>
     <div class="section-body">
-      <h2 class="headline">Time With My Chimera</h2>
+      <h2 class="headline">Time With My Chimera <a href="/cdn-cgi/l/email-protection#84f7efe1e1f0e1f6f2ede8e8e1b6b4b6b2c4e3e9e5ede8aae7ebe9" style="font-family:'Courier Prime',monospace;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);text-decoration:none;border:1px solid var(--crease);padding:3px 10px;vertical-align:middle;margin-left:10px;">📷 Submit a Photo</a></h2>
       <div class="deck">A Sunday showcase of Skeeterville's most beloved companions</div>
       <div class="byline">Community Submissions &bull; Photo Desk</div>
       <div class="chimera-magazine">
@@ -1294,7 +1570,7 @@ Chimera Training, Wilds, Fishing, Mining, Seasonal Quests, Combats, and Jousting
           <div class="chimera-caption">Caption for this chimera<span>Owner: Resident Name</span></div>
         </div>
       </div>
-      <div class="submit-note">TO SUBMIT YOUR CHIMERA PHOTO — CONTACT ISAC OR ROXIE DREAMCLAW IN-WORLD</div>
+      <div class="submit-note">📷 SUBMIT YOUR CHIMERA PHOTO — EMAIL <a href="/cdn-cgi/l/email-protection#0f7c646a6a7b6a7d796663636a3d3f3d394f68626e6663216c6062" style="color:var(--gold);font-weight:700;"><span class="__cf_email__" data-cfemail="5c2f37393928392e2a353030396e6c6e6a1c3b313d3530723f3331">[email&#160;protected]</span></a> WITH YOUR PHOTO &amp; CHIMERA'S NAME · ALL WELCOME</div>
     </div>
   </div>
 
@@ -1438,6 +1714,30 @@ Chief &amp; Co-Editor</p>
 
 
 
+  <!-- CONTEST -->
+  <div class="page-section" id="section-contest">
+    <div class="section-label">§ Community Contest</div>
+    <div class="section-body">
+      <div class="contest-banner">
+        <div class="contest-banner-title" id="contest-title-display">Skeeterville Community Contest</div>
+        <div class="contest-banner-theme" id="contest-theme-display">"Check back soon for our next contest!"</div>
+        <div class="contest-banner-meta" id="contest-meta-display">VOTING OPENS SOON &bull; PRIZE: FEATURE IN THE GAZETTE</div>
+      </div>
+      <div class="contest-voting-closed" id="contest-closed-banner" style="display:none;">
+        ⚑ Voting Is Currently Closed — Thank You To Everyone Who Voted!
+      </div>
+      <div id="contest-entries-wrap"></div>
+
+      <!-- Contest photo lightbox (separate from gazette lightbox) -->
+      <div id="contest-lightbox" onclick="closeContestLightbox()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.9);z-index:9999;cursor:pointer;">
+        <span style="position:absolute;top:18px;right:22px;color:#f4ead0;font-size:28px;font-family:'Courier Prime',monospace;cursor:pointer;" onclick="closeContestLightbox()">✕</span>
+        <img id="contest-lightbox-img" src="" alt="" style="max-width:88%;max-height:88%;border:6px solid #f4ead0;box-shadow:0 0 30px black;">
+      </div>
+
+      <div class="submit-note">TO ENTER THE CONTEST — EMAIL <a href="/cdn-cgi/l/email-protection#5f2c343a3a2b3a2d293633333a6d6f6d691f38323e3633713c3032" style="color:var(--gold);font-weight:700;"><span class="__cf_email__" data-cfemail="4c3f27292938293e3a252020297e7c7e7a0c2b212d2520622f2321">[email&#160;protected]</span></a> WITH YOUR PHOTO, CHIMERA NAME &amp; YOUR SL RESIDENT NAME</div>
+    </div>
+  </div>
+
 </div><!-- /newspaper -->
 </div><!-- /book-wrap -->
 
@@ -1559,12 +1859,14 @@ Chief &amp; Co-Editor</p>
         <img src="images/badger-motors.png" alt="Badger Motors" class="supporter-logo">
         <div class="supporter-name">Badger Motors</div>
         <div class="supporter-note">Proud supporter of Skeeterville Juke Joint</div>
+        <!-- <a class="supporter-slurl" href="secondlife://PASTE-REGION/X/Y/Z" target="_blank">🌍 Visit In Second Life</a> -->
       </div>
 
       <div class="supporter-card">
         <img src="images/moonshine-designs.png" alt="Moonshine Designs" class="supporter-logo">
         <div class="supporter-name">Moonshine Designs</div>
         <div class="supporter-note">Do It Biker Style · Proud supporter</div>
+        <!-- <a class="supporter-slurl" href="secondlife://PASTE-REGION/X/Y/Z" target="_blank">🌍 Visit In Second Life</a> -->
       </div>
 
       <div class="supporter-card add-slot">
@@ -1599,13 +1901,7 @@ Chief &amp; Co-Editor</p>
     <button class="popup-close" onclick="closePopup('dj-popup')">✕ Close</button>
   </div>
   <div class="staff-grid">
-      <div class="staff-grid">
-    <div class="staff-card">
-      <div class="staff-avatar"><img src="images/dj-swampdawg.png" alt="DJ Swamp Dawg"></div>
-      <div class="staff-name">DJ Swamp Dawg</div>
-      <div class="staff-role">Skeeterville DJ</div>
-    </div>
-  </div>
+    <div class="staff-card"><div class="staff-avatar">🎧</div><div class="staff-name">DJ Swamp Dawg</div><div class="staff-role">Resident DJ</div></div>
     <div class="staff-card"><div class="staff-avatar">🎧</div><div class="staff-name">DJ Name Here</div><div class="staff-role">Resident DJ</div></div>
     <div class="staff-card"><div class="staff-avatar">🎧</div><div class="staff-name">DJ Name Here</div><div class="staff-role">Guest DJ</div></div>
     <div class="staff-card"><div class="staff-avatar">🎧</div><div class="staff-name">DJ Name Here</div><div class="staff-role">Resident DJ</div></div>
@@ -1622,6 +1918,4 @@ Chief &amp; Co-Editor</p>
     <button class="popup-close" onclick="closePopup('host-popup')">✕ Close</button>
   </div>
   <div class="staff-grid">
-    <div class="staff-card"><div class="staff-avatar">🎤</div><div class="staff-name">Host Name Here</div><div class="staff-role">Host</div></div>
-    <div class="staff-card"><div class="staff-avatar">🎤</div><div class="staff-name">Host Name Here</div><div class="staff-role">Host</div></div>
-    <div class="staff-card"><div class="staff-avatar">🎤</div><div class="staff-name">Host Name Here</div><div class="staff-role"
+    <div class="staff-card"><div class="staff-avatar">🎤</div><div class="staff-
