@@ -728,6 +728,7 @@ footer a:hover { color: var(--gold); }
 #gazette-wrap #lightbox { position:fixed; inset:0; background:rgba(0,0,0,0.88); display:none; align-items:center; justify-content:center; z-index:9999; cursor:pointer; }
 #gazette-wrap #lightbox img { max-width:88%; max-height:88%; border:6px solid #f4ead0; box-shadow:0 0 30px black; }
 #gazette-wrap #lightbox .lb-close { position:absolute; top:18px; right:22px; color:#f4ead0; font-size:28px; font-family:'Courier Prime',monospace; cursor:pointer; }
+#lightbox { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.88); align-items:center; justify-content:center; z-index:9999; cursor:pointer; }
 
 /* ── RECIPE PHOTO GALLERY GRID ── */
 #gazette-wrap .recipe-gallery {
@@ -979,6 +980,130 @@ footer a:hover { color: var(--gold); }
   background: var(--crease); color: #888; cursor: default;
 }
 
+/* ══════════════════════════
+   CIRCUIT & CHAMPIONSHIP — Gazette Section
+══════════════════════════ */
+#gazette-wrap .circuit-section-hero {
+  background: linear-gradient(180deg, #050a0f 0%, #0a1828 60%, #050a0f 100%);
+  padding: 40px 24px 32px;
+  text-align: center;
+  border-bottom: 3px double var(--crease);
+  position: relative;
+  overflow: hidden;
+}
+#gazette-wrap .circuit-section-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 50%, rgba(0,204,255,0.12) 0%, transparent 65%);
+}
+#gazette-wrap .circuit-section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(22px, 4vw, 36px); font-weight: 900; font-style: italic;
+  color: #e8f8ff;
+  text-shadow: 0 0 28px rgba(0,204,255,0.55);
+  position: relative; z-index: 1;
+  margin-bottom: 6px;
+}
+#gazette-wrap .circuit-section-sub {
+  font-family: 'Courier Prime', monospace;
+  font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
+  color: rgba(0,204,255,0.6);
+  position: relative; z-index: 1;
+}
+#gazette-wrap .circuit-block {
+  padding: 28px 24px;
+  border-bottom: 1px dashed var(--crease);
+}
+#gazette-wrap .circuit-block-label {
+  font-family: 'Old Standard TT', serif;
+  font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--red); margin-bottom: 14px;
+  border-bottom: 1px solid var(--crease); padding-bottom: 6px;
+}
+#gazette-wrap .circuit-video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 18px;
+}
+#gazette-wrap .circuit-video-card {
+  background: rgba(0,0,0,0.06);
+  border: 2px solid var(--ink);
+  box-shadow: 3px 3px 0 var(--crease);
+  overflow: hidden;
+}
+#gazette-wrap .circuit-video-embed {
+  width: 100%; aspect-ratio: 16/9;
+  border: none; display: block; background: #000;
+}
+#gazette-wrap .circuit-video-label {
+  padding: 7px 10px;
+  font-family: 'Courier Prime', monospace;
+  font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--ink); background: var(--aged);
+  border-top: 1px solid var(--crease);
+}
+#gazette-wrap .circuit-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 14px;
+}
+#gazette-wrap .circuit-photo-item {
+  position: relative; overflow: hidden;
+  border: 2px solid var(--ink);
+  box-shadow: 3px 3px 0 var(--crease);
+  aspect-ratio: 4/3;
+  cursor: pointer;
+  background: var(--aged);
+}
+#gazette-wrap .circuit-photo-item img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  filter: sepia(10%) contrast(105%);
+  transition: transform 0.35s;
+}
+#gazette-wrap .circuit-photo-item:hover img { transform: scale(1.06); }
+#gazette-wrap .circuit-photo-caption {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(transparent, rgba(26,16,8,0.88));
+  padding: 20px 8px 7px;
+  font-family: 'Courier Prime', monospace;
+  font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--crease);
+}
+#gazette-wrap .circuit-empty-slot {
+  border: 1px dashed var(--crease);
+  aspect-ratio: 4/3;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 8px; opacity: 0.35;
+  font-family: 'Courier Prime', monospace;
+  font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--gold);
+}
+#gazette-wrap .circuit-video-empty {
+  border: 1px dashed var(--crease);
+  aspect-ratio: 16/9;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 8px; opacity: 0.35;
+  font-family: 'Courier Prime', monospace;
+  font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--gold); background: rgba(0,0,0,0.04);
+}
+#circuit-lightbox {
+  display: none; position: fixed; inset: 0;
+  background: rgba(0,0,0,0.93); z-index: 9999;
+  cursor: pointer; align-items: center; justify-content: center;
+}
+#circuit-lightbox img {
+  max-width: 90vw; max-height: 88vh;
+  border: 6px solid var(--crease);
+  box-shadow: 0 0 40px black;
+}
+.circuit-lb-close {
+  position: absolute; top: 18px; right: 24px;
+  color: #f4ead0; font-size: 28px;
+  font-family: 'Courier Prime', monospace; cursor: pointer;
+}
 </style>
 
 <script defer>
@@ -1149,6 +1274,18 @@ document.addEventListener('keydown', function(e) {
   document.addEventListener('DOMContentLoaded', renderContest);
 })();
 
+window.openCircuitPhoto = function(src, caption) {
+  var lb = document.getElementById('circuit-lightbox');
+  var img = document.getElementById('circuit-lightbox-img');
+  if (!lb || !img) return;
+  img.src = src; img.alt = caption || '';
+  lb.style.display = 'flex';
+};
+window.closeCircuitLightbox = function() {
+  var lb = document.getElementById('circuit-lightbox');
+  if (lb) lb.style.display = 'none';
+};
+
 window.addEventListener('load', function() {
   document.querySelectorAll('a').forEach(function(a) {
     if (a.textContent.includes('protected') || (a.href && a.href.includes('cdn-cgi'))) {
@@ -1208,6 +1345,7 @@ window.addEventListener('load', function() {
   <button class="section-btn" onclick="gazetteShowSection('comics',this)">🗒️ Comics</button>
   <button class="section-btn" onclick="gazetteShowSection('aboutus',this)">👥 About Us</button>
   <button class="section-btn" onclick="gazetteShowSection('contest',this)">🏆 Chimera Contest</button>
+  <button class="section-btn" onclick="gazetteShowSection('circuit',this)">🏁 Circuit &amp; Championship</button>
 </div>
 
 <div class="book-wrap">
@@ -1798,8 +1936,55 @@ Chief &amp; Co-Editor</p>
     </div>
   </div>
 
+  <!-- CIRCUIT & CHAMPIONSHIP -->
+  <div class="page-section" id="section-circuit">
+    <div class="circuit-section-hero">
+      <div class="circuit-section-title">🏁 Circuit &amp; Championship</div>
+      <div class="circuit-section-sub">Race Highlights · Championship Photos · Skeeterville Speedway</div>
+    </div>
+
+    <!-- VIDEOS -->
+    <div class="circuit-block">
+      <div class="circuit-block-label">§ Race Videos</div>
+      <div class="circuit-video-grid" id="circuit-video-grid">
+        <!-- Add videos via the editor tool — paste generated code here -->
+        <div class="circuit-video-empty">
+          <div style="font-size:28px;">🎬</div>
+          <div>Add race videos<br>via the editor tool</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHOTOS -->
+    <div class="circuit-block">
+      <div class="circuit-block-label">§ Championship Gallery</div>
+      <div class="circuit-photo-grid" id="circuit-photo-grid">
+        <!-- Add photos via the editor tool — paste generated code here -->
+        <div class="circuit-empty-slot">
+          <div style="font-size:26px;">📸</div>
+          <div>Add Gyazo photo</div>
+        </div>
+        <div class="circuit-empty-slot">
+          <div style="font-size:26px;">📸</div>
+          <div>Add Gyazo photo</div>
+        </div>
+        <div class="circuit-empty-slot">
+          <div style="font-size:26px;">📸</div>
+          <div>Add Gyazo photo</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div><!-- /newspaper -->
 </div><!-- /book-wrap -->
+
+<!-- Circuit lightbox -->
+<div id="circuit-lightbox" onclick="closeCircuitLightbox()">
+  <span class="circuit-lb-close" onclick="closeCircuitLightbox()">✕</span>
+  <img id="circuit-lightbox-img" src="" alt="Race photo">
+</div>
+
 
 <div id="lightbox" onclick="closeLightbox()">
   <span class="lb-close">✕</span>
