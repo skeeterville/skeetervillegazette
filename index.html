@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Skeeterville Juke Joint</title>
+<title>The Skeeterville Gazette</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=IM+Fell+English:ital@0;1&family=Courier+Prime:wght@400;700&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -19,8 +19,8 @@
 }
 
 body {
-  background: var(--dark);
-  color: var(--cream);
+  background: #2a2018;
+  color: #1a1008;
   font-family: 'Oswald', sans-serif;
   min-height: 100vh;
   overflow-x: hidden;
@@ -1299,43 +1299,7 @@ window.addEventListener('load', function() {
 </head>
 <body>
 
-
-
-
-<!-- MARQUEE — always visible -->
-<div class="marquee-bar">
-  <span class="marquee-inner">🎵 Live Music &amp; Events &nbsp;★&nbsp; Skeeterville Juke Joint &nbsp;★&nbsp; Blues · Good Times · Good People &nbsp;★&nbsp; Live in Second Life &nbsp;★&nbsp; 🎵 Live Music &amp; Events &nbsp;★&nbsp; Skeeterville Juke Joint &nbsp;★&nbsp; Blues · Good Times · Good People &nbsp;★&nbsp; Live in Second Life &nbsp;★&nbsp;</span>
-</div>
-
-<!-- HERO — always visible, buttons ONLY here -->
-<div class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-glow"></div>
-  <div class="hero-content">
-    <div class="hero-title">Feel the Blues</div>
-    <div class="hero-subtitle">Skeeterville Juke Joint &nbsp;·&nbsp; Live in Second Life</div>
-    <div class="hero-btns">
-      <a class="btn-main" href="https://maps.secondlife.com/secondlife/Seafoam/234/94/21" target="_blank">🌍 Join Us At The Bayou</a>
-      <a class="btn-outline" href="https://discord.gg/3dGdK5J8" target="_blank">💬 Join Our Discord</a>
-    </div>
-  </div>
-</div>
-
-<!-- NAV — Gazette is first and active by default -->
-<nav class="main-nav">
-  <button class="nav-btn active" onclick="showSection('gazette',this)">📰 The Gazette</button>
-  <button class="nav-btn" onclick="showSection('home',this)">🏠 Skeeterville</button>
-  <button class="nav-btn" onclick="showSection('staff',this)">🎧 Staff</button>
-  <button class="nav-btn" onclick="showSection('music',this)">🎵 Music</button>
-  <button class="nav-btn" onclick="showSection('supporters',this)">⭐ Supporters</button>
-</nav>
-
-<!-- ═══════════════════════════════
-     THE GAZETTE — first and default
-═══════════════════════════════ -->
-<div class="site-section active" id="section-gazette">
-  <div id="gazette-wrap">
+<div id="gazette-wrap">
 <div class="section-nav">
   <button class="section-btn active" onclick="gazetteShowSection('front',this)">📰 Front Page</button>
   <button class="section-btn" onclick="gazetteShowSection('market',this)">🏪 Chimera Markets</button>
@@ -1610,7 +1574,7 @@ window.addEventListener('load', function() {
           <div class="recipe-thumb-badge">★ Featured</div>
         </div>
 
-      <div class="recipe-thumb" onclick="openRecipePopup('rpop-gumbo')">
+        <div class="recipe-thumb" onclick="openRecipePopup('rpop-gumbo')">
           <img src="recipes/swamp-gumbo.png" alt="Swamp Gumbo" onerror="this.style.display='none'">
           <div class="recipe-thumb-overlay">
             <div class="recipe-thumb-tag">Southern</div>
@@ -1618,12 +1582,20 @@ window.addEventListener('load', function() {
           </div>
         </div>
         <div class="recipe-thumb" onclick="openRecipePopup('rpop-greek-sheet-pan-chic')">
-          <img src="recipes/greek-sheet-pan-chicken.png" alt="greek sheet pan chicken" onerror="this.style.display='none'">
+          <img src="recipes/greek-sheet-pan-chicken.png" alt="Greek Sheet Pan Chicken" onerror="this.style.display='none'">
           <div class="recipe-thumb-overlay">
-            <div class="recipe-thumb-tag">mediterranean</div>
-            <div class="recipe-thumb-name">greek sheet pan chicken</div>
+            <div class="recipe-thumb-tag">Mediterranean</div>
+            <div class="recipe-thumb-name">Greek Sheet Pan Chicken</div>
           </div>
         </div>
+        <div class="recipe-thumb" onclick="openRecipePopup('rpop-greek-pasta-salad')">
+          <img src="recipes/greek-pasta-salad.png" alt="Greek Pasta Salad No Mayo" onerror="this.style.display='none'">
+          <div class="recipe-thumb-overlay">
+            <div class="recipe-thumb-tag">Mediterranean</div>
+            <div class="recipe-thumb-name">Greek Pasta Salad</div>
+          </div>
+        </div>
+
       </div>
 
       <div class="submit-note">HAVE A RECIPE TO SHARE? CONTACT ISAC OR ROXIE DREAMCLAW IN-WORLD — WE'LL ADD IT NEXT EDITION</div>
@@ -1719,6 +1691,7 @@ window.addEventListener('load', function() {
       </div>
     </div>
   </div>
+
   <div class="recipe-popup-overlay" id="rpop-greek-sheet-pan-chic" onclick="if(event.target===this)closeRecipePopup('rpop-greek-sheet-pan-chic')">
     <div class="recipe-popup">
       <button class="recipe-popup-close" onclick="closeRecipePopup('rpop-greek-sheet-pan-chic')"><span>★ Greek Sheet Pan Chicken</span><span>✕ Close</span></button>
@@ -1772,6 +1745,60 @@ window.addEventListener('load', function() {
       </div>
     </div>
   </div>
+
+  <div class="recipe-popup-overlay" id="rpop-greek-pasta-salad" onclick="if(event.target===this)closeRecipePopup('rpop-greek-pasta-salad')">
+    <div class="recipe-popup">
+      <button class="recipe-popup-close" onclick="closeRecipePopup('rpop-greek-pasta-salad')"><span>★ Greek Pasta Salad — No Mayo</span><span>✕ Close</span></button>
+      <div class="recipe-popup-hero"><img src="recipes/greek-pasta-salad.png" alt="Greek Pasta Salad No Mayo"></div>
+      <div class="recipe-popup-body">
+        <div class="recipe-popup-tag">● Mediterranean</div>
+        <div class="recipe-popup-title">Greek Pasta Salad — No Mayo</div>
+        <div class="recipe-popup-desc">Fresh, bright and full of flavor — best after a 30 minute chill</div>
+        <div class="recipe-popup-meta">
+          <span><strong>Prep:</strong> 10 min</span>
+          <span><strong>Cook:</strong> 10 min</span>
+          <span><strong>Rest:</strong> 30 min</span>
+          <span><strong>Serves:</strong> 4</span>
+        </div>
+        <div class="recipe-popup-cols">
+          <div>
+            <div class="recipe-popup-section-label">Ingredients</div>
+            <ul class="recipe-popup-ingredients">
+              <li><span>— Pasta Salad —</span><span class="qty"></span></li>
+              <li><span>Farfalle (bowtie pasta)</span><span class="qty">8 oz</span></li>
+              <li><span>English cucumber, chopped</span><span class="qty">1/2</span></li>
+              <li><span>Green bell pepper, chopped</span><span class="qty">1</span></li>
+              <li><span>Cherry tomatoes, halved</span><span class="qty">10 oz</span></li>
+              <li><span>Shallots, chopped</span><span class="qty">1–2</span></li>
+              <li><span>Fresh parsley, chopped</span><span class="qty">1 cup</span></li>
+              <li><span>Capers, drained &amp; rinsed</span><span class="qty">2 tbsp</span></li>
+              <li><span>Pitted Kalamata olives</span><span class="qty">1/2 cup</span></li>
+              <li><span>Feta cheese, crumbled</span><span class="qty">1/3 cup</span></li>
+              <li><span>— Greek Dressing —</span><span class="qty"></span></li>
+              <li><span>Lemon, zested and juiced</span><span class="qty">1</span></li>
+              <li><span>Red wine vinegar</span><span class="qty">1 tbsp</span></li>
+              <li><span>Garlic cloves, minced</span><span class="qty">2</span></li>
+              <li><span>Dried oregano</span><span class="qty">1 tsp</span></li>
+              <li><span>Kosher salt &amp; black pepper</span><span class="qty">to taste</span></li>
+              <li><span>Extra virgin olive oil</span><span class="qty">1/4 cup</span></li>
+            </ul>
+          </div>
+          <div class="recipe-popup-col-div"></div>
+          <div>
+            <div class="recipe-popup-section-label">Directions</div>
+            <div class="recipe-popup-steps">
+              <div class="recipe-popup-step"><span class="step-num">1.</span><span>Cook the pasta in salted boiling water about 8 minutes. Drain and set aside to cool slightly.</span></div>
+              <div class="recipe-popup-step"><span class="step-num">2.</span><span>Make the dressing: In a large bowl mix lemon juice and zest, red wine vinegar, garlic, oregano, salt and pepper. Whisk together, then drizzle in the olive oil while whisking.</span></div>
+              <div class="recipe-popup-step"><span class="step-num">3.</span><span>Add the pasta, cucumber, bell pepper, tomatoes, shallots, parsley, capers, and olives to the bowl. Toss to coat.</span></div>
+              <div class="recipe-popup-step"><span class="step-num">4.</span><span>Add the feta and toss again very gently.</span></div>
+              <div class="recipe-popup-step"><span class="step-num">5.</span><span>Cover and refrigerate at least 30 minutes before serving — up to 24 hours for best flavor. Give a final toss and serve cold or at room temperature.</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- TIME WITH MY CHIMERA -->
   <div class="page-section" id="section-chimera">
     <div class="section-label">§ Time With My Chimera</div>
@@ -1990,12 +2017,12 @@ Chief &amp; Co-Editor</p>
   <div class="page-section" id="section-circuit">
     <div class="circuit-section-hero">
       <div class="circuit-section-title">⚔️ Circuit &amp; Championship</div>
-      <div class="circuit-section-sub"> Championship Photos · Circuit Photos</div>
+      <div class="circuit-section-sub">Race Highlights · Championship Photos · Skeeterville Speedway</div>
     </div>
 
     <!-- VIDEOS -->
     <div class="circuit-block">
-      <div class="circuit-block-label">§ Chimera Videos</div>
+      <div class="circuit-block-label">§ Race Videos</div>
       <div class="circuit-video-grid" id="circuit-video-grid">
         <div class="circuit-video-card">
           <video class="circuit-video-embed" controls playsinline>
@@ -2021,60 +2048,22 @@ Chief &amp; Co-Editor</p>
     <!-- PHOTOS -->
     <div class="circuit-block">
       <div class="circuit-block-label">§ Championship Gallery</div>
-            <div class="circuit-photo-grid" id="circuit-photo-grid">
-        <div class="circuit-photo-item" onclick="openCircuitPhoto('circuit/chimera1.png','take that ...kick kick')">
-          <img src="circuit/chimera1.png" alt="take that ...kick kick" loading="lazy">
-          <div class="circuit-photo-caption">take that ...kick kick</div>
+      <div class="circuit-photo-grid" id="circuit-photo-grid">
+        <!-- Add photos via the editor tool — paste generated code here -->
+        <div class="circuit-empty-slot">
+          <div style="font-size:26px;">📸</div>
+          <div>Add Gyazo photo</div>
         </div>
-        <div class="circuit-photo-item" onclick="openCircuitPhoto('circuit/chimera2.png','chef and aeson')">
-          <img src="circuit/chimera2.png" alt="chef and aeson" loading="lazy">
-          <div class="circuit-photo-caption">chef and aeson</div>
+        <div class="circuit-empty-slot">
+          <div style="font-size:26px;">📸</div>
+          <div>Add Gyazo photo</div>
         </div>
-        <div class="circuit-photo-item" onclick="openCircuitPhoto('circuit/chimera3.png','getting close to the final match')">
-          <img src="circuit/chimera3.png" alt="getting close to the final match" loading="lazy">
-          <div class="circuit-photo-caption">getting close to the final match</div>
-        </div>
-        <div class="circuit-photo-item" onclick="openCircuitPhoto('circuit/chimera4.png','feel my fury')">
-          <img src="circuit/chimera4.png" alt="feel my fury" loading="lazy">
-          <div class="circuit-photo-caption">feel my fury</div>
-        </div>
-        <div class="circuit-photo-item" onclick="openCircuitPhoto('circuit/chimera5.png','chimera community at championship')">
-          <img src="circuit/chimera5.png" alt="chimera community at championship" loading="lazy">
-          <div class="circuit-photo-caption">chimera community at championship</div>
-        </div>
-        <div class="circuit-photo-item" onclick="openCircuitPhoto('circuit/chimera6.png','chimera community at championship')">
-          <img src="circuit/chimera6.png" alt="chimera community at championship" loading="lazy">
-          <div class="circuit-photo-caption">chimera community at championship</div>
-        </div>
-        <div class="circuit-photo-item" onclick="openCircuitPhoto('circuit/chimera7.png','chimera community at championship')">
-          <img src="circuit/chimera7.png" alt="chimera community at championship" loading="lazy">
-          <div class="circuit-photo-caption">chimera community at championship</div>
-        </div>
-        <div class="circuit-photo-item" onclick="openCircuitPhoto('circuit/chimera8.png','creator of the obsidian chimeras')">
-          <img src="circuit/chimera8.png" alt="creator of the obsidian chimeras" loading="lazy">
-          <div class="circuit-photo-caption">creator of the obsidian chimeras</div>
-        </div>
-        <div class="circuit-photo-item" onclick="openCircuitPhoto('circuit/chimera9.png','season 27 circuit 4 the final')">
-          <img src="circuit/chimera9.png" alt="season 27 circuit 4 the final" loading="lazy">
-          <div class="circuit-photo-caption">season 27 circuit 4 the final</div>
-        </div>
-        <div class="circuit-photo-item" onclick="openCircuitPhoto('circuit/chimera10.png','hillbilly and raven')">
-          <img src="circuit/chimera10.png" alt="hillbilly and raven" loading="lazy">
-          <div class="circuit-photo-caption">hillbilly and raven</div>
-        </div>
-        <div class="circuit-photo-item" onclick="openCircuitPhoto('circuit/chimera11.png','isac and roxie')">
-          <img src="circuit/chimera11.png" alt="isac and roxie" loading="lazy">
-          <div class="circuit-photo-caption">isac and roxie</div>
-        </div>
-        <div class="circuit-photo-item" onclick="openCircuitPhoto('circuit/chimera12.png','the square off')">
-          <img src="circuit/chimera12.png" alt="the square off" loading="lazy">
-          <div class="circuit-photo-caption">the square off</div>
-        </div>
-        <div class="circuit-photo-item" onclick="openCircuitPhoto('circuit/chimera13.png','i dare you to cross the line')">
-          <img src="circuit/chimera13.png" alt="i dare you to cross the line" loading="lazy">
-          <div class="circuit-photo-caption">i dare you to cross the line</div>
+        <div class="circuit-empty-slot">
+          <div style="font-size:26px;">📸</div>
+          <div>Add Gyazo photo</div>
         </div>
       </div>
+    </div>
   </div>
 
 </div><!-- /newspaper -->
@@ -2089,183 +2078,8 @@ Chief &amp; Co-Editor</p>
   <span class="lb-close">✕</span>
   <img src="" id="lightbox-img" alt="enlarged photo">
 </div>
-  </div>
-</div>
 
-<!-- ═══════════════════════════════
-     SKEETERVILLE HOME
-═══════════════════════════════ -->
-<div class="site-section" id="section-home">
-  <div class="home-wrap">
-    <div class="home-welcome">
-      <h2>Welcome To Skeeterville Juke Joint</h2>
-      <div class="home-divider"></div>
-      <p>Skeeterville Juke Joint invites you to enjoy an immersive blues experience filled with live music, games, and friendship. Deep in the bayou of Second Life, the lights are always on and the music never stops.</p>
-      <p>Pull up a chair, grab a cold one, and stay awhile — this is your place now too.</p>
-    </div>
-
-    <!-- swamp atmosphere image strip -->
-    <div class="home-swamp">
-      <div class="home-swamp-bg"></div>
-      <div class="home-swamp-overlay"></div>
-      <div class="home-swamp-text">
-        "Where the bayou meets the blues and everyone's family."
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ═══════════════════════════════
-     STAFF
-═══════════════════════════════ -->
-<div class="site-section" id="section-staff">
-  <div class="staff-hero">
-    <div class="staff-hero-bg"></div>
-    <div class="staff-hero-overlay"></div>
-    <div class="staff-hero-content">
-      <h2>Meet The Crew</h2>
-      <div class="staff-sub">The people who keep Skeeterville rocking every night</div>
-      <div class="staff-btn-row">
-        <img src="images/dj-button.png"   class="staff-btn-img" alt="DJs"   onclick="openPopup('dj-popup')"   title="Click to meet our DJs">
-        <img src="images/host-button.png" class="staff-btn-img" alt="Hosts" onclick="openPopup('host-popup')" title="Click to meet our Hosts">
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ═══════════════════════════════
-     MUSIC — radio button + YouTube only
-═══════════════════════════════ -->
-<div class="site-section" id="section-music">
-
-  <!-- Radio hero -->
-  <div class="music-hero">
-    <div class="music-hero-bg"></div>
-    <div class="music-hero-overlay"></div>
-    <div class="music-neon-glow"></div>
-    <div class="music-hero-content">
-      <h2>Rawkin' Blues Radio</h2>
-      <p>Tune in to Skeeterville Juke Joint radio — live DJ sets, blues classics, and good times streaming 24/7.</p>
-      <a class="btn-radio" href="http://hagar.purepowerstreams.net:8072/index.html?sid=1" target="_blank">📻 Click To Tune In Live</a>
-    </div>
-  </div>
-
-  <!-- YouTube videos of the day -->
-  <div class="youtube-section">
-    <div class="section-heading"><h3>🎬 Video Of The Day</h3></div>
-    <div class="section-sub">Fresh picks from the Skeeterville bayou</div>
-       <div class="youtube-grid">
-      <div class="youtube-card">
-        <iframe class="youtube-embed"
-          src="https://www.youtube.com/embed/fuPn_ILRbxw"
-          title="🎵 Top Pick Video"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>
-        <div class="youtube-label">🎵 Top Pick Video</div>
-      </div>
-      <div class="youtube-card">
-        <iframe class="youtube-embed"
-          src="https://www.youtube.com/embed/ed9NnbVgM1A"
-          title="🎵 Top Pick Video"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>
-        <div class="youtube-label">🎵 Top Pick Video</div>
-      </div>
-    </div>
-
-      <!-- ADD MORE slot -->
-      <div class="youtube-card add-slot">
-        <div class="add-icon">＋</div>
-        <div class="add-label">Add another video<br>Replace the YouTube ID in the code</div>
-      </div>
-
-    </div>
-  </div>
-
-</div>
-
-<!-- ═══════════════════════════════
-     SUPPORTERS
-═══════════════════════════════ -->
-<div class="site-section" id="section-supporters">
-  <div class="supporters-hero">
-    <div class="supporters-hero-bg"></div>
-    <div class="supporters-hero-overlay"></div>
-    <div class="supporters-hero-content">
-      <h2>Our Supporters</h2>
-      <div class="sub">Thank you to everyone who keeps the lights on and the music playing</div>
-    </div>
-  </div>
-      <div class="supporters-grid">
-      <div class="supporter-card">
-        <img src="images/badger-motors.png" alt="Badger Motors" class="supporter-logo">
-        <div class="supporter-name">Badger Motors</div>
-        <div class="supporter-note">Proud supporter of Skeeterville Juke Joint</div>
-        <a class="supporter-slurl" href="https://maps.secondlife.com/secondlife/Isle%20of%20Badger/159/152/28" target="_blank">🌍 Visit In Second Life</a>
-      </div>
-      <div class="supporter-card">
-        <img src="images/moonshine-designs.png" alt="Moonshine Designs" class="supporter-logo">
-        <div class="supporter-name">Moonshine Designs</div>
-        <div class="supporter-note">Do It Biker Style · Proud supporter</div>
-      </div>
-    </div>
-
-      <div class="supporter-card add-slot">
-        <div style="font-size:36px;color:#555;">＋</div>
-        <div class="supporter-name" style="color:#555;">Your Name Here</div>
-        <div class="supporter-note">Contact us in-world to be listed</div>
-      </div>
-
-      <div class="supporter-card add-slot">
-        <div style="font-size:36px;color:#555;">＋</div>
-        <div class="supporter-name" style="color:#555;">Your Name Here</div>
-        <div class="supporter-note">Contact us in-world to be listed</div>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-<!-- FOOTER — no buttons, text links only -->
-<footer>
-  <p>© 2026 Skeeterville Juke Joint &nbsp;·&nbsp;
-    <a href="https://maps.secondlife.com/secondlife/Seafoam/234/94/21" target="_blank">Second Life</a>
-    &nbsp;·&nbsp;
-    <a href="https://discord.gg/3dGdK5J8" target="_blank">Discord</a>
-  </p>
-</footer>
-
-<!-- ═══ DJ POPUP ═══ -->
-<div class="gallery-popup" id="dj-popup">
-  <div class="popup-header">
-    <div class="popup-title">🎧 Skeeterville DJs</div>
-    <button class="popup-close" onclick="closePopup('dj-popup')">✕ Close</button>
-  </div>
-  <div class="staff-grid">
-    <div class="staff-card"><div class="staff-avatar">🎧</div><div class="staff-name">DJ Swamp Dawg</div><div class="staff-role">Resident DJ</div></div>
-    <div class="staff-card"><div class="staff-avatar">🎧</div><div class="staff-name">DJ Name Here</div><div class="staff-role">Resident DJ</div></div>
-    <div class="staff-card"><div class="staff-avatar">🎧</div><div class="staff-name">DJ Name Here</div><div class="staff-role">Guest DJ</div></div>
-    <div class="staff-card"><div class="staff-avatar">🎧</div><div class="staff-name">DJ Name Here</div><div class="staff-role">Resident DJ</div></div>
-    <div class="staff-card"><div class="staff-avatar">🎧</div><div class="staff-name">DJ Name Here</div><div class="staff-role">Resident DJ</div></div>
-    <div class="staff-card"><div class="staff-avatar">🎧</div><div class="staff-name">DJ Name Here</div><div class="staff-role">Guest DJ</div></div>
-  </div>
-  <div class="popup-note">Send Isac or Roxie your DJ name &amp; photo in-world to be listed here</div>
-</div>
-
-<!-- ═══ HOST POPUP ═══ -->
-<div class="gallery-popup" id="host-popup">
-  <div class="popup-header">
-    <div class="popup-title">🎤 Skeeterville Hosts</div>
-    <button class="popup-close" onclick="closePopup('host-popup')">✕ Close</button>
-  </div>
-  <div class="staff-grid">
-    <div class="staff-card"><div class="staff-avatar">🎤</div><div class="staff-name">Host Name Here</div><div class="staff-role">Resident Host</div></div>
-    <div class="staff-card"><div class="staff-avatar">🎤</div><div class="staff-name">Host Name Here</div><div class="staff-role">Resident Host</div></div>
-    <div class="staff-card"><div class="staff-avatar">🎤</div><div class="staff-name">Host Name Here</div><div class="staff-role">Guest Host</div></div>
-    <div class="staff-card"><div class="staff-avatar">🎤</div><div class="staff-name">Host Name Here</div><div class="staff-role">Resident Host</div></div>
-  </div>
-  <div class="popup-note">Send Isac or Roxie your host name &amp; photo in-world to be listed here</div>
-</div>
+  </div><!-- /gazette-wrap -->
 
 </body>
 </html>
