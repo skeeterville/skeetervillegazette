@@ -558,10 +558,8 @@ footer a:hover { color: var(--gold); }
 #gazette-wrap .section-body { background: #f4ead0 !important; color: #1a1008 !important; }
 #gazette-wrap p,
 #gazette-wrap li,
-#gazette-wrap span:not(.chimera-badge):not(.event-month):not(.event-day):not(.event-year),
-#gazette-wrap div:not(.section-label):not(.masthead):not(.edition-bar):not(.nav-bar):not(.meta-bar):not(.top-rule) {
+#gazette-wrap span:not(.chimera-badge):not(.event-month):not(.event-day):not(.event-year) {
   color: #1a1008 !important;
-  opacity: 1 !important;
 }
 #gazette-wrap .section-label { background: #1a1008 !important; color: #f4ead0 !important; }
 #gazette-wrap h2, #gazette-wrap h3 { color: #1a1008 !important; }
@@ -649,7 +647,8 @@ footer a:hover { color: var(--gold); }
 #gazette-wrap .col h3 { font-family:'Playfair Display',serif; font-size:15px; font-weight:700; border-bottom:1px solid var(--crease); padding-bottom:4px; margin-bottom:8px; }
 #gazette-wrap .col .col-byline { font-family:'Courier Prime',monospace; font-size:9px; letter-spacing:0.08em; color:var(--gold); margin-bottom:6px; text-transform:uppercase; }
 #gazette-wrap .col p { font-family:'IM Fell English',serif; font-size:13px; line-height:1.75; color:var(--ink); text-align:justify; margin-bottom:9px; }
-#gazette-wrap .nav-bar { display:flex; justify-content:space-between; align-items:center; padding:10px 18px; border-top:3px double var(--ink); background:rgba(0,0,0,0.03); flex-wrap:wrap; gap:6px; }
+#gazette-wrap .nav-bar { display:none; justify-content:space-between; align-items:center; padding:10px 18px; border-top:3px double var(--ink); background:rgba(0,0,0,0.03); flex-wrap:wrap; gap:6px; }
+#gazette-wrap #section-front .nav-bar { display:flex; }
 #gazette-wrap .nav-btn { font-family:'Old Standard TT',serif; font-size:12px; font-weight:700; background:var(--ink); color:var(--paper); border:none; padding:7px 18px; cursor:pointer; letter-spacing:0.06em; transition:background 0.2s; }
 .nav-btn:hover { background:var(--red); }
 .nav-btn:disabled { background:var(--crease); color:#aaa; cursor:default; }
@@ -726,9 +725,9 @@ footer a:hover { color: var(--gold); }
 #gazette-wrap .panel-placeholder { flex:1; min-height:130px; background:#f0ead8; display:flex; align-items:center; justify-content:center; font-family:'Courier Prime',monospace; font-size:10px; color:#bbb; text-align:center; padding:10px; line-height:1.6; }
 #gazette-wrap .panel-caption { background:white; border-top:1.5px solid var(--ink); padding:5px 8px; font-family:'IM Fell English',serif; font-size:12px; line-height:1.4; color:var(--ink); font-style:italic; min-height:32px; }
 #gazette-wrap #lightbox { position:fixed; inset:0; background:rgba(0,0,0,0.88); display:none; align-items:center; justify-content:center; z-index:9999; cursor:pointer; }
+#lightbox { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.88); align-items:center; justify-content:center; z-index:9999; cursor:pointer; }
 #gazette-wrap #lightbox img { max-width:88%; max-height:88%; border:6px solid #f4ead0; box-shadow:0 0 30px black; }
 #gazette-wrap #lightbox .lb-close { position:absolute; top:18px; right:22px; color:#f4ead0; font-size:28px; font-family:'Courier Prime',monospace; cursor:pointer; }
-#lightbox { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.88); align-items:center; justify-content:center; z-index:9999; cursor:pointer; }
 
 /* ── RECIPE PHOTO GALLERY GRID ── */
 #gazette-wrap .recipe-gallery {
@@ -856,12 +855,13 @@ footer a:hover { color: var(--gold); }
 }
 #gazette-wrap .spotlight-btns { display: flex; flex-direction: column; gap: 5px; margin-top: auto; }
 #gazette-wrap .spotlight-img-placeholder {
-  width: 100%; aspect-ratio: 3/4;
+  width: 100%; aspect-ratio: 16/9;
   background: var(--aged); border-bottom: 2px solid var(--ink);
   display: flex; align-items: center; justify-content: center;
   font-family: 'Courier Prime', monospace; font-size: 10px;
   color: var(--crease); text-align: center; padding: 10px;
 }
+
 /* ══════════════════════════
    SUPPORTER SLURL BUTTON
 ══════════════════════════ */
@@ -1372,7 +1372,7 @@ window.addEventListener('load', function() {
     <span>FEBRUARY 2026</span>
   </div>
 
-   <!-- FRONT PAGE -->
+  <!-- FRONT PAGE -->
   <div class="page-section active" id="section-front">
     <div class="section-label">§ Front Page &amp; News</div>
     <div class="page-content active" id="front-p1">
@@ -1403,7 +1403,7 @@ window.addEventListener('load', function() {
           <div style="font-family:'Old Standard TT',serif;font-size:11px;letter-spacing:0.25em;text-transform:uppercase;text-align:center;color:var(--gold);margin-bottom:12px;">★ This Month's Community Spotlights ★</div>
           <div class="spotlight-row">
             <div class="spotlight-card">
-              <div class="spotlight-img" onclick="openLightbox(this.querySelector('img'))"><img src="market/ravens-nest.png" alt="Ravens Nest" onerror="this.parentElement.outerHTML='<div class=\'spotlight-img-placeholder\'>📷 Add market/ravens-nest.png to your market/ folder</div>'"></div>
+              <div class="spotlight-img" onclick="openLightbox(this.querySelector('img'))"><img src="market/ravens-nest.png" alt="Ravens Nest" onerror="this.parentElement.outerHTML='<div class=\'spotlight-img-placeholder\'>📷 Add ravens-nest.png to your market/ folder</div>'"></div>
               <div class="spotlight-body">
                 <div class="spotlight-label">⭐ Featured Store of the Month</div>
                 <div class="spotlight-name">Ravens Nest</div>
@@ -1414,7 +1414,7 @@ window.addEventListener('load', function() {
               </div>
             </div>
             <div class="spotlight-card">
-<div class="spotlight-img" onclick="openLightbox(this.querySelector('img'))"><img src="photos/vortex-mvp.png" alt="Irreverent Vortex" onerror="this.parentElement.outerHTML='<div class=\'spotlight-img-placeholder\'>📷 Add vortex-mvp.png to your photos/ folder</div>'"></div>
+              <div class="spotlight-img" onclick="openLightbox(this.querySelector('img'))"><img src="photos/vortex-mvp.png" alt="Irreverent Vortex" onerror="this.parentElement.outerHTML='<div class=\'spotlight-img-placeholder\'>📷 Add vortex-mvp.png to your photos/ folder</div>'"></div>
               <div class="spotlight-body">
                 <div class="spotlight-label">🐾 Featured Chimera Breeder of the Month</div>
                 <div class="spotlight-name">Irreverent Vortex</div>
@@ -1429,7 +1429,7 @@ window.addEventListener('load', function() {
                 </div>
                 <div class="spotlight-btns">
                 </div>
-              </div>              </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1441,7 +1441,7 @@ window.addEventListener('load', function() {
         <div class="deck">Stories from around Skeeterville and beyond</div>
         <div class="byline">Staff Reporter &bull; Community Desk</div>
         <div class="body-text">
-          <p>SKEETERVILLE Juke Joint — If you wandered down past the old dock lights this week, you already know… Skeeterville ain't slowing down anytime soon.  We got the chimera gazette up and running when we are out and about we catch the news or a new player to write about the gazette is a community paper</p>
+          <p>SKEETERVILLE Juke Joint — If you wandered down past the old dock lights this week, you already know… Skeeterville ain't slowing down anytime soon. We got the chimera gazette up and running when we are out and about we catch the news or a new player to write about the gazette is a community paper</p>
           <p>From sunrise fishing lines to the late-night jukebox, the town has been buzzing more than a summer swamp at dusk.</p>
           <p>One thing's for sure: Skeeterville isn't just a place on the map — it's a way of life.</p>
         </div>
@@ -1932,13 +1932,13 @@ Chief &amp; Co-Editor</p>
   <div class="page-section" id="section-circuit">
     <div class="circuit-section-hero">
       <div class="circuit-section-title">⚔️ Circuit &amp; Championship</div>
-      <div class="circuit-section-sub">Chimera Highlights · Championship Photos</div>
+      <div class="circuit-section-sub">Race Highlights · Championship Photos · Skeeterville Speedway</div>
     </div>
 
     <!-- VIDEOS -->
     <div class="circuit-block">
-      <div class="circuit-block-label">§ Chimera Videos</div>
-           <div class="circuit-video-grid" id="circuit-video-grid">
+      <div class="circuit-block-label">§ Race Videos</div>
+      <div class="circuit-video-grid" id="circuit-video-grid">
         <div class="circuit-video-card">
           <video class="circuit-video-embed" controls playsinline>
             <source src="https://i.gyazo.com/496158e551997d1a03cf7b4203901b67.mp4" type="video/mp4">
@@ -1958,6 +1958,7 @@ Chief &amp; Co-Editor</p>
           <div class="circuit-video-label">Chimera Battle</div>
         </div>
       </div>
+    </div>
 
     <!-- PHOTOS -->
     <div class="circuit-block">
@@ -1988,8 +1989,6 @@ Chief &amp; Co-Editor</p>
   <span class="circuit-lb-close" onclick="closeCircuitLightbox()">✕</span>
   <img id="circuit-lightbox-img" src="" alt="Race photo">
 </div>
-
-
 <div id="lightbox" onclick="closeLightbox()">
   <span class="lb-close">✕</span>
   <img src="" id="lightbox-img" alt="enlarged photo">
