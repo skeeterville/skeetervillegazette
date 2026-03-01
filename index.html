@@ -6,17 +6,8 @@
 <title>The Skeeterville Gazette</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=IM+Fell+English:ital@0;1&family=Courier+Prime:wght@400;700&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --dark: #0d0805;
-  --amber: #e08c0a;
-  --gold: #f5b820;
-  --warm: #d4501a;
-  --cream: #fdf3e0;
-  --muted: #9a8060;
-  --neon-blue: #00ccff;
-  --neon-blue-dim: rgba(0,204,255,0.15);
-}
+
+
 
 body {
   background: #2a2018;
@@ -24,522 +15,29 @@ body {
   font-family: 'Oswald', sans-serif;
   min-height: 100vh;
   overflow-x: hidden;
+  margin: 0;
+  padding: 0;
 }
 
-/* ── MARQUEE ── */
-.marquee-bar {
-  background: linear-gradient(90deg, #1c0d00, #2d1800, #1c0d00);
-  border-top: 2px solid var(--amber);
-  border-bottom: 2px solid var(--amber);
-  padding: 9px 0; overflow: hidden; white-space: nowrap;
-}
-.marquee-inner {
-  display: inline-block;
-  animation: marquee 28s linear infinite;
-  font-family: 'Courier Prime', monospace;
-  font-size: 12px; letter-spacing: 0.35em;
-  color: var(--gold); text-transform: uppercase;
-}
-@keyframes marquee { 0%{transform:translateX(100vw)} 100%{transform:translateX(-100%)} }
+ 100%{transform:translateX(-100%)} }
 
-/* ── HERO ── */
-.hero {
-  position: relative; min-height: 400px;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  text-align: center; overflow: hidden;
-}
-.hero-bg {
-  position: absolute; inset: 0;
-  background-image: url('images/bayou-dock.png');
-  background-size: cover; background-position: center 35%;
-  filter: brightness(0.7) saturate(1.4);
-}
-.hero-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(13,8,5,0.15) 0%,
-    rgba(13,8,5,0.05) 30%,
-    rgba(13,8,5,0.6) 75%,
-    rgba(13,8,5,1) 100%
-  );
-}
-/* warm amber glow pooling at the bottom */
-.hero-glow {
-  position: absolute; bottom: 0; left: 0; right: 0; height: 220px;
-  background: radial-gradient(ellipse at 50% 110%, rgba(224,140,10,0.35) 0%, transparent 65%);
-}
-.hero-content { position: relative; z-index: 2; padding: 30px 20px; }
 
-.hero-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(56px, 11vw, 108px);
-  font-weight: 900; font-style: italic;
-  line-height: 0.92; letter-spacing: 0.02em;
-  background: linear-gradient(145deg, #fff8e8 10%, var(--gold) 50%, var(--amber) 90%);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  background-clip: text;
-  filter: drop-shadow(0 4px 24px rgba(224,140,10,0.55));
-}
-.hero-subtitle {
-  font-family: 'Courier Prime', monospace;
-  font-size: clamp(10px, 1.8vw, 13px);
-  letter-spacing: 0.5em; text-transform: uppercase;
-  color: var(--gold); margin-top: 16px;
-  text-shadow: 0 0 24px rgba(224,140,10,0.7);
-}
 
-/* Hero buttons — ONLY here and on Home tab */
-.hero-btns {
-  display: flex; flex-wrap: wrap; gap: 12px;
-  justify-content: center; margin-top: 28px;
-}
-.btn-main {
-  font-family: 'Courier Prime', monospace;
-  font-size: 12px; font-weight: 700;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  text-decoration: none; padding: 13px 28px;
-  background: linear-gradient(135deg, var(--amber) 0%, var(--warm) 100%);
-  color: var(--dark); border: none; cursor: pointer;
-  transition: all 0.22s;
-  box-shadow: 0 4px 22px rgba(224,140,10,0.45);
-  display: inline-block;
-}
-.btn-main:hover { transform: translateY(-2px); box-shadow: 0 6px 30px rgba(224,140,10,0.75); }
-.btn-outline {
-  font-family: 'Courier Prime', monospace;
-  font-size: 12px; font-weight: 700;
-  letter-spacing: 0.12em; text-transform: uppercase;
-  text-decoration: none; padding: 13px 24px;
-  background: rgba(255,255,255,0.07);
-  color: var(--cream);
-  border: 1px solid rgba(255,255,255,0.35);
-  cursor: pointer; transition: all 0.22s;
-  display: inline-block;
-}
-.btn-outline:hover { border-color: var(--gold); color: var(--gold); background: rgba(245,184,32,0.08); }
 
-/* ── NAV ── */
-.main-nav {
-  background: rgba(10,6,2,0.97);
-  border-bottom: 2px solid var(--amber);
-  display: flex; flex-wrap: wrap;
-  justify-content: center;
-  padding: 0 10px;
-  position: sticky; top: 34px; z-index: 100;
-}
-.nav-btn {
-  font-family: 'Courier Prime', monospace;
-  font-size: 11px; font-weight: 700;
-  letter-spacing: 0.13em; text-transform: uppercase;
-  background: transparent; color: var(--muted);
-  border: none; border-bottom: 3px solid transparent;
-  padding: 15px 20px; cursor: pointer; transition: all 0.2s;
-}
-.nav-btn:hover { color: var(--cream); }
-.nav-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
 
-/* ── SECTIONS ── */
-.site-section { display: none; }
-.site-section.active { display: block; animation: fadeIn 0.3s ease; }
-@keyframes fadeIn { from{opacity:0} to{opacity:1} }
 
-/* ══════════════════════════
-   GAZETTE SECTION
-══════════════════════════ */
-.gazette-frame {
-  width: 100%; height: calc(100vh - 108px);
-  border: none; display: block; background: #1a0f05;
-}
 
-/* ══════════════════════════
-   HOME / SKEETERVILLE SECTION
-══════════════════════════ */
-.home-wrap { position: relative; overflow: hidden; }
 
-/* big warm welcome strip */
-.home-welcome {
-  position: relative;
-  background: linear-gradient(180deg, #1a0c03 0%, #2a1406 40%, #1a0c03 100%);
-  padding: 70px 24px 60px 24px;
-  text-align: center;
-  overflow: hidden;
-}
-/* decorative neon glow lines left/right */
-.home-welcome::before, .home-welcome::after {
-  content: '';
-  position: absolute; top: 60px; bottom: 60px; width: 2px;
-  background: linear-gradient(to bottom, transparent, var(--amber), transparent);
-  opacity: 0.35;
-}
-.home-welcome::before { left: 80px; }
-.home-welcome::after  { right: 80px; }
 
-.home-welcome h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(28px, 5vw, 48px); font-weight: 900;
-  color: var(--gold);
-  text-shadow: 0 0 40px rgba(224,140,10,0.5);
-  margin-bottom: 20px;
-}
-.home-divider {
-  width: 140px; height: 2px;
-  background: linear-gradient(90deg, transparent, var(--amber), transparent);
-  margin: 24px auto;
-}
-.home-welcome p {
-  font-family: 'Courier Prime', monospace;
-  font-size: 14px; line-height: 2.1;
-  color: rgba(253,243,224,0.82);
-  max-width: 640px; margin: 0 auto 14px auto;
-  letter-spacing: 0.04em;
-}
 
-/* home buttons — same btn-main / btn-outline classes */
-.home-btns {
-  display: flex; flex-wrap: wrap; gap: 12px;
-  justify-content: center; margin-top: 32px;
-}
 
-/* swamp atmosphere strip */
-.home-swamp {
-  position: relative; min-height: 260px;
-  display: flex; align-items: center; justify-content: center;
-}
-.home-swamp-bg {
-  position: absolute; inset: 0;
-  background-image: url('images/swamp-bg.png');
-  background-size: cover; background-position: center;
-  filter: brightness(0.5) saturate(1.3);
-}
-.home-swamp-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(to bottom, rgba(13,8,5,0.7), rgba(13,8,5,0.4), rgba(13,8,5,0.9));
-}
-.home-swamp-text {
-  position: relative; z-index: 2;
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(18px, 3.5vw, 30px);
-  font-style: italic; font-weight: 700;
-  color: var(--cream); text-align: center;
-  padding: 20px;
-  text-shadow: 0 2px 20px rgba(0,0,0,0.8);
-}
 
-/* ══════════════════════════
-   MUSIC SECTION
-══════════════════════════ */
-/* Radio hero — blues bar background */
-.music-hero {
-  position: relative; min-height: 380px;
-  display: flex; align-items: center; justify-content: center;
-}
-.music-hero-bg {
-  position: absolute; inset: 0;
-  background-image: url('images/blues-bg.png');
-  background-size: cover; background-position: center;
-  filter: brightness(0.5) saturate(1.3);
-}
-.music-hero-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(to bottom,
-    rgba(13,8,5,0.4) 0%,
-    rgba(13,8,5,0.2) 40%,
-    rgba(13,8,5,0.9) 100%);
-}
-/* neon blue glow from center */
-.music-neon-glow {
-  position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 50% 40%, rgba(0,204,255,0.12) 0%, transparent 60%);
-}
-.music-hero-content {
-  position: relative; z-index: 2;
-  text-align: center; padding: 60px 20px;
-  max-width: 680px; margin: 0 auto;
-}
-.music-hero-content h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(32px, 6vw, 62px);
-  font-weight: 900; font-style: italic;
-  color: var(--cream);
-  text-shadow: 0 0 30px rgba(0,204,255,0.5), 0 4px 20px rgba(0,0,0,0.8);
-  margin-bottom: 12px;
-}
-.music-hero-content p {
-  font-family: 'Courier Prime', monospace;
-  font-size: 13px; color: rgba(253,243,224,0.7);
-  letter-spacing: 0.08em; line-height: 1.8; margin-bottom: 30px;
-}
-.btn-radio {
-  display: inline-block;
-  font-family: 'Courier Prime', monospace;
-  font-size: 13px; font-weight: 700;
-  letter-spacing: 0.18em; text-transform: uppercase;
-  text-decoration: none; padding: 16px 40px;
-  background: var(--neon-blue); color: #000;
-  transition: all 0.25s;
-  box-shadow: 0 0 28px rgba(0,204,255,0.55), 0 0 60px rgba(0,204,255,0.2);
-}
-.btn-radio:hover {
-  background: #33d6ff;
-  box-shadow: 0 0 44px rgba(0,204,255,0.85), 0 0 90px rgba(0,204,255,0.3);
-  transform: translateY(-2px);
-}
 
-/* YouTube section */
-.youtube-section {
-  background: linear-gradient(180deg, #0d0805, #1a0c03, #0d0805);
-  padding: 56px 20px 60px 20px;
-}
-.section-heading {
-  text-align: center; margin-bottom: 6px;
-}
-.section-heading h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(24px, 4vw, 38px); font-weight: 900;
-  color: var(--gold);
-  text-shadow: 0 0 24px rgba(224,140,10,0.4);
-}
-.section-sub {
-  font-family: 'Courier Prime', monospace;
-  font-size: 11px; letter-spacing: 0.3em;
-  color: var(--muted); text-transform: uppercase;
-  text-align: center; margin-bottom: 36px;
-}
-.youtube-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 24px; max-width: 1040px; margin: 0 auto;
-}
-.youtube-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(224,140,10,0.2);
-  overflow: hidden;
-  transition: border-color 0.22s, transform 0.22s;
-}
-.youtube-card:hover { border-color: var(--amber); transform: translateY(-4px); }
-.youtube-embed {
-  width: 100%; aspect-ratio: 16/9;
-  border: none; display: block; background: #000;
-}
-.youtube-label {
-  padding: 10px 14px;
-  font-family: 'Courier Prime', monospace;
-  font-size: 11px; letter-spacing: 0.1em;
-  color: var(--amber); text-transform: uppercase;
-}
-.youtube-card.add-slot {
-  border: 1px dashed rgba(224,140,10,0.18);
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  min-height: 200px; opacity: 0.4;
-  gap: 10px;
-}
-.add-icon { font-size: 38px; color: var(--muted); }
-.add-label {
-  font-family: 'Courier Prime', monospace;
-  font-size: 10px; letter-spacing: 0.15em;
-  color: var(--muted); text-transform: uppercase; text-align: center;
-}
 
-/* ══════════════════════════
-   STAFF SECTION
-══════════════════════════ */
-.staff-hero {
-  position: relative; min-height: 380px;
-  display: flex; align-items: center; justify-content: center;
-}
-.staff-hero-bg {
-  position: absolute; inset: 0;
-  background-image: url('images/staff-bg.png');
-  background-size: cover; background-position: center top;
-  filter: brightness(0.32) saturate(1.1);
-}
-.staff-hero-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(to bottom, rgba(13,8,5,0.3), rgba(13,8,5,0.92));
-}
-.staff-hero-content {
-  position: relative; z-index: 2;
-  text-align: center; padding: 50px 20px;
-}
-.staff-hero-content h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(32px, 5.5vw, 56px); font-weight: 900;
-  color: var(--gold);
-  text-shadow: 0 0 28px rgba(224,140,10,0.55);
-  margin-bottom: 8px;
-}
-.staff-sub {
-  font-family: 'Courier Prime', monospace;
-  font-size: 11px; letter-spacing: 0.3em;
-  color: var(--muted); text-transform: uppercase;
-  margin-bottom: 40px;
-}
-.staff-btn-row {
-  display: flex; flex-wrap: wrap;
-  gap: 30px; justify-content: center;
-}
-.staff-btn-img {
-  width: 270px; cursor: pointer;
-  transition: transform 0.25s, filter 0.25s;
-  filter: drop-shadow(0 0 12px rgba(224,140,10,0.25));
-}
-.staff-btn-img:hover {
-  transform: scale(1.06);
-  filter: drop-shadow(0 0 30px rgba(224,140,10,0.75));
-}
 
-/* ── POPUP ── */
-.gallery-popup {
-  display: none; position: fixed; inset: 0;
-  background: rgba(0,0,0,0.93);
-  z-index: 5000; overflow-y: auto;
-  padding: 30px 20px;
-}
-.gallery-popup.open { display: flex; flex-direction: column; align-items: center; }
-.popup-header {
-  display: flex; justify-content: space-between; align-items: center;
-  width: 100%; max-width: 960px;
-  border-bottom: 1px solid rgba(224,140,10,0.3);
-  padding-bottom: 16px; margin-bottom: 28px;
-}
-.popup-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(24px, 4vw, 40px); font-weight: 900;
-  color: var(--gold); text-shadow: 0 0 20px rgba(224,140,10,0.4);
-}
-.popup-close {
-  font-family: 'Courier Prime', monospace;
-  font-size: 11px; font-weight: 700;
-  letter-spacing: 0.12em; text-transform: uppercase;
-  background: var(--amber); color: var(--dark);
-  border: none; padding: 10px 22px; cursor: pointer;
-  transition: background 0.2s;
-}
-.popup-close:hover { background: var(--gold); }
-.staff-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
-  gap: 18px; width: 100%; max-width: 960px;
-}
-.staff-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(224,140,10,0.2);
-  padding: 22px 16px; text-align: center;
-  transition: border-color 0.2s, transform 0.2s;
-}
-.staff-card:hover { border-color: var(--amber); transform: translateY(-3px); }
-.staff-avatar {
-  width: 88px; height: 88px; border-radius: 50%;
-  background: #1a0f04;
-  border: 2px solid var(--amber);
-  margin: 0 auto 12px auto;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 28px; overflow: hidden;
-}
-.staff-avatar img { width:100%; height:100%; border-radius:50%; object-fit:cover; }
-.staff-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 15px; font-weight: 700;
-  color: var(--cream); margin-bottom: 5px;
-}
-.staff-role {
-  font-family: 'Courier Prime', monospace;
-  font-size: 10px; letter-spacing: 0.12em;
-  color: var(--amber); text-transform: uppercase;
-}
-.popup-note {
-  font-family: 'Courier Prime', monospace;
-  font-size: 10px; color: var(--muted);
-  text-align: center; margin-top: 28px;
-  letter-spacing: 0.1em; text-transform: uppercase;
-  border-top: 1px dashed rgba(224,140,10,0.2);
-  padding-top: 18px; max-width: 960px; width: 100%;
-}
 
-/* ══════════════════════════
-   SUPPORTERS SECTION
-══════════════════════════ */
-.supporters-hero {
-  position: relative; min-height: 280px;
-  display: flex; align-items: center; justify-content: center;
-}
-.supporters-hero-bg {
-  position: absolute; inset: 0;
-  background-image: url('images/supporters-bg.png');
-  background-size: cover; background-position: center;
-  filter: brightness(0.28) saturate(1.2);
-}
-.supporters-hero-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(to bottom, rgba(13,8,5,0.3), rgba(13,8,5,0.96));
-}
-.supporters-hero-content {
-  position: relative; z-index: 2;
-  text-align: center; padding: 50px 20px;
-}
-.supporters-hero-content h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(30px, 5vw, 52px); font-weight: 900;
-  color: var(--cream);
-  text-shadow: 0 0 28px rgba(0,204,255,0.35);
-  margin-bottom: 8px;
-}
-.supporters-hero-content .sub {
-  font-family: 'Courier Prime', monospace;
-  font-size: 11px; letter-spacing: 0.3em;
-  color: var(--muted); text-transform: uppercase;
-}
-.supporters-grid-wrap {
-  background: linear-gradient(180deg, #0d0805, #1c0e04, #0d0805);
-  padding: 56px 20px;
-}
-.supporters-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-  gap: 26px; max-width: 960px; margin: 0 auto;
-}
-.supporter-card {
-  background: rgba(255,255,255,0.045);
-  border: 1px solid rgba(224,140,10,0.25);
-  padding: 36px 20px;
-  display: flex; flex-direction: column;
-  align-items: center; gap: 14px;
-  transition: border-color 0.22s, transform 0.22s;
-}
-.supporter-card:hover { border-color: var(--amber); transform: translateY(-4px); }
-.supporter-logo {
-  width: 130px; height: 130px; object-fit: contain;
-  filter: drop-shadow(0 0 16px rgba(224,140,10,0.35));
-}
-.supporter-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 17px; font-weight: 700; color: var(--cream);
-}
-.supporter-note {
-  font-family: 'Courier Prime', monospace;
-  font-size: 11px; color: var(--muted);
-  letter-spacing: 0.07em; text-align: center;
-}
-.supporter-card.add-slot {
-  border: 1px dashed rgba(224,140,10,0.15); opacity: 0.38;
-}
 
-/* ── FOOTER ── */
-footer {
-  background: #060402;
-  border-top: 1px solid rgba(224,140,10,0.2);
-  padding: 26px 20px; text-align: center;
-}
-footer p {
-  font-family: 'Courier Prime', monospace;
-  font-size: 10px; letter-spacing: 0.16em;
-  color: var(--muted); text-transform: uppercase;
-}
-footer a { color: var(--amber); text-decoration: none; }
-footer a:hover { color: var(--gold); }
+
 
 
 
@@ -550,8 +48,21 @@ footer a:hover { color: var(--gold); }
   background: #2a2018 !important;
   background-image: repeating-linear-gradient(45deg, rgba(0,0,0,0.07) 0px, rgba(0,0,0,0.07) 1px, transparent 1px, transparent 12px) !important;
   padding: 24px 16px;
-  display: flex; flex-direction: column; align-items: center;
+  display: block;
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
   color: #1a1008;
+}
+/* Center children inside gazette-wrap */
+#gazette-wrap > * {
+  margin-left: auto;
+  margin-right: auto;
+}
+#gazette-wrap .section-nav {
+  display: flex !important;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 /* Force all gazette text to be dark on light paper — prevent juke joint styles bleeding in */
 #gazette-wrap .newspaper { background: #f4ead0 !important; color: #1a1008 !important; }
@@ -603,6 +114,7 @@ footer a:hover { color: var(--gold); }
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 100%; min-height: 100vh; }
 :root {
   --ink: #1a1008; --paper: #f4ead0; --aged: #e8d9b8;
   --crease: #c9b48a; --red: #8b1a1a; --gold: #7a5e20; --blue: #1a3a5c;
@@ -871,7 +383,7 @@ footer a:hover { color: var(--gold); }
   font-size: 10px; font-weight: 700;
   letter-spacing: 0.1em; text-transform: uppercase;
   text-decoration: none; padding: 8px 16px;
-  background: #4a6741; color: var(--cream);
+  background: #4a6741; color: #fdf3e0;
   transition: background 0.2s;
   margin-top: 4px; text-align: center; width: 100%;
 }
@@ -1150,23 +662,8 @@ function closeRecipePopup(id) {
   document.body.style.overflow = '';
 }
 
-function showSection(name, btn) {
-  document.querySelectorAll('.site-section').forEach(function(s) { s.classList.remove('active'); });
-  document.querySelectorAll('.nav-btn').forEach(function(b) { b.classList.remove('active'); });
-  document.getElementById('section-' + name).classList.add('active');
-  btn.classList.add('active');
-  window.scrollTo(0, 0);
-}
 
-function openPopup(id) {
-  document.getElementById(id).classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
 
-function closePopup(id) {
-  document.getElementById(id).classList.remove('open');
-  document.body.style.overflow = '';
-}
 
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') {
@@ -2017,12 +1514,12 @@ Chief &amp; Co-Editor</p>
   <div class="page-section" id="section-circuit">
     <div class="circuit-section-hero">
       <div class="circuit-section-title">⚔️ Circuit &amp; Championship</div>
-      <div class="circuit-section-sub">Race Highlights · Championship Photos · Skeeterville Speedway</div>
+      <div class="circuit-section-sub"> Championship Photos · Circuit Photos </div>
     </div>
 
     <!-- VIDEOS -->
     <div class="circuit-block">
-      <div class="circuit-block-label">§ Race Videos</div>
+      <div class="circuit-block-label">§ Chimera Videos</div>
       <div class="circuit-video-grid" id="circuit-video-grid">
         <div class="circuit-video-card">
           <video class="circuit-video-embed" controls playsinline>
