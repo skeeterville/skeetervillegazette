@@ -823,12 +823,13 @@ footer a:hover { color: var(--gold); }
   overflow: hidden;
 }
 #gazette-wrap .spotlight-img {
-  width: 100%; aspect-ratio: 16/9; overflow: hidden;
+  width: 100%; aspect-ratio: 3/4; overflow: hidden;
   background: var(--aged); cursor: pointer;
   border-bottom: 2px solid var(--ink);
 }
 #gazette-wrap .spotlight-img img {
   width: 100%; height: 100%; object-fit: cover;
+  object-position: top;
   filter: sepia(15%) contrast(105%);
   transition: transform 0.35s;
   display: block;
@@ -855,13 +856,12 @@ footer a:hover { color: var(--gold); }
 }
 #gazette-wrap .spotlight-btns { display: flex; flex-direction: column; gap: 5px; margin-top: auto; }
 #gazette-wrap .spotlight-img-placeholder {
-  width: 100%; aspect-ratio: 16/9;
+  width: 100%; aspect-ratio: 3/4;
   background: var(--aged); border-bottom: 2px solid var(--ink);
   display: flex; align-items: center; justify-content: center;
   font-family: 'Courier Prime', monospace; font-size: 10px;
   color: var(--crease); text-align: center; padding: 10px;
 }
-
 /* ══════════════════════════
    SUPPORTER SLURL BUTTON
 ══════════════════════════ */
