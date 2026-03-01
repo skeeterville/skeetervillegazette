@@ -237,8 +237,8 @@ html, body { width: 100%; min-height: 100vh; }
 #gazette-wrap .panel-placeholder { flex:1; min-height:130px; background:#f0ead8; display:flex; align-items:center; justify-content:center; font-family:'Courier Prime',monospace; font-size:10px; color:#bbb; text-align:center; padding:10px; line-height:1.6; }
 #gazette-wrap .panel-caption { background:white; border-top:1.5px solid var(--ink); padding:5px 8px; font-family:'IM Fell English',serif; font-size:12px; line-height:1.4; color:var(--ink); font-style:italic; min-height:32px; }
 #gazette-wrap #lightbox { position:fixed; inset:0; background:rgba(0,0,0,0.88); display:none; align-items:center; justify-content:center; z-index:9999; cursor:pointer; }
-#lightbox { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.88); align-items:center; justify-content:center; z-index:9999; cursor:pointer; }
-#gazette-wrap #lightbox img { max-width:88%; max-height:88%; border:6px solid #f4ead0; box-shadow:0 0 30px black; }
+#lightbox { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.88); align-items:center; justify-content:center; z-index:9999; cursor:pointer; padding:20px; }
+#gazette-wrap #lightbox img { max-width:92vw; max-height:85vh; width:auto; height:auto; border:6px solid #f4ead0; box-shadow:0 0 30px black; object-fit:contain; }
 #gazette-wrap #lightbox .lb-close { position:absolute; top:18px; right:22px; color:#f4ead0; font-size:28px; font-family:'Courier Prime',monospace; cursor:pointer; }
 
 /* ── RECIPE PHOTO GALLERY GRID ── */
@@ -641,11 +641,12 @@ function changeFrontPage(dir) {
   window.scrollTo(0, 0);
 }
 
-function openLightbox(img) {
+function openLightbox(img, mode) {
   if (!img || !img.src) return;
   var lb = document.getElementById('lightbox');
   document.getElementById('lightbox-img').src = img.src;
   lb.style.display = 'flex';
+  if (mode === 'comic') { lb.style.overflowX = 'auto'; lb.style.alignItems = 'center'; } else { lb.style.overflowX = 'hidden'; }
 }
 
 function closeLightbox() {
@@ -1380,19 +1381,19 @@ window.addEventListener('load', function() {
         <div class="comic-panels p3">
           <div class="comic-panel">
             <div class="panel-image">
-              <img src="comics/hillbillys-big-catch.png" alt="Hillbilly's Big Catch panel 1" onclick="openLightbox(this)" onerror="this.parentElement.outerHTML='<div class=\'panel-placeholder\'>Image not found<br>hillbillys-big-catch.png<br>in comics/ folder</div>'">
+              <img src="comics/hillbillys-big-catch.png" alt="Hillbilly's Big Catch panel 1" onclick="openLightbox(this,'comic')" onerror="this.parentElement.outerHTML='<div class=\'panel-placeholder\'>Image not found<br>hillbillys-big-catch.png<br>in comics/ folder</div>'">
             </div>
             <div class="panel-caption">hillbillys big catch</div>
           </div>
           <div class="comic-panel">
             <div class="panel-image">
-              <img src="comics/raven-fishing.png" alt="Raven fishing panel 2" onclick="openLightbox(this)" onerror="this.parentElement.outerHTML='<div class=\'panel-placeholder\'>Image not found<br>raven-fishing.png<br>in comics/ folder</div>'">
+              <img src="comics/raven-fishing.png" alt="Raven fishing panel 2" onclick="openLightbox(this,'comic')" onerror="this.parentElement.outerHTML='<div class=\'panel-placeholder\'>Image not found<br>raven-fishing.png<br>in comics/ folder</div>'">
             </div>
             <div class="panel-caption">all this for a boot.</div>
           </div>
           <div class="comic-panel">
             <div class="panel-image">
-               <img src="comics/chimera-contest.png" alt=" panel 3" onclick="openLightbox(this)" onerror="this.parentElement.outerHTML='<div class=\'panel-placeholder\'>Image not found<br>chimera-contest.png<br>in comics/ folder</div>'">
+               <img src="comics/chimera-contest.png" alt=" panel 3" onclick="openLightbox(this,'comic')" onerror="this.parentElement.outerHTML='<div class=\'panel-placeholder\'>Image not found<br>chimera-contest.png<br>in comics/ folder</div>'">
             </div>
             <div class="panel-caption">Chimera Fishing Contest</div>
           </div>
@@ -1514,12 +1515,12 @@ Chief &amp; Co-Editor</p>
   <div class="page-section" id="section-circuit">
     <div class="circuit-section-hero">
       <div class="circuit-section-title">⚔️ Circuit &amp; Championship</div>
-      <div class="circuit-section-sub"> Championship Photos · Circuit Photos</div>
+      <div class="circuit-section-sub">Race Highlights · Championship Photos · Skeeterville Speedway</div>
     </div>
 
     <!-- VIDEOS -->
     <div class="circuit-block">
-      <div class="circuit-block-label">§ Chimera Videos</div>
+      <div class="circuit-block-label">§ Race Videos</div>
       <div class="circuit-video-grid" id="circuit-video-grid">
         <div class="circuit-video-card">
           <video class="circuit-video-embed" controls playsinline>
@@ -1562,25 +1563,25 @@ Chief &amp; Co-Editor</p>
           <img src="circuit/chimera4.png" alt="Take this">
           <div class="circuit-photo-caption">Take this</div>
         </div>
-        <div class="circuit-photo-item" onclick="openCircuitPhoto('circuit/chimera5.png', 'Crowd watching the championship')">
-          <img src="circuit/chimera5.png" alt="Crowd watching the championship">
-          <div class="circuit-photo-caption">Crowd watching the championship</div>
+        <div class="circuit-photo-item" onclick="openCircuitPhoto('circuit/chimera5.png', 'Cheetah chimeras face off')">
+          <img src="circuit/chimera5.png" alt="Cheetah chimeras face off">
+          <div class="circuit-photo-caption">Cheetah chimeras face off</div>
         </div>
         <div class="circuit-photo-item" onclick="openCircuitPhoto('circuit/chimera6.png', 'Crowd watching the championship')">
           <img src="circuit/chimera6.png" alt="Crowd watching the championship">
           <div class="circuit-photo-caption">Crowd watching the championship</div>
         </div>
-        <div class="circuit-photo-item" onclick="openCircuitPhoto('circuit/chimera7.png', 'Crowd watching the championship')">
-          <img src="circuit/chimera7.png" alt="Crowd watching the championship">
-          <div class="circuit-photo-caption">Crowd watching the championship</div>
+        <div class="circuit-photo-item" onclick="openCircuitPhoto('circuit/chimera7.png', 'Obsidian Chimeras Tournament bracket')">
+          <img src="circuit/chimera7.png" alt="Obsidian Chimeras Tournament bracket">
+          <div class="circuit-photo-caption">Obsidian Chimeras Tournament bracket</div>
         </div>
         <div class="circuit-photo-item" onclick="openCircuitPhoto('circuit/chimera8.png', 'Damien Obsidian Chimera Creator')">
           <img src="circuit/chimera8.png" alt="Damien Obsidian Chimera Creator">
           <div class="circuit-photo-caption">Damien Obsidian Chimera Creator</div>
         </div>
-        <div class="circuit-photo-item" onclick="openCircuitPhoto('circuit/chimera9.png', 'Final results Season 27 circuit 4')">
-          <img src="circuit/chimera9.png" alt="Final results Season 27 circuit 4">
-          <div class="circuit-photo-caption">Final results Season 27 circuit 4</div>
+        <div class="circuit-photo-item" onclick="openCircuitPhoto('circuit/chimera9.png', 'Full house — packed arena crowd')">
+          <img src="circuit/chimera9.png" alt="Full house — packed arena crowd">
+          <div class="circuit-photo-caption">Full house — packed arena crowd</div>
         </div>
         <div class="circuit-photo-item" onclick="openCircuitPhoto('circuit/chimera10.png', 'Hillbilly and Raven watching ringside')">
           <img src="circuit/chimera10.png" alt="Hillbilly and Raven watching ringside">
@@ -1594,9 +1595,9 @@ Chief &amp; Co-Editor</p>
           <img src="circuit/chimera12.png" alt="Stand off in the arena">
           <div class="circuit-photo-caption">Stand off in the arena</div>
         </div>
-        <div class="circuit-photo-item" onclick="openCircuitPhoto('circuit/chimera13.png', 'i dare you to cross that line')">
-          <img src="circuit/chimera13.png" alt="i dare you to cross that line">
-          <div class="circuit-photo-caption">i dare you to cross that line</div>
+        <div class="circuit-photo-item" onclick="openCircuitPhoto('circuit/chimera13.png', 'Final results circuit 27 circuit 4')">
+          <img src="circuit/chimera13.png" alt="Final results circuit 27 circuit 4">
+          <div class="circuit-photo-caption">Final results circuit 27 circuit 4</div>
         </div>
       </div>
     </div>
@@ -1612,7 +1613,7 @@ Chief &amp; Co-Editor</p>
   <span class="circuit-lb-close" onclick="closeCircuitLightbox()">✕</span>
   <img id="circuit-lightbox-img" src="" alt="Race photo">
 </div>
-<div id="lightbox" onclick="closeLightbox()">
+<div id="lightbox" onclick="if(event.target===this)closeLightbox()">
   <span class="lb-close">✕</span>
   <img src="" id="lightbox-img" alt="enlarged photo">
 </div>
