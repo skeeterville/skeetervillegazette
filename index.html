@@ -232,8 +232,8 @@ html, body { width: 100%; min-height: 100vh; }
 #gazette-wrap .comic-panels.p4 { grid-template-columns:1fr 1fr 1fr 1fr; }
 #gazette-wrap .comic-panels.p2 { grid-template-columns:1fr 1fr; }
 #gazette-wrap .comic-panel { border:1.5px solid var(--ink); display:flex; flex-direction:column; }
-#gazette-wrap .panel-image { flex:1; overflow:hidden; min-height:130px; cursor:pointer; }
-#gazette-wrap .panel-image img { width:100%; height:100%; object-fit:cover; display:block; }
+#gazette-wrap .panel-image { flex:1; overflow:visible; min-height:220px; cursor:default; }
+#gazette-wrap .panel-image img { width:100%; height:auto; object-fit:contain; display:block; cursor:default; }
 #gazette-wrap .panel-placeholder { flex:1; min-height:130px; background:#f0ead8; display:flex; align-items:center; justify-content:center; font-family:'Courier Prime',monospace; font-size:10px; color:#bbb; text-align:center; padding:10px; line-height:1.6; }
 #gazette-wrap .panel-caption { background:white; border-top:1.5px solid var(--ink); padding:5px 8px; font-family:'IM Fell English',serif; font-size:12px; line-height:1.4; color:var(--ink); font-style:italic; min-height:32px; }
 #gazette-wrap #lightbox { position:fixed; inset:0; background:rgba(0,0,0,0.88); display:none; align-items:center; justify-content:center; z-index:9999; cursor:pointer; }
@@ -1381,19 +1381,19 @@ window.addEventListener('load', function() {
         <div class="comic-panels p3">
           <div class="comic-panel">
             <div class="panel-image">
-              <img src="comics/hillbillys-big-catch.png" alt="Hillbilly's Big Catch panel 1" onclick="openLightbox(this,'comic')" onerror="this.parentElement.outerHTML='<div class=\'panel-placeholder\'>Image not found<br>hillbillys-big-catch.png<br>in comics/ folder</div>'">
+              <img src="comics/hillbillys-big-catch.png" alt="Hillbilly's Big Catch panel 1" onerror="this.parentElement.outerHTML='<div class=\'panel-placeholder\'>Image not found<br>hillbillys-big-catch.png<br>in comics/ folder</div>'">
             </div>
             <div class="panel-caption">hillbillys big catch</div>
           </div>
           <div class="comic-panel">
             <div class="panel-image">
-              <img src="comics/raven-fishing.png" alt="Raven fishing panel 2" onclick="openLightbox(this,'comic')" onerror="this.parentElement.outerHTML='<div class=\'panel-placeholder\'>Image not found<br>raven-fishing.png<br>in comics/ folder</div>'">
+              <img src="comics/raven-fishing.png" alt="Raven fishing panel 2" onerror="this.parentElement.outerHTML='<div class=\'panel-placeholder\'>Image not found<br>raven-fishing.png<br>in comics/ folder</div>'">
             </div>
             <div class="panel-caption">all this for a boot.</div>
           </div>
           <div class="comic-panel">
             <div class="panel-image">
-               <img src="comics/chimera-contest.png" alt=" panel 3" onclick="openLightbox(this,'comic')" onerror="this.parentElement.outerHTML='<div class=\'panel-placeholder\'>Image not found<br>chimera-contest.png<br>in comics/ folder</div>'">
+               <img src="comics/chimera-contest.png" alt=" panel 3" onerror="this.parentElement.outerHTML='<div class=\'panel-placeholder\'>Image not found<br>chimera-contest.png<br>in comics/ folder</div>'">
             </div>
             <div class="panel-caption">Chimera Fishing Contest</div>
           </div>
@@ -1515,12 +1515,12 @@ Chief &amp; Co-Editor</p>
   <div class="page-section" id="section-circuit">
     <div class="circuit-section-hero">
       <div class="circuit-section-title">⚔️ Circuit &amp; Championship</div>
-      <div class="circuit-section-sub">Race Highlights · Championship Photos · Skeeterville Speedway</div>
+      <div class="circuit-section-sub"> Championship Photos · Circuit Photos </div>
     </div>
 
     <!-- VIDEOS -->
     <div class="circuit-block">
-      <div class="circuit-block-label">§ Race Videos</div>
+      <div class="circuit-block-label">§ Chimera Videos</div>
       <div class="circuit-video-grid" id="circuit-video-grid">
         <div class="circuit-video-card">
           <video class="circuit-video-embed" controls playsinline>
