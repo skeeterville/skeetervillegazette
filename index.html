@@ -1610,14 +1610,20 @@ window.addEventListener('load', function() {
           <div class="recipe-thumb-badge">★ Featured</div>
         </div>
 
-        <div class="recipe-thumb" onclick="openRecipePopup('rpop-gumbo')">
+      <div class="recipe-thumb" onclick="openRecipePopup('rpop-gumbo')">
           <img src="recipes/swamp-gumbo.png" alt="Swamp Gumbo" onerror="this.style.display='none'">
           <div class="recipe-thumb-overlay">
             <div class="recipe-thumb-tag">Southern</div>
             <div class="recipe-thumb-name">Swamp Gumbo</div>
           </div>
         </div>
-
+        <div class="recipe-thumb" onclick="openRecipePopup('rpop-greek-sheet-pan-chic')">
+          <img src="recipes/greek-sheet-pan-chicken.png" alt="greek sheet pan chicken" onerror="this.style.display='none'">
+          <div class="recipe-thumb-overlay">
+            <div class="recipe-thumb-tag">mediterranean</div>
+            <div class="recipe-thumb-name">greek sheet pan chicken</div>
+          </div>
+        </div>
       </div>
 
       <div class="submit-note">HAVE A RECIPE TO SHARE? CONTACT ISAC OR ROXIE DREAMCLAW IN-WORLD — WE'LL ADD IT NEXT EDITION</div>
@@ -1713,7 +1719,59 @@ window.addEventListener('load', function() {
       </div>
     </div>
   </div>
-
+  <div class="recipe-popup-overlay" id="rpop-greek-sheet-pan-chic" onclick="if(event.target===this)closeRecipePopup('rpop-greek-sheet-pan-chic')">
+    <div class="recipe-popup">
+      <button class="recipe-popup-close" onclick="closeRecipePopup('rpop-greek-sheet-pan-chic')"><span>★ Greek Sheet Pan Chicken</span><span>✕ Close</span></button>
+      <div class="recipe-popup-hero"><img src="recipes/greek-sheet-pan-chicken.png" alt="Greek Sheet Pan Chicken"></div>
+      <div class="recipe-popup-body">
+        <div class="recipe-popup-tag">● Mediterranean</div>
+        <div class="recipe-popup-title">Greek Sheet Pan Chicken</div>
+        <div class="recipe-popup-desc">Quick and easy dinner full of flavor</div>
+        <div class="recipe-popup-meta">
+          <span><strong>Prep:</strong> 8 min</span>
+          <span><strong>Cook:</strong> 37 min</span>
+          <span><strong>Total:</strong> 45 min</span>
+          <span><strong>Serves:</strong> 6</span>
+        </div>
+        <div class="recipe-popup-cols">
+          <div>
+            <div class="recipe-popup-section-label">Ingredients</div>
+            <ul class="recipe-popup-ingredients">
+              <li><span>— Ladolemono Dressing —</span><span class="qty"></span></li>
+              <li><span>Fresh lemon juice</span><span class="qty">1/4 cup</span></li>
+              <li><span>Dried oregano</span><span class="qty">1–2 tsp</span></li>
+              <li><span>Garlic clove, minced</span><span class="qty">1 large</span></li>
+              <li><span>Kosher salt</span><span class="qty">3/4 tsp</span></li>
+              <li><span>Black pepper</span><span class="qty">3/4 tsp</span></li>
+              <li><span>Extra virgin olive oil</span><span class="qty">3/4 cup</span></li>
+              <li><span>— Chicken &amp; Veggies —</span><span class="qty"></span></li>
+              <li><span>Red onion, halved &amp; sliced</span><span class="qty">1 large</span></li>
+              <li><span>Zucchini, half moons</span><span class="qty">1 medium</span></li>
+              <li><span>Orange bell pepper, sliced</span><span class="qty">1 large</span></li>
+              <li><span>Tomato, cut into wedges</span><span class="qty">1 large</span></li>
+              <li><span>Boneless skinless chicken thighs</span><span class="qty">6–8</span></li>
+              <li><span>Pitted Kalamata olives</span><span class="qty">1/4 cup</span></li>
+              <li><span>Pitted Castelvetrano olives</span><span class="qty">1/4 cup</span></li>
+              <li><span>Feta cheese, cut into chunks</span><span class="qty">4 oz</span></li>
+              <li><span>Italian parsley, for garnish</span><span class="qty">1/4 cup</span></li>
+            </ul>
+          </div>
+          <div class="recipe-popup-col-div"></div>
+          <div>
+            <div class="recipe-popup-section-label">Directions</div>
+            <div class="recipe-popup-steps">
+              <div class="recipe-popup-step"><span class="step-num">1.</span><span>Position a rack in the middle of your oven and heat to 425°F.</span></div>
+              <div class="recipe-popup-step"><span class="step-num">2.</span><span>Make the ladolemono: In a bowl, whisk together lemon juice, oregano, garlic, salt, and pepper. Drizzle in olive oil while whisking until emulsified.</span></div>
+              <div class="recipe-popup-step"><span class="step-num">3.</span><span>Spread onions, zucchini, bell pepper, and tomatoes on a large sheet pan. Season with salt and pepper, pour 1/4 cup sauce over veggies and toss to coat.</span></div>
+              <div class="recipe-popup-step"><span class="step-num">4.</span><span>Season chicken on both sides. Nestle chicken, olives, and feta between the vegetables. Drizzle remaining sauce over everything.</span></div>
+              <div class="recipe-popup-step"><span class="step-num">5.</span><span>Bake on center rack until chicken is cooked through, about 35 minutes. For more color, broil 2 minutes watching closely.</span></div>
+              <div class="recipe-popup-step"><span class="step-num">6.</span><span>Remove from oven, spoon pan juices over chicken, garnish with parsley and serve.</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- TIME WITH MY CHIMERA -->
   <div class="page-section" id="section-chimera">
     <div class="section-label">§ Time With My Chimera</div>
