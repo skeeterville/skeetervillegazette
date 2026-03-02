@@ -988,16 +988,16 @@ window.addEventListener('load', function() {
         </div>
 
         <!-- CARD 5: Empty slot -->
-        <div class="market-card" style="border:1px dashed rgba(26,16,8,0.25);opacity:0.5;">
-          <div class="market-card-img" style="background:var(--aged);display:flex;align-items:center;justify-content:center;">
-            <div class="img-placeholder">📷 Add your image<br>to your market/ folder</div>
+               <div class="market-card">
+          <div class="market-card-img" onclick="openLightbox(this.querySelector('img'))">
+            <img src="market/Serenity-Oasis.png" alt="Serenity Oasis" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'>📷 Add Serenity-Oasis.png<br>to your market/ folder</div>'">
           </div>
           <div class="market-card-body">
-            <div class="market-tag">● New Listing</div>
-            <h3>Market Name Here</h3>
-            <p>Use the editor tool to generate a market card, or copy this block and fill in the details.</p>
+            <div class="market-tag">● Chimera Market</div>
+            <h3>Serenity Oasis</h3>
+            <p>Serenity Oasis is a calm serene region where you can come and explore the world of chimera! Fishing, Wilds, Mining,Training, Battles, Vendors and more! Circuit battles every Wednesday &amp; Thursday at 6 pm SLT! Come Check Us Out!</p>
             <div class="market-btns">
-              <a class="btn-slurl" href="#" target="_blank">🌍 Teleport To Market (SLurl)</a>
+              <a class="btn-slurl" href="http://maps.secondlife.com/secondlife/Serenity%20Oasis/129/132/24" target="_blank">🌍 Teleport To Market (SLurl)</a>
             </div>
           </div>
         </div>
