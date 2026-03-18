@@ -7,8 +7,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=IM+Fell+English:ital@0;1&family=Courier+Prime:wght@400;700&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 
-
-
 body {
   background: #2a2018;
   color: #1a1008;
@@ -19,31 +17,9 @@ body {
   padding: 0;
 }
 
- 100%{transform:translateX(-100%)} }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ══════════════════════════
-   GAZETTE EMBEDDED STYLES
-══════════════════════════ */
+/* ╔══════════════════════════════════════╗
+   ║       GAZETTE EMBEDDED STYLES        ║
+   ╚══════════════════════════════════════╝ */
 #gazette-wrap {
   background: #2a2018 !important;
   background-image: repeating-linear-gradient(45deg, rgba(0,0,0,0.07) 0px, rgba(0,0,0,0.07) 1px, transparent 1px, transparent 12px) !important;
@@ -54,7 +30,6 @@ body {
   box-sizing: border-box;
   color: #1a1008;
 }
-/* Center children inside gazette-wrap */
 #gazette-wrap > * {
   margin-left: auto;
   margin-right: auto;
@@ -64,7 +39,6 @@ body {
   flex-wrap: wrap;
   justify-content: center;
 }
-/* Force all gazette text to be dark on light paper — prevent juke joint styles bleeding in */
 #gazette-wrap .newspaper { background: #f4ead0 !important; color: #1a1008 !important; }
 #gazette-wrap .section-body { background: #f4ead0 !important; color: #1a1008 !important; }
 #gazette-wrap p,
@@ -94,8 +68,9 @@ body {
 #gazette-wrap .event-meta { color: #8b1a1a !important; }
 #gazette-wrap .panel-caption { color: #1a1008 !important; background: white !important; }
 
-/* ── HIDE GOOGLE CALENDAR FOOTER ── */
-/* Wraps the iframe in a container that clips the bottom footer off */
+/* ╔══════════════════════════════════════╗
+   ║      HIDE GOOGLE CALENDAR FOOTER     ║
+   ╚══════════════════════════════════════╝ */
 .calendar-wrap {
   position: relative;
   overflow: hidden;
@@ -120,9 +95,72 @@ html, body { width: 100%; min-height: 100vh; }
   --crease: #c9b48a; --red: #8b1a1a; --gold: #7a5e20; --blue: #1a3a5c;
 }
 
-#gazette-wrap .section-nav { display: flex; flex-wrap: wrap; gap: 4px; justify-content: center; max-width: 900px; width: 100%; margin-bottom: 10px; }
-#gazette-wrap .section-btn { font-family: 'Courier Prime', monospace; font-size: 10px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; background: #3a2e1e; color: #c9b48a; border: 1px solid #c9b48a; padding: 6px 12px; cursor: pointer; transition: all 0.2s; }
-.section-btn:hover, .section-btn.active { background: var(--red); color: #f4ead0; border-color: var(--red); }
+/* ╔══════════════════════════════════════╗
+   ║       COLOR-CODED NAV BUTTONS        ║
+   ╚══════════════════════════════════════╝ */
+#gazette-wrap .section-nav { display: flex; flex-wrap: wrap; gap: 5px; justify-content: center; max-width: 900px; width: 100%; margin-bottom: 10px; }
+
+/* Base button style */
+#gazette-wrap .section-btn {
+  font-family: 'Courier Prime', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  border: 2px solid transparent;
+  padding: 7px 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-radius: 2px;
+  color: #f4ead0;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+}
+
+/* 📰 Front Page — deep navy */
+#gazette-wrap .section-btn[data-section="front"]          { background: #1a3a5c; border-color: #2a5a8c; }
+#gazette-wrap .section-btn[data-section="front"]:hover,
+#gazette-wrap .section-btn[data-section="front"].active   { background: #0d2240; border-color: #f4ead0; box-shadow: 0 0 0 1px #f4ead0; }
+
+/* 🏪 Chimera Markets — forest green */
+#gazette-wrap .section-btn[data-section="market"]         { background: #2e5e28; border-color: #4a8f42; }
+#gazette-wrap .section-btn[data-section="market"]:hover,
+#gazette-wrap .section-btn[data-section="market"].active  { background: #1a3c16; border-color: #f4ead0; box-shadow: 0 0 0 1px #f4ead0; }
+
+/* 📜 Recipes — warm burgundy */
+#gazette-wrap .section-btn[data-section="recipe"]         { background: #7a2020; border-color: #b04040; }
+#gazette-wrap .section-btn[data-section="recipe"]:hover,
+#gazette-wrap .section-btn[data-section="recipe"].active  { background: #520e0e; border-color: #f4ead0; box-shadow: 0 0 0 1px #f4ead0; }
+
+/* 📸 Time With My Chimera — teal */
+#gazette-wrap .section-btn[data-section="chimera"]        { background: #1a5c5c; border-color: #2a8c8c; }
+#gazette-wrap .section-btn[data-section="chimera"]:hover,
+#gazette-wrap .section-btn[data-section="chimera"].active { background: #0d3c3c; border-color: #f4ead0; box-shadow: 0 0 0 1px #f4ead0; }
+
+/* 📅 Events — deep purple */
+#gazette-wrap .section-btn[data-section="events"]         { background: #4a1a6a; border-color: #7a3aaa; }
+#gazette-wrap .section-btn[data-section="events"]:hover,
+#gazette-wrap .section-btn[data-section="events"].active  { background: #2c0d42; border-color: #f4ead0; box-shadow: 0 0 0 1px #f4ead0; }
+
+/* 🗒️ Comics — rusty orange */
+#gazette-wrap .section-btn[data-section="comics"]         { background: #8b4a10; border-color: #c47020; }
+#gazette-wrap .section-btn[data-section="comics"]:hover,
+#gazette-wrap .section-btn[data-section="comics"].active  { background: #5a2e08; border-color: #f4ead0; box-shadow: 0 0 0 1px #f4ead0; }
+
+/* 👥 About Us — slate blue */
+#gazette-wrap .section-btn[data-section="aboutus"]        { background: #2a3a5c; border-color: #4a6aaa; }
+#gazette-wrap .section-btn[data-section="aboutus"]:hover,
+#gazette-wrap .section-btn[data-section="aboutus"].active { background: #151e38; border-color: #f4ead0; box-shadow: 0 0 0 1px #f4ead0; }
+
+/* 🏆 Contest — golden amber */
+#gazette-wrap .section-btn[data-section="contest"]        { background: #7a5e08; border-color: #c49a20; }
+#gazette-wrap .section-btn[data-section="contest"]:hover,
+#gazette-wrap .section-btn[data-section="contest"].active { background: #503e04; border-color: #f4ead0; box-shadow: 0 0 0 1px #f4ead0; }
+
+/* ⚔️ Circuit — dark red/crimson */
+#gazette-wrap .section-btn[data-section="circuit"]        { background: #6a0a0a; border-color: #aa2020; }
+#gazette-wrap .section-btn[data-section="circuit"]:hover,
+#gazette-wrap .section-btn[data-section="circuit"].active { background: #420606; border-color: #f4ead0; box-shadow: 0 0 0 1px #f4ead0; }
+
 #gazette-wrap .book-wrap { max-width: 900px; width: 100%; position: relative; }
 .book-wrap::before { content:''; position:absolute; inset:8px -7px -8px 7px; background:#b8a070; z-index:0; }
 .book-wrap::after  { content:''; position:absolute; inset:4px -3px -4px 3px;  background:#cdb880; z-index:0; }
@@ -241,7 +279,9 @@ html, body { width: 100%; min-height: 100vh; }
 #gazette-wrap #lightbox img { max-width:92vw; max-height:85vh; width:auto; height:auto; border:6px solid #f4ead0; box-shadow:0 0 30px black; object-fit:contain; }
 #gazette-wrap #lightbox .lb-close { position:absolute; top:18px; right:22px; color:#f4ead0; font-size:28px; font-family:'Courier Prime',monospace; cursor:pointer; }
 
-/* ── RECIPE PHOTO GALLERY GRID ── */
+/* ╔══════════════════════════════════════╗
+   ║        RECIPE PHOTO GALLERY          ║
+   ╚══════════════════════════════════════╝ */
 #gazette-wrap .recipe-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -271,7 +311,9 @@ html, body { width: 100%; min-height: 100vh; }
 #gazette-wrap .recipe-thumb-name { font-family:'Playfair Display',serif; font-size:13px; font-weight:700; color:#f4ead0; line-height:1.2; }
 #gazette-wrap .recipe-thumb-badge { position:absolute; top:8px; right:8px; background:var(--red); color:#f4ead0; font-family:'Courier Prime',monospace; font-size:8px; letter-spacing:0.12em; text-transform:uppercase; padding:3px 8px; }
 
-/* ── RECIPE POPUP OVERLAY ── */
+/* ╔══════════════════════════════════════╗
+   ║         RECIPE POPUP OVERLAY         ║
+   ╚══════════════════════════════════════╝ */
 .recipe-popup-overlay {
   display: none; position: fixed; inset: 0;
   background: rgba(0,0,0,0.88);
@@ -316,9 +358,9 @@ html, body { width: 100%; min-height: 100vh; }
 .step-num { font-family:'Old Standard TT',serif; font-weight:700; font-size:15px; color:var(--red); min-width:22px; }
 .recipe-popup-credit { font-family:'Courier Prime',monospace; font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); margin-top:14px; border-top:1px dashed var(--crease); padding-top:10px; }
 
-/* ══════════════════════════
-   FEATURED SPOTLIGHTS — Front Page
-══════════════════════════ */
+/* ╔══════════════════════════════════════╗
+   ║    FEATURED SPOTLIGHTS — FRONT PAGE  ║
+   ╚══════════════════════════════════════╝ */
 #gazette-wrap .spotlight-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -374,24 +416,11 @@ html, body { width: 100%; min-height: 100vh; }
   color: var(--crease); text-align: center; padding: 10px;
 }
 
-/* ══════════════════════════
-   SUPPORTER SLURL BUTTON
-══════════════════════════ */
-.supporter-slurl {
-  display: inline-block;
-  font-family: 'Courier Prime', monospace;
-  font-size: 10px; font-weight: 700;
-  letter-spacing: 0.1em; text-transform: uppercase;
-  text-decoration: none; padding: 8px 16px;
-  background: #4a6741; color: #fdf3e0;
-  transition: background 0.2s;
-  margin-top: 4px; text-align: center; width: 100%;
-}
-.supporter-slurl:hover { background: #2e4028; }
 
-/* ══════════════════════════
-   CONTEST SECTION
-══════════════════════════ */
+
+/* ╔══════════════════════════════════════╗
+   ║           CONTEST SECTION            ║
+   ╚══════════════════════════════════════╝ */
 #gazette-wrap .contest-banner {
   background: var(--ink); color: var(--paper);
   padding: 14px 18px; text-align: center;
@@ -492,9 +521,9 @@ html, body { width: 100%; min-height: 100vh; }
   background: var(--crease); color: #888; cursor: default;
 }
 
-/* ══════════════════════════
-   CIRCUIT & CHAMPIONSHIP — Gazette Section
-══════════════════════════ */
+/* ╔══════════════════════════════════════╗
+   ║       CIRCUIT & CHAMPIONSHIP         ║
+   ╚══════════════════════════════════════╝ */
 #gazette-wrap .circuit-section-hero {
   background: linear-gradient(180deg, #050a0f 0%, #0a1828 60%, #050a0f 100%);
   padding: 40px 24px 32px;
@@ -591,16 +620,6 @@ html, body { width: 100%; min-height: 100vh; }
   font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
   color: var(--gold);
 }
-#gazette-wrap .circuit-video-empty {
-  border: 1px dashed var(--crease);
-  aspect-ratio: 16/9;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  gap: 8px; opacity: 0.35;
-  font-family: 'Courier Prime', monospace;
-  font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--gold); background: rgba(0,0,0,0.04);
-}
 #circuit-lightbox {
   display: none; position: fixed; inset: 0;
   background: rgba(0,0,0,0.93); z-index: 9999;
@@ -619,6 +638,10 @@ html, body { width: 100%; min-height: 100vh; }
 </style>
 
 <script defer>
+
+// ╔══════════════════════════════════════╗
+// ║         SECTION NAVIGATION          ║
+// ╚══════════════════════════════════════╝
 
 function gazetteShowSection(name, btn) {
   document.querySelectorAll('.page-section').forEach(function(s) { s.classList.remove('active'); });
@@ -640,6 +663,10 @@ function changeFrontPage(dir) {
   document.getElementById('front-next').disabled = frontCurrent === frontTotal;
   window.scrollTo(0, 0);
 }
+
+// ╔══════════════════════════════════════╗
+// ║       LIGHTBOX & POPUP OPENERS      ║
+// ╚══════════════════════════════════════╝
 
 function openLightbox(img, mode) {
   if (!img || !img.src) return;
@@ -663,9 +690,6 @@ function closeRecipePopup(id) {
   document.body.style.overflow = '';
 }
 
-
-
-
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') {
     document.querySelectorAll('.recipe-popup-overlay.open, .gallery-popup.open').forEach(function(p) {
@@ -677,20 +701,20 @@ document.addEventListener('keydown', function(e) {
   }
 });
 
-// ══════════════════════════
-// CONTEST VOTING SYSTEM
-// ══════════════════════════
+// ╔══════════════════════════════════════╗
+// ║        CONTEST VOTING SYSTEM         ║
+// ║  Change CONTEST_ID each month to     ║
+// ║  reset votes. Set VOTING_OPEN to     ║
+// ║  true to open, false to close.       ║
+// ╚══════════════════════════════════════╝
 (function() {
-   var CONTEST_ID   = 'skeeterville-march-2026';   // ← change this each month to reset all votes
-  var VOTING_OPEN  = false;                          // ← set to false to close voting
+  var CONTEST_ID   = 'skeeterville-march-2026';
+  var VOTING_OPEN  = false;
 
   var ENTRIES = [
-  { id:'e1', resident:'Hillbilly', title:'Green And Mean', caption:'Got the lucky pot', photo:'contests/hillbilly-stpatty-2026.png' },
-
- { id:'e2', resident:'Jus', title:'St Patty 2026', caption:'Lucky In Green', photo:'contests/St-Pattys-2026-Jus.png' },
-
-  { id:'e3', resident:'Jakki', title:'St Patty 2026', caption:'Ahead Of Luck', photo:'contests/saint-patty-day-jakki.png' }
-
+    { id:'e1', resident:'Hillbilly', title:'Green And Mean', caption:'Got the lucky pot', photo:'contests/hillbilly-stpatty-2026.png' },
+    { id:'e2', resident:'Jus', title:'St Patty 2026', caption:'Lucky In Green', photo:'contests/St-Pattys-2026-Jus.png' },
+    { id:'e3', resident:'Jakki', title:'St Patty 2026', caption:'Ahead Of Luck', photo:'contests/saint-patty-day-jakki.png' }
   ];
 
   var STORAGE_KEY = 'sv_voted_' + CONTEST_ID;
@@ -748,7 +772,6 @@ document.addEventListener('keydown', function(e) {
     html += '</div>';
     wrap.innerHTML = html;
 
-    // Show closed banner if voting off
     var closedBanner = document.getElementById('contest-closed-banner');
     if (closedBanner) closedBanner.style.display = VOTING_OPEN ? 'none' : 'block';
   }
@@ -777,6 +800,10 @@ document.addEventListener('keydown', function(e) {
   document.addEventListener('DOMContentLoaded', renderContest);
 })();
 
+// ╔══════════════════════════════════════╗
+// ║        CIRCUIT PHOTO LIGHTBOX       ║
+// ╚══════════════════════════════════════╝
+
 window.openCircuitPhoto = function(src, caption) {
   var lb = document.getElementById('circuit-lightbox');
   var img = document.getElementById('circuit-lightbox-img');
@@ -789,30 +816,21 @@ window.closeCircuitLightbox = function() {
   if (lb) lb.style.display = 'none';
 };
 
-window.addEventListener('load', function() {
-  document.querySelectorAll('a').forEach(function(a) {
-    if (a.textContent.includes('protected') || (a.href && a.href.includes('cdn-cgi'))) {
-      a.href = 'mailto:skeeterville2026@gmail.com';
-      a.textContent = 'skeeterville2026@gmail.com';
-    }
-  });
-});
-
 </script>
 </head>
 <body>
 
 <div id="gazette-wrap">
 <div class="section-nav">
-  <button class="section-btn active" onclick="gazetteShowSection('front',this)">📰 Front Page</button>
-  <button class="section-btn" onclick="gazetteShowSection('market',this)">🏪 Chimera Markets</button>
-  <button class="section-btn" onclick="gazetteShowSection('recipe',this)">📜 Recipes</button>
-  <button class="section-btn" onclick="gazetteShowSection('chimera',this)">📸 Time With My Chimera</button>
-  <button class="section-btn" onclick="gazetteShowSection('events',this)">📅 Events</button>
-  <button class="section-btn" onclick="gazetteShowSection('comics',this)">🗒️ Comics</button>
-  <button class="section-btn" onclick="gazetteShowSection('aboutus',this)">👥 About Us</button>
-  <button class="section-btn" onclick="gazetteShowSection('contest',this)">🏆 Chimera Contest</button>
-  <button class="section-btn" onclick="gazetteShowSection('circuit',this)">⚔️ Circuit &amp; Championship</button>
+  <button class="section-btn active" data-section="front"   onclick="gazetteShowSection('front',this)">📰 Front Page</button>
+  <button class="section-btn"        data-section="market"  onclick="gazetteShowSection('market',this)">🏪 Chimera Markets</button>
+  <button class="section-btn"        data-section="recipe"  onclick="gazetteShowSection('recipe',this)">📜 Recipes</button>
+  <button class="section-btn"        data-section="chimera" onclick="gazetteShowSection('chimera',this)">📸 Time With My Chimera</button>
+  <button class="section-btn"        data-section="events"  onclick="gazetteShowSection('events',this)">📅 Events</button>
+  <button class="section-btn"        data-section="comics"  onclick="gazetteShowSection('comics',this)">🗒️ Comics</button>
+  <button class="section-btn"        data-section="aboutus" onclick="gazetteShowSection('aboutus',this)">👥 About Us</button>
+  <button class="section-btn"        data-section="contest" onclick="gazetteShowSection('contest',this)">🏆 Chimera Contest</button>
+  <button class="section-btn"        data-section="circuit" onclick="gazetteShowSection('circuit',this)">⚔️ Circuit &amp; Championship</button>
 </div>
 
 <div class="book-wrap">
@@ -839,7 +857,9 @@ window.addEventListener('load', function() {
     <span>FEBRUARY 2026</span>
   </div>
 
-  <!-- FRONT PAGE -->
+  <!-- ╔══════════════════════════════════════╗
+       ║            FRONT PAGE               ║
+       ╚══════════════════════════════════════╝ -->
   <div class="page-section active" id="section-front">
     <div class="section-label">§ Front Page &amp; News</div>
     <div class="page-content active" id="front-p1">
@@ -894,8 +914,6 @@ window.addEventListener('load', function() {
                   <p><strong>We've seen you made Circuit 27 MVP. Will we see you in Circuit 28?</strong><br>Absolutely. I'll be doing Circuit 28. Usually with circuits, I have one of the four that performs really well, so I'm looking forward to seeing how this one goes.</p>
                   <p><strong>A word to the community from Vortex:</strong><br>For anyone interested in the circuits — especially if you're new — go to the battles and watch. Learn how things work. Bring a friend, even if it's your first time. Give it a try and learn as you go. And don't be afraid to ask questions if you're unsure.</p>
                 </div>
-                <div class="spotlight-btns">
-                </div>
               </div>
             </div>
           </div>
@@ -921,7 +939,9 @@ window.addEventListener('load', function() {
     </div>
   </div>
 
-  <!-- CHIMERA MARKETS -->
+  <!-- ╔══════════════════════════════════════╗
+       ║          CHIMERA MARKETS            ║
+       ╚══════════════════════════════════════╝ -->
   <div class="page-section" id="section-market">
     <div class="section-label">§ Chimera Markets</div>
     <div class="section-body">
@@ -930,7 +950,6 @@ window.addEventListener('load', function() {
       <div class="byline">Compiled by the Gazette Market Desk &bull; Updated each edition</div>
       <div class="market-grid">
 
-        <!-- CARD 1: Market Skeeterville -->
         <div class="market-card">
           <div class="market-card-img" onclick="openLightbox(this.querySelector('img'))">
             <img src="market/market1.jpg" alt="Market Skeeterville" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'>📷 Add market1.jpg<br>to your market/ folder</div>'">
@@ -946,7 +965,6 @@ window.addEventListener('load', function() {
           </div>
         </div>
 
-        <!-- CARD 2: Stones Throw -->
         <div class="market-card">
           <div class="market-card-img" onclick="openLightbox(this.querySelector('img'))">
             <img src="market/stones-throw.png" alt="Stones Throw" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'>📷 Add stones-throw.png<br>to your market/ folder</div>'">
@@ -961,7 +979,6 @@ window.addEventListener('load', function() {
           </div>
         </div>
 
-        <!-- CARD 3: Ravens Nest -->
         <div class="market-card">
           <div class="market-card-img" onclick="openLightbox(this.querySelector('img'))">
             <img src="market/ravens-nest.png" alt="Ravens Nest" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'>📷 Add ravens-nest.png<br>to your market/ folder</div>'">
@@ -977,7 +994,6 @@ window.addEventListener('load', function() {
           </div>
         </div>
 
-        <!-- CARD 4: Arizona's Chimeras -->
         <div class="market-card">
           <div class="market-card-img" onclick="openLightbox(this.querySelector('img'))">
             <img src="market/Arizonas-Chimeras.png" alt="Arizona's Chimeras" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'>📷 Add Arizonas-Chimeras.png<br>to your market/ folder</div>'">
@@ -992,8 +1008,7 @@ window.addEventListener('load', function() {
           </div>
         </div>
 
-        <!-- CARD 5: Empty slot -->
-               <div class="market-card">
+        <div class="market-card">
           <div class="market-card-img" onclick="openLightbox(this.querySelector('img'))">
             <img src="market/Serenity-Oasis.png" alt="Serenity Oasis" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'>📷 Add Serenity-Oasis.png<br>to your market/ folder</div>'">
           </div>
@@ -1007,7 +1022,6 @@ window.addEventListener('load', function() {
           </div>
         </div>
 
-        <!-- CARD 6: Empty slot -->
         <div class="market-card" style="border:1px dashed rgba(26,16,8,0.25);opacity:0.5;">
           <div class="market-card-img" style="background:var(--aged);display:flex;align-items:center;justify-content:center;">
             <div class="img-placeholder">📷 Add your image<br>to your market/ folder</div>
@@ -1022,7 +1036,6 @@ window.addEventListener('load', function() {
           </div>
         </div>
 
-        <!-- CARD 7: Empty slot -->
         <div class="market-card" style="border:1px dashed rgba(26,16,8,0.25);opacity:0.5;">
           <div class="market-card-img" style="background:var(--aged);display:flex;align-items:center;justify-content:center;">
             <div class="img-placeholder">📷 Add your image<br>to your market/ folder</div>
@@ -1037,7 +1050,6 @@ window.addEventListener('load', function() {
           </div>
         </div>
 
-        <!-- CARD 8: Empty slot -->
         <div class="market-card" style="border:1px dashed rgba(26,16,8,0.25);opacity:0.5;">
           <div class="market-card-img" style="background:var(--aged);display:flex;align-items:center;justify-content:center;">
             <div class="img-placeholder">📷 Add your image<br>to your market/ folder</div>
@@ -1057,7 +1069,9 @@ window.addEventListener('load', function() {
     </div>
   </div>
 
-  <!-- RECIPES -->
+  <!-- ╔══════════════════════════════════════╗
+       ║              RECIPES                ║
+       ╚══════════════════════════════════════╝ -->
   <div class="page-section" id="section-recipe">
     <div class="section-label">§ Recipe Book</div>
     <div class="section-body">
@@ -1065,9 +1079,7 @@ window.addEventListener('load', function() {
       <div class="deck">Community cooking favourites — click any photo to open the full recipe</div>
       <div class="byline">Contributed by Skeeterville residents &bull; Recipe Desk</div>
 
-      <!-- RECIPE PHOTO GALLERY -->
       <div class="recipe-gallery">
-
         <div class="recipe-thumb" onclick="openRecipePopup('rpop-mac')">
           <img src="recipes/Macaroni-and-Cheese.png" alt="Classic Baked Mac and Cheese" onerror="this.style.display='none'">
           <div class="recipe-thumb-overlay">
@@ -1076,7 +1088,6 @@ window.addEventListener('load', function() {
           </div>
           <div class="recipe-thumb-badge">★ Featured</div>
         </div>
-
         <div class="recipe-thumb" onclick="openRecipePopup('rpop-gumbo')">
           <img src="recipes/swamp-gumbo.png" alt="Swamp Gumbo" onerror="this.style.display='none'">
           <div class="recipe-thumb-overlay">
@@ -1098,7 +1109,6 @@ window.addEventListener('load', function() {
             <div class="recipe-thumb-name">Greek Pasta Salad</div>
           </div>
         </div>
-
       </div>
 
       <div class="submit-note">HAVE A RECIPE TO SHARE? CONTACT ISAC OR ROXIE DREAMCLAW IN-WORLD — WE'LL ADD IT NEXT EDITION</div>
@@ -1302,11 +1312,13 @@ window.addEventListener('load', function() {
     </div>
   </div>
 
-  <!-- TIME WITH MY CHIMERA -->
+  <!-- ╔══════════════════════════════════════╗
+       ║         TIME WITH MY CHIMERA        ║
+       ╚══════════════════════════════════════╝ -->
   <div class="page-section" id="section-chimera">
     <div class="section-label">§ Time With My Chimera</div>
     <div class="section-body">
-      <h2 class="headline">Time With My Chimera <a href="/cdn-cgi/l/email-protection#84f7efe1e1f0e1f6f2ede8e8e1b6b4b6b2c4e3e9e5ede8aae7ebe9" style="font-family:'Courier Prime',monospace;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);text-decoration:none;border:1px solid var(--crease);padding:3px 10px;vertical-align:middle;margin-left:10px;">📷 Submit a Photo</a></h2>
+      <h2 class="headline">Time With My Chimera <a href="mailto:skeeterville2026@gmail.com" style="font-family:'Courier Prime',monospace;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);text-decoration:none;border:1px solid var(--crease);padding:3px 10px;vertical-align:middle;margin-left:10px;">📷 Submit a Photo</a></h2>
       <div class="deck">A Sunday showcase of Skeeterville's most beloved companions</div>
       <div class="byline">Community Submissions &bull; Photo Desk</div>
       <div class="chimera-magazine">
@@ -1348,11 +1360,13 @@ window.addEventListener('load', function() {
           <div class="chimera-caption">Caption for this chimera<span>Owner: Resident Name</span></div>
         </div>
       </div>
-      <div class="submit-note">📷 SUBMIT YOUR CHIMERA PHOTO — EMAIL <a href="/cdn-cgi/l/email-protection#0f7c646a6a7b6a7d796663636a3d3f3d394f68626e6663216c6062" style="color:var(--gold);font-weight:700;"><span class="__cf_email__" data-cfemail="5c2f37393928392e2a353030396e6c6e6a1c3b313d3530723f3331">[email&#160;protected]</span></a> WITH YOUR PHOTO &amp; CHIMERA'S NAME · ALL WELCOME</div>
+      <div class="submit-note">📷 SUBMIT YOUR CHIMERA PHOTO — EMAIL skeeterville2026@gmail.com WITH YOUR PHOTO &amp; CHIMERA'S NAME · ALL WELCOME</div>
     </div>
   </div>
 
-  <!-- EVENTS — calendar only shows on this tab -->
+  <!-- ╔══════════════════════════════════════╗
+       ║               EVENTS               ║
+       ╚══════════════════════════════════════╝ -->
   <div class="page-section" id="section-events">
     <div class="section-label">§ Events &amp; Happenings</div>
     <div class="section-body">
@@ -1370,80 +1384,67 @@ window.addEventListener('load', function() {
           <div class="calendar-footer-cover"></div>
         </div>
       </div>
-      <div class="submit-note">TO LIST YOUR EVENT — EMAIL <a href="/cdn-cgi/l/email-protection#24574f4141504156524d48484116141612644349454d480a474b49" style="text-decoration:none; font-weight:bold;"><span class="__cf_email__" data-cfemail="e6958d8383928394908f8a8a83d4d6d4d0a6818b878f8ac885898b">[email&#160;protected]</span></a> &bull; ALL COMMUNITY EVENTS LISTED FREE</div>
+      <div class="submit-note">TO LIST YOUR EVENT — EMAIL skeeterville2026@gmail.com &bull; ALL COMMUNITY EVENTS LISTED FREE</div>
     </div>
   </div>
 
-  <!-- COMICS -->
+  <!-- ╔══════════════════════════════════════╗
+       ║               COMICS               ║
+       ╚══════════════════════════════════════╝ -->
   <div class="page-section" id="section-comics">
     <div class="section-label">§ The Sunday Funnies</div>
     <div class="section-body">
       <h2 class="headline">The Sunday Funnies</h2>
       <div class="deck">Original comics by Isac &amp; Roxie Dreamclaw</div>
       <div class="byline">Comics &bull; Skeeterville Gazette</div>
-        <div class="comic-strip">
+      <div class="comic-strip">
         <div class="comic-title-bar">★ Skeeterville Comics ★ — NO.1</div>
         <div class="comic-panels p4">
           <div class="comic-panel">
-            <div class="panel-image">
-              <img src="comics/comic1.png" alt="Skeeterville Comics panel 1" onclick="openLightbox(this)" onerror="this.parentElement.outerHTML='<div class=\'panel-placeholder\'>Image not found<br>comic1.png<br>in comics/ folder</div>'">
-            </div>
+            <div class="panel-image"><img src="comics/comic1.png" alt="Skeeterville Comics panel 1" onclick="openLightbox(this)" onerror="this.parentElement.outerHTML='<div class=\'panel-placeholder\'>Image not found<br>comic1.png<br>in comics/ folder</div>'"></div>
             <div class="panel-caption">and the battles begin</div>
           </div>
           <div class="comic-panel">
-            <div class="panel-image">
-              <img src="comics/comic2.png" alt="Skeeterville Comics panel 2" onclick="openLightbox(this)" onerror="this.parentElement.outerHTML='<div class=\'panel-placeholder\'>Image not found<br>comic2.png<br>in comics/ folder</div>'">
-            </div>
+            <div class="panel-image"><img src="comics/comic2.png" alt="Skeeterville Comics panel 2" onclick="openLightbox(this)" onerror="this.parentElement.outerHTML='<div class=\'panel-placeholder\'>Image not found<br>comic2.png<br>in comics/ folder</div>'"></div>
             <div class="panel-caption">vortex and ila on the hunt</div>
           </div>
           <div class="comic-panel">
-            <div class="panel-image">
-              <img src="comics/comic3.png" alt="Skeeterville Comics panel 3" onclick="openLightbox(this)" onerror="this.parentElement.outerHTML='<div class=\'panel-placeholder\'>Image not found<br>comic3.png<br>in comics/ folder</div>'">
-            </div>
+            <div class="panel-image"><img src="comics/comic3.png" alt="Skeeterville Comics panel 3" onclick="openLightbox(this)" onerror="this.parentElement.outerHTML='<div class=\'panel-placeholder\'>Image not found<br>comic3.png<br>in comics/ folder</div>'"></div>
             <div class="panel-caption">chef and aeson at the championship</div>
           </div>
           <div class="comic-panel">
-            <div class="panel-image">
-              <img src="comics/comic5.png" alt="Skeeterville Comics panel 4" onclick="openLightbox(this)" onerror="this.parentElement.outerHTML='<div class=\'panel-placeholder\'>Image not found<br>comic5.png<br>in comics/ folder</div>'">
-            </div>
+            <div class="panel-image"><img src="comics/comic5.png" alt="Skeeterville Comics panel 4" onclick="openLightbox(this)" onerror="this.parentElement.outerHTML='<div class=\'panel-placeholder\'>Image not found<br>comic5.png<br>in comics/ folder</div>'"></div>
             <div class="panel-caption">jasmine mining</div>
           </div>
         </div>
       </div>
-            <div class="comic-strip">
+      <div class="comic-strip">
         <div class="comic-title-bar">★ Skeeterville Comics ★ — NO.2</div>
         <div class="comic-panels p4">
           <div class="comic-panel">
-            <div class="panel-image">
-              <img src="comics/comic4.png" alt="Skeeterville Comics panel 1" onclick="openLightbox(this)" onerror="this.parentElement.outerHTML='<div class=\'panel-placeholder\'>Image not found<br>comic4.png<br>in comics/ folder</div>'">
-            </div>
+            <div class="panel-image"><img src="comics/comic4.png" alt="Skeeterville Comics panel 1" onclick="openLightbox(this)" onerror="this.parentElement.outerHTML='<div class=\'panel-placeholder\'>Image not found<br>comic4.png<br>in comics/ folder</div>'"></div>
             <div class="panel-caption">skeeterville game night</div>
           </div>
           <div class="comic-panel">
-            <div class="panel-image">
-              <img src="comics/comic6.png" alt="Skeeterville Comics panel 2" onclick="openLightbox(this)" onerror="this.parentElement.outerHTML='<div class=\'panel-placeholder\'>Image not found<br>comic6.png<br>in comics/ folder</div>'">
-            </div>
+            <div class="panel-image"><img src="comics/comic6.png" alt="Skeeterville Comics panel 2" onclick="openLightbox(this)" onerror="this.parentElement.outerHTML='<div class=\'panel-placeholder\'>Image not found<br>comic6.png<br>in comics/ folder</div>'"></div>
             <div class="panel-caption">fishing contest</div>
           </div>
           <div class="comic-panel">
-            <div class="panel-image">
-              <img src="comics/comic7.png" alt="Skeeterville Comics panel 3" onclick="openLightbox(this)" onerror="this.parentElement.outerHTML='<div class=\'panel-placeholder\'>Image not found<br>comic7.png<br>in comics/ folder</div>'">
-            </div>
+            <div class="panel-image"><img src="comics/comic7.png" alt="Skeeterville Comics panel 3" onclick="openLightbox(this)" onerror="this.parentElement.outerHTML='<div class=\'panel-placeholder\'>Image not found<br>comic7.png<br>in comics/ folder</div>'"></div>
             <div class="panel-caption">hillbillys big catch</div>
           </div>
           <div class="comic-panel">
-            <div class="panel-image">
-              <img src="comics/comic8.png" alt="Skeeterville Comics panel 4" onclick="openLightbox(this)" onerror="this.parentElement.outerHTML='<div class=\'panel-placeholder\'>Image not found<br>comic8.png<br>in comics/ folder</div>'">
-            </div>
+            <div class="panel-image"><img src="comics/comic8.png" alt="Skeeterville Comics panel 4" onclick="openLightbox(this)" onerror="this.parentElement.outerHTML='<div class=\'panel-placeholder\'>Image not found<br>comic8.png<br>in comics/ folder</div>'"></div>
             <div class="panel-caption">just a boot....</div>
           </div>
         </div>
       </div>
-      
     </div>
   </div>
 
-  <!-- ABOUT US -->
+  <!-- ╔══════════════════════════════════════╗
+       ║              ABOUT US              ║
+       ╚══════════════════════════════════════╝ -->
   <div class="page-section" id="section-aboutus">
     <div class="section-label">§ About Us — The Team Behind The Gazette</div>
     <div class="section-body">
@@ -1496,61 +1497,60 @@ Chief &amp; Co-Editor</p>
 
       <div class="pull-quote">"We built this paper together — because Skeeterville deserves one."</div>
 
-      <section style="margin:60px 0; padding:40px; background:#f4f1ea; border-top:4px solid #2e2a25; border-bottom:4px solid #2e2a25;">
-        <h2 style="text-transform:uppercase; letter-spacing:2px; font-weight:bold; text-align:center;">Advertising &amp; Store Submissions</h2>
-        <p style="text-align:center; font-style:italic; margin-bottom:30px;">Submit Your Store or Advertisement for Publication in The Skeeterville Gazette</p>
-        <p>The Skeeterville Gazette accepts business advertisements and store listings for publication consideration. All materials must be submitted via email and must include the required information below.</p>
-        <h3 style="margin-top:30px;">Required Submission Materials</h3>
-        <ul style="line-height:1.8;">
+      <section style="margin:40px 0; padding:30px; background:rgba(255,255,255,0.25); border:2px solid var(--crease);">
+        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(16px,3vw,22px);font-weight:900;text-align:center;color:var(--ink);margin-bottom:6px;text-transform:uppercase;letter-spacing:2px;">Advertising &amp; Store Submissions</h2>
+        <p style="text-align:center;font-family:'IM Fell English',serif;font-style:italic;color:var(--gold);font-size:13px;margin-bottom:20px;">Submit Your Store or Advertisement for Publication in The Skeeterville Gazette</p>
+        <p style="font-family:'IM Fell English',serif;font-size:13px;line-height:1.75;color:var(--ink);margin-bottom:14px;">The Skeeterville Gazette accepts business advertisements and store listings for publication consideration. All materials must be submitted via email and must include the required information below.</p>
+        <p style="font-family:'Courier Prime',monospace;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--red);margin-bottom:8px;">Required Submission Materials</p>
+        <ul style="font-family:'IM Fell English',serif;font-size:13px;line-height:1.9;color:var(--ink);padding-left:18px;margin-bottom:16px;">
           <li><strong>Official Store or Venue Name</strong></li>
           <li><strong>Your Second Life Account Name</strong> (not display name)</li>
           <li><strong>Second Life SLURL</strong> to your location</li>
           <li><strong>Brief Store Description</strong> (this will accompany your image)</li>
           <li><strong>One Promotional Image or Advertisement Graphic</strong> (attached to email)</li>
         </ul>
-        <p style="margin-top:30px;">Please send all required materials to:</p>
-        <p style="font-size:18px; font-weight:bold;"><a href="/cdn-cgi/l/email-protection#94e7fff1f1e0f1e6e2fdf8f8f1a6a4a6a2d4f3f9f5fdf8baf7fbf9" style="color:#2e2a25; text-decoration:none;"><span class="__cf_email__" data-cfemail="8ffce4eaeafbeafdf9e6e3e3eabdbfbdb9cfe8e2eee6e3a1ece0e2">[email&#160;protected]</span></a></p>
-        <p style="margin-top:20px; font-size:14px; color:#555;">Submissions are reviewed prior to publication. The Skeeterville Gazette reserves the right to edit content for clarity, formatting, and length. Submission does not guarantee placement.</p>
+        <p style="font-family:'IM Fell English',serif;font-size:13px;color:var(--ink);margin-bottom:8px;">Please send all required materials to:</p>
+        <p style="font-family:'Courier Prime',monospace;font-size:12px;font-weight:700;margin-bottom:12px;"><a href="mailto:skeeterville2026@gmail.com" style="color:var(--ink);text-decoration:none;">skeeterville2026@gmail.com</a></p>
+        <p style="font-family:'Courier Prime',monospace;font-size:9px;letter-spacing:0.06em;color:#777;">Submissions are reviewed prior to publication. The Skeeterville Gazette reserves the right to edit content for clarity, formatting, and length. Submission does not guarantee placement.</p>
       </section>
 
     </div>
   </div>
 
-
-
-
-  <!-- CONTEST -->
+  <!-- ╔══════════════════════════════════════╗
+       ║              CONTEST               ║
+       ╚══════════════════════════════════════╝ -->
   <div class="page-section" id="section-contest">
     <div class="section-label">§ Community Contest</div>
     <div class="section-body">
       <div class="contest-banner">
         <div class="contest-banner-title" id="contest-title-display">March 2026 — Best Chimera ST Patty Scene Photo</div>
         <div class="contest-banner-theme" id="contest-theme-display">"Show us your favorite chimera — St Patty Scene"</div>
-        <div class="contest-banner-meta" id="contest-meta-display">VOTING CLOSES MARCH 31 2026 ·  Prize: Obsidian 250 Gift Card</div>
+        <div class="contest-banner-meta" id="contest-meta-display">VOTING CLOSES MARCH 31 2026 · Prize: Obsidian 250 Gift Card</div>
       </div>
       <div class="contest-voting-closed" id="contest-closed-banner" style="display:none;">
         ⚑ Voting Is Currently Closed — Voting Opens On March 17th 2026!
       </div>
       <div id="contest-entries-wrap"></div>
 
-      <!-- Contest photo lightbox (separate from gazette lightbox) -->
       <div id="contest-lightbox" onclick="closeContestLightbox()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.9);z-index:9999;cursor:pointer;">
         <span style="position:absolute;top:18px;right:22px;color:#f4ead0;font-size:28px;font-family:'Courier Prime',monospace;cursor:pointer;" onclick="closeContestLightbox()">✕</span>
         <img id="contest-lightbox-img" src="" alt="" style="max-width:88%;max-height:88%;border:6px solid #f4ead0;box-shadow:0 0 30px black;">
       </div>
 
-      <div class="submit-note">TO ENTER THE CONTEST — EMAIL <a href="/cdn-cgi/l/email-protection#5f2c343a3a2b3a2d293633333a6d6f6d691f38323e3633713c3032" style="color:var(--gold);font-weight:700;"><span class="__cf_email__" data-cfemail="4c3f27292938293e3a252020297e7c7e7a0c2b212d2520622f2321">[email&#160;protected]</span></a> WITH YOUR PHOTO, CHIMERA NAME &amp; YOUR SL RESIDENT NAME</div>
+      <div class="submit-note">TO ENTER THE CONTEST — EMAIL skeeterville2026@gmail.com WITH YOUR PHOTO, CHIMERA NAME &amp; YOUR SL RESIDENT NAME</div>
     </div>
   </div>
 
-  <!-- CIRCUIT & CHAMPIONSHIP -->
+  <!-- ╔══════════════════════════════════════╗
+       ║       CIRCUIT & CHAMPIONSHIP       ║
+       ╚══════════════════════════════════════╝ -->
   <div class="page-section" id="section-circuit">
     <div class="circuit-section-hero">
       <div class="circuit-section-title">⚔️ Circuit &amp; Championship</div>
-      <div class="circuit-section-sub"> Championship Photos · Circuit Photos </div>
+      <div class="circuit-section-sub">Championship Photos · Circuit Photos</div>
     </div>
 
-    <!-- VIDEOS -->
     <div class="circuit-block">
       <div class="circuit-block-label">§ Chimera Videos</div>
       <div class="circuit-video-grid" id="circuit-video-grid">
@@ -1575,10 +1575,9 @@ Chief &amp; Co-Editor</p>
       </div>
     </div>
 
-    <!-- PHOTOS -->
     <div class="circuit-block">
       <div class="circuit-block-label">§ Championship Gallery</div>
-            <div class="circuit-photo-grid" id="circuit-photo-grid">
+      <div class="circuit-photo-grid" id="circuit-photo-grid">
         <div class="circuit-photo-item" onclick="openCircuitPhoto('circuit/chimera1.png', 'Kick Kick Take That')">
           <img src="circuit/chimera1.png" alt="Kick Kick Take That">
           <div class="circuit-photo-caption">Kick Kick Take That</div>
@@ -1634,13 +1633,11 @@ Chief &amp; Co-Editor</p>
       </div>
     </div>
   </div>
-    </div>
-  </div>
 
 </div><!-- /newspaper -->
 </div><!-- /book-wrap -->
 
-<!-- Circuit lightbox -->
+<!-- Lightboxes -->
 <div id="circuit-lightbox" onclick="closeCircuitLightbox()">
   <span class="circuit-lb-close" onclick="closeCircuitLightbox()">✕</span>
   <img id="circuit-lightbox-img" src="" alt="Race photo">
@@ -1650,7 +1647,7 @@ Chief &amp; Co-Editor</p>
   <img src="" id="lightbox-img" alt="enlarged photo">
 </div>
 
-  </div><!-- /gazette-wrap -->
+</div><!-- /gazette-wrap -->
 
 </body>
 </html>
