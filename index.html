@@ -151,10 +151,7 @@ html, body { width: 100%; min-height: 100vh; }
 #gazette-wrap .section-btn[data-section="aboutus"]:hover,
 #gazette-wrap .section-btn[data-section="aboutus"].active { background: #151e38; border-color: #f4ead0; box-shadow: 0 0 0 1px #f4ead0; }
 
-/* 🏆 Contest — golden amber */
-#gazette-wrap .section-btn[data-section="contest"]        { background: #7a5e08; border-color: #c49a20; }
-#gazette-wrap .section-btn[data-section="contest"]:hover,
-#gazette-wrap .section-btn[data-section="contest"].active { background: #503e04; border-color: #f4ead0; box-shadow: 0 0 0 1px #f4ead0; }
+
 
 /* ⚔️ Circuit — dark red/crimson */
 #gazette-wrap .section-btn[data-section="circuit"]        { background: #6a0a0a; border-color: #aa2020; }
@@ -419,109 +416,6 @@ html, body { width: 100%; min-height: 100vh; }
 
 
 /* ╔══════════════════════════════════════╗
-   ║           CONTEST SECTION            ║
-   ╚══════════════════════════════════════╝ */
-#gazette-wrap .contest-banner {
-  background: var(--ink); color: var(--paper);
-  padding: 14px 18px; text-align: center;
-  border-bottom: 3px double var(--crease);
-  margin-bottom: 18px;
-}
-#gazette-wrap .contest-banner-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(16px, 3.5vw, 22px);
-  font-weight: 900; color: var(--crease);
-  margin-bottom: 4px;
-}
-#gazette-wrap .contest-banner-theme {
-  font-family: 'IM Fell English', serif;
-  font-style: italic; font-size: 13px;
-  color: rgba(244,234,208,0.7);
-  margin-bottom: 8px;
-}
-#gazette-wrap .contest-banner-meta {
-  font-family: 'Courier Prime', monospace;
-  font-size: 9px; letter-spacing: 0.15em;
-  text-transform: uppercase; color: var(--crease);
-  opacity: 0.6;
-}
-#gazette-wrap .contest-voting-closed {
-  font-family: 'Courier Prime', monospace;
-  font-size: 11px; font-weight: 700;
-  letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--red); text-align: center;
-  padding: 8px; background: rgba(139,26,26,0.08);
-  border: 1px solid rgba(139,26,26,0.25);
-  margin-bottom: 16px;
-}
-#gazette-wrap .contest-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 18px; margin-top: 4px;
-}
-#gazette-wrap .contest-card {
-  border: 2px solid var(--ink);
-  background: rgba(255,255,255,0.2);
-  box-shadow: 3px 3px 0 var(--crease);
-  overflow: hidden;
-  display: flex; flex-direction: column;
-}
-#gazette-wrap .contest-photo {
-  width: 100%; aspect-ratio: 4/3; overflow: hidden;
-  background: var(--aged); cursor: pointer;
-  border-bottom: 2px solid var(--ink);
-}
-#gazette-wrap .contest-photo img {
-  width: 100%; height: 100%; object-fit: cover;
-  filter: sepia(10%) contrast(105%);
-  transition: transform 0.35s; display: block;
-}
-#gazette-wrap .contest-photo:hover img { transform: scale(1.07); }
-#gazette-wrap .contest-card-body {
-  padding: 10px 12px; flex: 1;
-  display: flex; flex-direction: column;
-}
-#gazette-wrap .contest-entry-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 14px; font-weight: 700; color: var(--ink);
-  margin-bottom: 2px;
-}
-#gazette-wrap .contest-entry-resident {
-  font-family: 'Courier Prime', monospace;
-  font-size: 9px; letter-spacing: 0.08em;
-  color: var(--gold); text-transform: uppercase;
-  margin-bottom: 5px;
-}
-#gazette-wrap .contest-entry-caption {
-  font-family: 'IM Fell English', serif;
-  font-style: italic; font-size: 12px;
-  color: var(--ink); flex: 1; margin-bottom: 8px;
-  line-height: 1.5;
-}
-#gazette-wrap .contest-vote-count {
-  font-family: 'Courier Prime', monospace;
-  font-size: 10px; letter-spacing: 0.08em;
-  color: var(--gold); margin-bottom: 6px;
-  text-align: center;
-}
-#gazette-wrap .btn-contest-vote {
-  width: 100%; padding: 7px;
-  font-family: 'Courier Prime', monospace;
-  font-size: 10px; font-weight: 700;
-  letter-spacing: 0.1em; text-transform: uppercase;
-  background: var(--red); color: var(--paper);
-  border: none; cursor: pointer;
-  transition: background 0.2s;
-}
-#gazette-wrap .btn-contest-vote:hover { background: #6a1010; }
-#gazette-wrap .btn-contest-vote.voted {
-  background: var(--gold); color: var(--ink); cursor: default;
-}
-#gazette-wrap .btn-contest-vote:disabled {
-  background: var(--crease); color: #888; cursor: default;
-}
-
-/* ╔══════════════════════════════════════╗
    ║       CIRCUIT & CHAMPIONSHIP         ║
    ╚══════════════════════════════════════╝ */
 #gazette-wrap .circuit-section-hero {
@@ -692,115 +586,13 @@ function closeRecipePopup(id) {
 
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') {
-    document.querySelectorAll('.recipe-popup-overlay.open, .gallery-popup.open').forEach(function(p) {
+    document.querySelectorAll('.recipe-popup-overlay.open').forEach(function(p) {
       p.classList.remove('open');
       document.body.style.overflow = '';
     });
-    var cl = document.getElementById('contest-lightbox');
-    if (cl) cl.style.display = 'none';
   }
 });
 
-// ╔══════════════════════════════════════╗
-// ║        CONTEST VOTING SYSTEM         ║
-// ║  Change CONTEST_ID each month to     ║
-// ║  reset votes. Set VOTING_OPEN to     ║
-// ║  true to open, false to close.       ║
-// ╚══════════════════════════════════════╝
-(function() {
-  var CONTEST_ID   = 'skeeterville-march-2026';
-  var VOTING_OPEN  = true;
-
-  var ENTRIES = [
-    { id:'e1', resident:'Hillbilly', title:'Green And Mean', caption:'Got the lucky pot', photo:'contests/hillbilly-stpatty-2026.png' },
-{ id:'e4', resident:'Raven', title:'St Patty 2026', caption:'Jump All In', photo:'contests/raven-stpatty-2026.png' },
-
-    { id:'e2', resident:'Jus', title:'St Patty 2026', caption:'Lucky In Green', photo:'contests/St-Pattys-2026-Jus.png' },
-    { id:'e3', resident:'Jakki', title:'St Patty 2026', caption:'Ahead Of Luck', photo:'contests/saint-patty-day-jakki.png' }
-  ];
-
-  var STORAGE_KEY = 'sv_voted_' + CONTEST_ID;
-
-  function getVotes() {
-    try { return JSON.parse(localStorage.getItem('sv_votes_' + CONTEST_ID) || '{}'); } catch(e) { return {}; }
-  }
-  function saveVotes(v) {
-    try { localStorage.setItem('sv_votes_' + CONTEST_ID, JSON.stringify(v)); } catch(e) {}
-  }
-  function hasVoted() {
-    try { return localStorage.getItem(STORAGE_KEY) === '1'; } catch(e) { return false; }
-  }
-  function recordVote(entryId) {
-    var votes = getVotes();
-    votes[entryId] = (votes[entryId] || 0) + 1;
-    saveVotes(votes);
-    try { localStorage.setItem(STORAGE_KEY, '1'); } catch(e) {}
-  }
-
-  function renderContest() {
-    var wrap = document.getElementById('contest-entries-wrap');
-    if (!wrap) return;
-    var votes = getVotes();
-    var voted = hasVoted();
-
-    if (ENTRIES.length === 0) {
-      wrap.innerHTML = '<div class="submit-note" style="padding:30px 0;">Contest entries will be posted soon — check back!</div>';
-      return;
-    }
-
-    var html = '<div class="contest-grid">';
-    ENTRIES.forEach(function(e) {
-      var count = votes[e.id] || 0;
-      var myVote = voted && (localStorage.getItem(STORAGE_KEY + '_for') === e.id);
-      var btnLabel = myVote ? '★ You Voted For This' : '♥ Vote For This Entry';
-      var btnClass = myVote ? 'btn-contest-vote voted' : 'btn-contest-vote';
-      var btnDisabled = (!VOTING_OPEN || voted) && !myVote ? 'disabled' : '';
-      var photoHtml = e.photo
-        ? '<img src="' + e.photo + '" alt="' + e.title + '" onclick="openContestPhoto(\'' + e.photo.replace(/'/g,"\\'") + '\',\'' + e.title.replace(/'/g,"\\'") + '\')">'
-        : '<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:\'Courier Prime\',monospace;font-size:10px;color:#c9b48a;">No photo yet</div>';
-      var voteBtn = VOTING_OPEN
-        ? '<button class="' + btnClass + '" ' + btnDisabled + ' onclick="castVote(\'' + e.id + '\')">' + btnLabel + '</button>'
-        : '';
-      html += '<div class="contest-card">';
-      html += '<div class="contest-photo">' + photoHtml + '</div>';
-      html += '<div class="contest-card-body">';
-      html += '<div class="contest-entry-name">' + e.title + '</div>';
-      html += '<div class="contest-entry-resident">By ' + e.resident + '</div>';
-      if (e.caption) html += '<div class="contest-entry-caption">' + e.caption + '</div>';
-      html += '<div class="contest-vote-count" id="vc-' + e.id + '">♥ ' + count + ' vote' + (count === 1 ? '' : 's') + '</div>';
-      html += voteBtn;
-      html += '</div></div>';
-    });
-    html += '</div>';
-    wrap.innerHTML = html;
-
-    var closedBanner = document.getElementById('contest-closed-banner');
-    if (closedBanner) closedBanner.style.display = VOTING_OPEN ? 'none' : 'block';
-  }
-
-  window.castVote = function(entryId) {
-    if (!VOTING_OPEN || hasVoted()) return;
-    recordVote(entryId);
-    try { localStorage.setItem(STORAGE_KEY + '_for', entryId); } catch(e) {}
-    renderContest();
-  };
-
-  window.openContestPhoto = function(src, title) {
-    var lb = document.getElementById('contest-lightbox');
-    var lbImg = document.getElementById('contest-lightbox-img');
-    if (!lb || !lbImg) return;
-    lbImg.src = src; lbImg.alt = title;
-    lb.style.display = 'flex';
-    lb.style.alignItems = 'center';
-    lb.style.justifyContent = 'center';
-  };
-  window.closeContestLightbox = function() {
-    var lb = document.getElementById('contest-lightbox');
-    if (lb) lb.style.display = 'none';
-  };
-
-  document.addEventListener('DOMContentLoaded', renderContest);
-})();
 
 // ╔══════════════════════════════════════╗
 // ║        CIRCUIT PHOTO LIGHTBOX       ║
@@ -831,7 +623,7 @@ window.closeCircuitLightbox = function() {
   <button class="section-btn"        data-section="events"  onclick="gazetteShowSection('events',this)">📅 Events</button>
   <button class="section-btn"        data-section="comics"  onclick="gazetteShowSection('comics',this)">🗒️ Comics</button>
   <button class="section-btn"        data-section="aboutus" onclick="gazetteShowSection('aboutus',this)">👥 About Us</button>
-  <button class="section-btn"        data-section="contest" onclick="gazetteShowSection('contest',this)">🏆 Chimera Contest</button>
+
   <button class="section-btn"        data-section="circuit" onclick="gazetteShowSection('circuit',this)">⚔️ Circuit &amp; Championship</button>
 </div>
 
@@ -1516,31 +1308,6 @@ Chief &amp; Co-Editor</p>
         <p style="font-family:'Courier Prime',monospace;font-size:9px;letter-spacing:0.06em;color:#777;">Submissions are reviewed prior to publication. The Skeeterville Gazette reserves the right to edit content for clarity, formatting, and length. Submission does not guarantee placement.</p>
       </section>
 
-    </div>
-  </div>
-
-  <!-- ╔══════════════════════════════════════╗
-       ║              CONTEST               ║
-       ╚══════════════════════════════════════╝ -->
-  <div class="page-section" id="section-contest">
-    <div class="section-label">§ Community Contest</div>
-    <div class="section-body">
-      <div class="contest-banner">
-        <div class="contest-banner-title" id="contest-title-display">March 2026 — Best Chimera ST Patty Scene Photo</div>
-        <div class="contest-banner-theme" id="contest-theme-display">"Show us your favorite chimera — St Patty Scene"</div>
-        <div class="contest-banner-meta" id="contest-meta-display">VOTING CLOSES MARCH 31 2026 · Prize: Obsidian 250 Gift Card</div>
-      </div>
-      <div class="contest-voting-closed" id="contest-closed-banner" style="display:none;">
-        ⚑ Voting Is Currently Closed — Voting Opens On March 17th 2026!
-      </div>
-      <div id="contest-entries-wrap"></div>
-
-      <div id="contest-lightbox" onclick="closeContestLightbox()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.9);z-index:9999;cursor:pointer;">
-        <span style="position:absolute;top:18px;right:22px;color:#f4ead0;font-size:28px;font-family:'Courier Prime',monospace;cursor:pointer;" onclick="closeContestLightbox()">✕</span>
-        <img id="contest-lightbox-img" src="" alt="" style="max-width:88%;max-height:88%;border:6px solid #f4ead0;box-shadow:0 0 30px black;">
-      </div>
-
-      <div class="submit-note">TO ENTER THE CONTEST — EMAIL skeeterville2026@gmail.com WITH YOUR PHOTO, CHIMERA NAME &amp; YOUR SL RESIDENT NAME</div>
     </div>
   </div>
 
